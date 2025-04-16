@@ -7,5 +7,5 @@ public class SchedulingInputData
     public List<Order> Orders { get; set; } = [];
     public List<Driver> Drivers { get; set; } = [];
     public List<Vehicle> Vehicles { get; set; } = [];
-    public Office Office { get; set; } = !;
+    public required Office Office { get; set; }
 }
