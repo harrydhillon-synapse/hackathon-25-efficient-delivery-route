@@ -1,5 +1,7 @@
 # Haversine Formula Documentation
 
+Vehicle routing problems (VRP)
+
 ## Overview
 
 The Haversine formula is used in our medical equipment delivery scheduler to calculate the "as the crow flies" distance between two points on the Earth's surface. It provides a reasonably accurate measure of the great-circle distance between two points given their latitude and longitude coordinates.

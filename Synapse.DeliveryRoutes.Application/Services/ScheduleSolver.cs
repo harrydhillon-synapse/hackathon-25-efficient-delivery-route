@@ -1,5 +1,6 @@
 ﻿using Google.OrTools.ConstraintSolver;
 using Synapse.DeliveryRoutes.Application.Models;
+using System.Text;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
@@ -17,10 +18,51 @@ public class ScheduleSolver
         // Get matrix
         var routingProblemDataResponse = GetRoutingProblemData(routingProblemDataRequest);
 
+
+        // === DRIVER-VEHICLE MATCHING (1-to-1) ===
+
+        // Create a list of vehicle-driver pairs where the driver can operate the vehicle
+        var compatibleAssignments = (from driver in inputData.Drivers
+            from vehicle in inputData.Vehicles
+            where driver.VehiclesCanDrive.Contains(vehicle.Type)
+            select new { driver, vehicle }).ToList();
+
+        // Select a distinct 1-to-1 assignment (greedy)
+        var assignedDrivers = new HashSet<string>();
+        var assignedVehicles = new HashSet<string>();
+        var finalAssignments = new List<(Driver driver, Vehicle vehicle)>();
+
+        foreach (var pair in compatibleAssignments)
+        {
+            if (assignedDrivers.Contains(pair.driver.DriverID) || assignedVehicles.Contains(pair.vehicle.VehicleID))
+                continue;
+
+            finalAssignments.Add((pair.driver, pair.vehicle));
+            assignedDrivers.Add(pair.driver.DriverID);
+            assignedVehicles.Add(pair.vehicle.VehicleID);
+        }
+
+        // Now we only use the vehicles with matched drivers (1:1)
+        var vehicleCount = finalAssignments.Count;
+        var filteredVehicles = finalAssignments.Select(p => p.vehicle).ToList();
+        var filteredDrivers = finalAssignments.Select(p => p.driver).ToList();
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Create the routing index manager
         var manager = new RoutingIndexManager(
             routingProblemDataResponse.LocationCount,
-            routingProblemDataResponse.VehicleCount,
+            vehicleCount,
             routingProblemDataResponse.Depot);
 
         // Create the routing model
@@ -61,21 +103,53 @@ public class ScheduleSolver
         var searchParameters = operations_research_constraint_solver.DefaultRoutingSearchParameters();
         searchParameters.FirstSolutionStrategy = FirstSolutionStrategy.Types.Value.PathCheapestArc;
         searchParameters.LocalSearchMetaheuristic = LocalSearchMetaheuristic.Types.Value.GuidedLocalSearch;
-        searchParameters.TimeLimit = new Google.Protobuf.WellKnownTypes.Duration { Seconds = 30 };
+        searchParameters.TimeLimit = new Google.Protobuf.WellKnownTypes.Duration { Seconds = ScheduleSolverSettings.TimeLimitInSeconds };
 
         // Solve
         var solution = routingModel.SolveWithParameters(searchParameters);
 
         if (solution == null)
         {
-            return new Result { DebugOutput = "No solution found." };
+            return new Result { Successful = false, DebugOutput = "No solution found." };
+        }
+        // Build results output
+        var output = new StringBuilder();
+        output.AppendLine("Solution found. Vehicle routes:");
+        // Assign drivers to vehicles (one driver per used vehicle)
+        var availableDrivers = new List<Driver>(inputData.Drivers);
+
+        for (int vehicleIdx = 0; vehicleIdx < routingProblemDataRequest.VehicleCount; vehicleIdx++)
+        {
+            if (!routingModel.IsVehicleUsed(solution, vehicleIdx)) continue;
+
+            var vehicle = filteredVehicles[vehicleIdx];
+            var assignedDriver = availableDrivers
+                .FirstOrDefault(driver => driver.VehiclesCanDrive.Contains(vehicle.Type));
+
+            if (assignedDriver == null)
+            {
+                output.AppendLine($"Vehicle {vehicleIdx} (Type: {vehicle.Type}) - No compatible driver available (unexpected)");
+                continue;
+            }
+
+            output.AppendLine($"Vehicle {vehicleIdx} (Type: {vehicle.Type}) - Assigned to Driver {assignedDriver.DriverID} - {assignedDriver.Name}:");
+            availableDrivers.Remove(assignedDriver);
+
+            var index = routingModel.Start(vehicleIdx);
+            while (!routingModel.IsEnd(index))
+            {
+                var nodeIndex = manager.IndexToNode(index);
+                output.Append($"{nodeIndex} -> ");
+                index = solution.Value(routingModel.NextVar(index));
+            }
+            output.AppendLine("End");
         }
 
-        // Build results
+
         return new Result
         {
-            DebugOutput = "Solution found. Vehicles used: " + Enumerable.Range(0, inputData.Vehicles.Count)
-                .Count(vehicleIdx => routingModel.IsVehicleUsed(solution, vehicleIdx))
+            Successful = true,
+            DebugOutput = output.ToString()
         };
     }
 
