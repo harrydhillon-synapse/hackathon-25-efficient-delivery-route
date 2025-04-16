@@ -34,53 +34,30 @@ public class Scheduler
         var schedules = new List<DriverSchedule>();
 
         // Build results output
-        var output = new StringBuilder();
-        output.AppendLine("Solution found. Vehicle routes:");
-
         for (int vehicleIdx = 0; vehicleIdx < schedulerContext.VehicleCount; vehicleIdx++)
         {
+            var orders = new List<Order>();
+
+            if (schedulerContext.RoutingModel.IsVehicleUsed(solution, vehicleIdx))
+            {
+                var index = schedulerContext.RoutingModel.Start(vehicleIdx);
+                while (!schedulerContext.RoutingModel.IsEnd(index))
+                {
+                    var nodeIndex = schedulerContext.RoutingIndexManager.IndexToNode(index);
+                    index = solution.Value(schedulerContext.RoutingModel.NextVar(index));
+                    if (nodeIndex != 0)
+                    {
+                        orders.Add(schedulerContext.InputData.Orders[Convert.ToInt32(nodeIndex - 1)]);
+                    }
+                }
+            }
+
             var keyValuePair = schedulerContext.VehicleDriverAssignments[vehicleIdx];
-            var vehicle = keyValuePair.Key;
-            var driver = keyValuePair.Value;
-
-            if (!schedulerContext.RoutingModel.IsVehicleUsed(solution, vehicleIdx))
-            {
-                output.AppendLine($"Driver {driver.Name} ({driver.DriverID}) assigned to vehicle {vehicle.VehicleID} ({vehicle.Type}) - Not scheduled for any deliveries this day");
-                continue;
-            }
-
-            var locations = new List<object>();
-            var index = schedulerContext.RoutingModel.Start(vehicleIdx);
-            while (!schedulerContext.RoutingModel.IsEnd(index))
-            {
-                var nodeIndex = schedulerContext.RoutingIndexManager.IndexToNode(index);
-                //locations.Add($" -> {nodeIndex}");
-                index = solution.Value(schedulerContext.RoutingModel.NextVar(index));
-                if (nodeIndex == 0)
-                {
-                    locations.Add("Depot");
-                }
-                else
-                {
-                    locations.Add(schedulerContext.InputData.Orders[Convert.ToInt32(nodeIndex - 1)]);
-                }
-            }
-            locations.Add("Depot");
-            var deliveries = locations.Where(x => x is Order).OfType<Order>().ToArray();
-            output.AppendLine($"Driver {driver.Name} ({driver.DriverID}) assigned to vehicle {vehicle.VehicleID} ({vehicle.Type}) - Scheduled for {deliveries.Length} deliveries this day");
-            for (int deliveryIndex = 0; deliveryIndex < deliveries.Length; deliveryIndex++)
-            {
-                output.Append($"    {deliveryIndex + 1}) ");
-                var order = deliveries[deliveryIndex];
-                output.AppendLine($"Patient {order.PatientName} with {order.ProductIds.Count} products at: {order.Address}");
-            }
-
-
             var schedule = new DriverSchedule
             {
-                Orders = deliveries,
-                Driver = driver,
-                Vehicle = vehicle,
+                Orders = orders.ToArray(),
+                Driver = keyValuePair.Value,
+                Vehicle = keyValuePair.Key,
             };
             schedules.Add(schedule);
         }
