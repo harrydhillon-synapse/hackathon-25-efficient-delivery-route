@@ -2,5 +2,5 @@
 
 public static class ScheduleSolverSettings
 {
-    public const int TimeLimitInSeconds = 5;
+    public const int TimeLimitInSeconds = 7;
 }
