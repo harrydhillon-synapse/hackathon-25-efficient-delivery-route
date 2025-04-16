@@ -17,7 +17,7 @@ public class Result
 
         var output = new StringBuilder();
 
-        foreach (var driverSchedule in DriverSchedules)
+        foreach (var driverSchedule in DriverSchedules!)
         {
             output.AppendLine(driverSchedule.ToString());
         }
