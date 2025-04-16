@@ -1,0 +1,14 @@
+[
+  {
+    "VehicleID": "VEH_CAR01",
+    "Type": "Car"
+  },
+  {
+    "VehicleID": "VEH_CAR02",
+    "Type": "Car"
+  },
+  {
+    "VehicleID": "VEH_TRK01",
+    "Type": "Truck"
+  }
+]

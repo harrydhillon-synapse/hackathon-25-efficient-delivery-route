@@ -1,0 +1,47 @@
+[
+  {
+    "DriverID": "DRV001",
+    "Name": "Adam Nowakowski", // Names kept generic for this example
+    "Certifications": ["Respiratory", "Basic"],
+    "WeeklySchedule": {
+      "Monday": "Available Full Day",
+      "Tuesday": "Available Full Day",
+      "Wednesday": "Available Morning",
+      "Thursday": "Available Full Day",
+      "Friday": "Available Full Day",
+      "Saturday": "Unavailable",
+      "Sunday": "Unavailable"
+    },
+    "VehiclesCanDrive": ["Car"]
+  },
+  {
+    "DriverID": "DRV002",
+    "Name": "Ewa Piotrowska", // Names kept generic for this example
+    "Certifications": ["Mobility", "Hospital Beds", "Basic"],
+    "WeeklySchedule": {
+      "Monday": "Available Full Day",
+      "Tuesday": "Unavailable",
+      "Wednesday": "Available Full Day",
+      "Thursday": "Available Evening",
+      "Friday": "Available Full Day",
+      "Saturday": "Available Morning",
+      "Sunday": "Unavailable"
+    },
+    "VehiclesCanDrive": ["Truck", "Car"]
+  },
+  {
+    "DriverID": "DRV003",
+    "Name": "Marek Zalewski", // Names kept generic for this example
+    "Certifications": ["Respiratory", "Basic", "Complex", "Mobility", "Hospital Beds"],
+    "WeeklySchedule": {
+      "Monday": "Available Morning",
+      "Tuesday": "Available Full Day",
+      "Wednesday": "Available Full Day",
+      "Thursday": "Available Full Day",
+      "Friday": "Available Evening",
+      "Saturday": "Unavailable",
+      "Sunday": "Available Full Day"
+    },
+    "VehiclesCanDrive": ["Truck", "Car"]
+  }
+]
