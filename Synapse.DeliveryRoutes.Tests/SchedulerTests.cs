@@ -3,11 +3,11 @@ using Xunit.Abstractions;
 
 namespace Synapse.DeliveryRoutes.Tests;
 
-public class ScheduleSolverTests
+public class SchedulerTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
 
-    public ScheduleSolverTests(ITestOutputHelper testOutputHelper)
+    public SchedulerTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
     }
@@ -16,8 +16,8 @@ public class ScheduleSolverTests
     public void SolveSchedule()
     {
         var inputData = new SchedulingInputDataRepository().LoadAllData();
-        var context = new SchedulingContext(inputData);
-        var result = new ScheduleSolver().SolveSchedule(context);
+        var context = new SchedulerContext(inputData);
+        var result = new Scheduler().CreateSchedule(context);
         Assert.NotNull(result);
         Assert.True(result.Successful);
         

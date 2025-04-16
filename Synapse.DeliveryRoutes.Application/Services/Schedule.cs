@@ -3,7 +3,7 @@ using Synapse.DeliveryRoutes.Application.Models;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
-public class Result
+public class Schedule
 {
     public required bool Successful { get; set; }
     public required DriverSchedule[]? DriverSchedules { get; set; }
