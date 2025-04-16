@@ -75,29 +75,16 @@ public class ScheduleSolver
         // 6) Set the cost of travel (arc cost evaluator)
         routingModel.SetArcCostEvaluatorOfAllVehicles(transitCallbackIndex);
 
-        // Vehicle Compatibility Constraint
-        long fixedVehicleCost = 10000;
-        for (int vehicleIdx = 0; vehicleIdx < inputData.Vehicles.Count; vehicleIdx++)
-        {
-            var vehicle = inputData.Vehicles[vehicleIdx];
-            routingModel.SetFixedCostOfVehicle(fixedVehicleCost, vehicleIdx);
+        // Vehicle Compatibility Constraint - does not work
+        //long fixedVehicleCost = 10000;
+        //for (int vehicleIdx = 0; vehicleIdx < vehicleCount; vehicleIdx++)
+        //{
+        //    var startIndex = routingModel.Start(vehicleIdx);
+        //    //var endIndex = routingModel.End(vehicleIdx);
 
-            // Allow vehicle only if there is a compatible driver
-            var hasCompatibleDriver = inputData.Drivers
-                .Any(driver => driver.VehiclesCanDrive.Contains(vehicle.Type));
-
-            if (!hasCompatibleDriver)
-            {
-                // Set an extremely high fixed cost to strongly discourage solver from using it
-                routingModel.SetFixedCostOfVehicle(long.MaxValue, vehicleIdx);
-                routingModel.SetVehicleUsedWhenEmpty(false, vehicleIdx);
-                // REMOVE the AddDisjunction line completely.
-            }
-            else
-            {
-                routingModel.SetFixedCostOfVehicle(fixedVehicleCost, vehicleIdx);
-            }
-        }
+        //    // Add a penalty for skipping the start node (i.e., not using the vehicle at all)
+        //    routingModel.AddDisjunction(new[] { startIndex }, penalty: long.MaxValue);
+        //}
 
         // Solver parameters
         var searchParameters = operations_research_constraint_solver.DefaultRoutingSearchParameters();
