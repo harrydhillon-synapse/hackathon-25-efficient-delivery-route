@@ -1,7 +1,6 @@
 ﻿using System.Text;
-using Synapse.DeliveryRoutes.Application.Models;
 
-namespace Synapse.DeliveryRoutes.Application.Services;
+namespace Synapse.DeliveryRoutes.Application.Models;
 
 public class Schedule
 {
