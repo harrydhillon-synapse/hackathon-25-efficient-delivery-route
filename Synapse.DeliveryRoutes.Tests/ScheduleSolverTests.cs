@@ -16,10 +16,12 @@ public class ScheduleSolverTests
     public void SolveSchedule()
     {
         var inputData = new SchedulingInputDataRepository().LoadAllData();
-        var result = new ScheduleSolver().SolveSchedule(inputData);
+        var context = new SchedulingContext(inputData);
+        var result = new ScheduleSolver().SolveSchedule(context);
         Assert.NotNull(result);
         Assert.True(result.Successful);
         
-        _testOutputHelper.WriteLine($"Schedule Result: {result.DebugOutput}");
+        _testOutputHelper.WriteLine($"Schedule:");
+        _testOutputHelper.WriteLine($"{result}");
     }
 }
