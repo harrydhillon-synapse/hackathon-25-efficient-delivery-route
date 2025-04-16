@@ -20,7 +20,7 @@
   {
     "ProductID": "HospitalBed_F100",
     "RequiredVehicleType": "Truck",
-    "RequiredCertification": "Hospital Beds",
+    "RequiredCertification": "HospitalBeds",
     "ProductName": "Full Electric Hospital Bed F100"
   },
   {
@@ -56,7 +56,7 @@
   {
     "ProductID": "SpecialtyMattress_APM2",
     "RequiredVehicleType": "Truck",
-    "RequiredCertification": "Hospital Beds",
+    "RequiredCertification": "HospitalBeds",
     "ProductName": "Alternating Pressure Mattress APM2"
   }
 ]

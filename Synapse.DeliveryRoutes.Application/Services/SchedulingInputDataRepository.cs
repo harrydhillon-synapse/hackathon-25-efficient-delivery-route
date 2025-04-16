@@ -1,5 +1,6 @@
 ﻿using Synapse.DeliveryRoutes.Application.Models;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
@@ -20,6 +21,7 @@ public class SchedulingInputDataRepository
     {
         var options = new JsonSerializerOptions
         {
+            Converters = { new JsonStringEnumConverter() },
             PropertyNameCaseInsensitive = true
         };
 

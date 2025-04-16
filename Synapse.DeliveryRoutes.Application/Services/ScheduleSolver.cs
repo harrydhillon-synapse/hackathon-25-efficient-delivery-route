@@ -3,17 +3,14 @@ using Synapse.DeliveryRoutes.Application.Models;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
-public class ScheduleSolver(SchedulingInputDataRepository repository)
+public class ScheduleSolver
 {
-    public Result SolveSchedule()
+    public Result SolveSchedule(SchedulingInputData inputData)
     {
-        // 1) Load all your domain data
-        var inputData = repository.LoadAllData();
-
         var routingProblemDataRequest = new GetRoutingDataRequest
         {
             OfficeCoordinate = inputData.Office.OfficeGeocoordinates,
-            DeliveryCoordinates = inputData.Orders.Select(o => o.Coordinates).ToList(),
+            DeliveryCoordinates = inputData.Orders.Select(o => o.Geocoordinates).ToList(),
             VehicleCount = inputData.Vehicles.Count
         };
 
