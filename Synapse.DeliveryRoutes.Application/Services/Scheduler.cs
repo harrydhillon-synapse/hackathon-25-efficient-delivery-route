@@ -1,21 +1,15 @@
 ﻿using Google.OrTools.ConstraintSolver;
 using Synapse.DeliveryRoutes.Application.Models;
-using System.Text;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
-public class Scheduler
+public class Scheduler(SchedulerContext schedulerContext)
 {
-    public Schedule CreateSchedule(SchedulerContext schedulerContext)
+    public Schedule CreateSchedule()
     {
-        RegisterDistanceCallback(schedulerContext);
-        AddTimeDimension(schedulerContext);
-
-        long fixedVehicleCost = 10000;
-        for (int vehicleIdx = 0; vehicleIdx < schedulerContext.VehicleCount; vehicleIdx++)
-        {
-            schedulerContext.RoutingModel.SetFixedCostOfVehicle(fixedVehicleCost, vehicleIdx);
-        }
+        RegisterDistanceCallback();
+        AddTimeDimension();
+        PreferToUseAllVehicles();
 
         // Solver parameters
         var searchParameters = operations_research_constraint_solver.DefaultRoutingSearchParameters();
@@ -26,6 +20,11 @@ public class Scheduler
         // Solve
         var solution = schedulerContext.RoutingModel.SolveWithParameters(searchParameters);
 
+        return ProcessSolution(solution);
+    }
+
+    private Schedule ProcessSolution(Assignment? solution)
+    {
         if (solution == null)
         {
             return new Schedule { Successful = false, DriverSchedules = null };
@@ -69,10 +68,19 @@ public class Scheduler
         };
     }
 
+    private void PreferToUseAllVehicles()
+    {
+        long fixedVehicleCost = 10000;
+        for (int vehicleIdx = 0; vehicleIdx < schedulerContext.VehicleCount; vehicleIdx++)
+        {
+            schedulerContext.RoutingModel.SetFixedCostOfVehicle(fixedVehicleCost, vehicleIdx);
+        }
+    }
+
     /// <summary>
     /// Adds a time dimension to the routing model. This tracks cumulative travel time and enforces an 8-hour limit.
     /// </summary>
-    private void AddTimeDimension(SchedulerContext schedulerContext)
+    private void AddTimeDimension()
     {
         // Register a callback to convert distance (km) to time (minutes) assuming 40 km/h average speed
         int transitCallbackIndex = schedulerContext.RoutingModel.RegisterTransitCallback((fromIndex, toIndex) =>
@@ -105,7 +113,7 @@ public class Scheduler
     /// <summary>
     /// Registers a callback function that returns the distance between two locations
     /// </summary>
-    private void RegisterDistanceCallback(SchedulerContext schedulerContext)
+    private void RegisterDistanceCallback()
     {
         // Create the distance callback
         // This callback returns the distance between two locations

@@ -17,7 +17,7 @@ public class SchedulerTests
     {
         var inputData = new SchedulingInputDataRepository().LoadAllData();
         var context = new SchedulerContext(inputData);
-        var result = new Scheduler().CreateSchedule(context);
+        var result = new Scheduler(context).CreateSchedule();
         Assert.NotNull(result);
         Assert.True(result.Successful);
         
