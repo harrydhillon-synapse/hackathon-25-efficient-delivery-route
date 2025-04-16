@@ -10,7 +10,7 @@ public class GetRoutingProblemDataResponse
     // Original data
     public GeoCoordinate[] Locations { get; }
     public DistanceMatrix DistanceMatrix { get; }
-    public int[,] Distances { get; }
+    public double[,] Distances { get; }
 
     // Derived parameters
     public int LocationCount => Locations.Length;
@@ -20,7 +20,7 @@ public class GetRoutingProblemDataResponse
     public GetRoutingProblemDataResponse(
         GeoCoordinate[] locations,
         DistanceMatrix distanceMatrix,
-        int[,] distances,
+        double[,] distances,
         int vehicleCount)
     {
         Locations = locations;

@@ -4,16 +4,16 @@ namespace Synapse.DeliveryRoutes.Application.Services;
 
 public class DistanceMatrix
 {
-    private readonly int[,] _matrix;
+    private readonly double[,] _matrix;
     private readonly int _numberOfLocations;
 
     // Scale factor to convert floating point distances to integers
-    private const int SCALE_FACTOR = 1000;
+    //private const int SCALE_FACTOR = 1000;
 
     public DistanceMatrix(int numberOfLocations)
     {
         _numberOfLocations = numberOfLocations;
-        _matrix = new int[numberOfLocations, numberOfLocations];
+        _matrix = new double[numberOfLocations, numberOfLocations];
     }
 
     /// <summary>
@@ -21,7 +21,7 @@ public class DistanceMatrix
     /// </summary>
     /// <param name="locations">Array of location coordinates where index 0 is the office/depot</param>
     /// <returns>The populated distance matrix</returns>
-    public int[,] Build(GeoCoordinate[] locations)
+    public double[,] Build(GeoCoordinate[] locations)
     {
         for (int i = 0; i < _numberOfLocations; i++)
         {
@@ -41,7 +41,7 @@ public class DistanceMatrix
                     locations[j].Longitude);
 
                 // Convert to integer by scaling
-                _matrix[i, j] = (int)(distance * SCALE_FACTOR);
+                _matrix[i, j] = distance * ScheduleSolverSettings.ScaleFactor;
             }
         }
 
@@ -79,7 +79,7 @@ public class DistanceMatrix
     /// <summary>
     /// Gets the distance between two locations from the matrix
     /// </summary>
-    public int GetDistance(int fromIndex, int toIndex)
+    public double GetDistance(int fromIndex, int toIndex)
     {
         return _matrix[fromIndex, toIndex];
     }

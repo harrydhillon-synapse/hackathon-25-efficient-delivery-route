@@ -45,7 +45,7 @@ public class ScheduleSolver
         // Now we only use the vehicles with matched drivers (1:1)
         var vehicleCount = finalAssignments.Count;
         var filteredVehicles = finalAssignments.Select(p => p.vehicle).ToList();
-        var filteredDrivers = finalAssignments.Select(p => p.driver).ToList();
+        //var filteredDrivers = finalAssignments.Select(p => p.driver).ToList();
 
 
 
@@ -74,6 +74,54 @@ public class ScheduleSolver
 
         // 6) Set the cost of travel (arc cost evaluator)
         routingModel.SetArcCostEvaluatorOfAllVehicles(transitCallbackIndex);
+        
+        AddTimeDimension(routingModel, manager, routingProblemDataResponse.Distances, vehicleCount);
+
+        long fixedVehicleCost = 10000;
+        for (int vehicleIdx = 0; vehicleIdx < vehicleCount; vehicleIdx++)
+        {
+            routingModel.SetFixedCostOfVehicle(fixedVehicleCost, vehicleIdx);
+        }
+
+        //routingModel.AddDimension(transitCallbackIndex, 0, 3000,
+        //    true, // start cumul to zero
+        //    "Distance");
+        //RoutingDimension distanceDimension = routingModel.GetMutableDimension("Distance");
+        //distanceDimension.SetGlobalSpanCostCoefficient(100);
+
+        // === TIME DIMENSION: Track time per route ===
+        //Each vehicle(driver) is limited to 8 hours = 480 minutes
+        //routingModel.AddDimension(
+        //    transitCallbackIndex,    // Transit callback
+        //    0,                    // No waiting/slack time
+        //    480,                  // Maximum time per vehicle route
+        //    true,                 // Force start time to zero
+        //    "Time");              // Dimension name
+
+        //var timeDimension = routingModel.GetMutableDimension("Time");
+
+        //// === Set minimum time per vehicle route to ensure some work is done ===
+        //for (int vehicleIdx = 0; vehicleIdx < vehicleCount; vehicleIdx++)
+        //{
+        //    var endIndex = routingModel.End(vehicleIdx);
+        //    timeDimension.CumulVar(endIndex).SetMin(1); // Must do at least some time-based work
+        //}
+
+        //// Fixed cost to encourage usage but not force
+        //long fixedVehicleCost = 10000;
+        //for (int vehicleIdx = 0; vehicleIdx < vehicleCount; vehicleIdx++)
+        //{
+        //    routingModel.SetFixedCostOfVehicle(fixedVehicleCost, vehicleIdx);
+        //}
+
+        // Add a disjunction for each delivery node (skip at a penalty)
+        //const long skipPenalty = 10000; // You can tune this
+        //for (int i = 1; i < routingProblemDataResponse.LocationCount; i++) // start at 1 to skip depot
+        //{
+        //    var index = manager.NodeToIndex(i);
+        //    routingModel.AddDisjunction(new[] { index }, skipPenalty);
+        //}
+
 
         // Vehicle Compatibility Constraint - does not work
         //long fixedVehicleCost = 10000;
@@ -141,6 +189,39 @@ public class ScheduleSolver
     }
 
     /// <summary>
+    /// Adds a time dimension to the routing model. This tracks cumulative travel time and enforces an 8-hour limit.
+    /// </summary>
+    private void AddTimeDimension(RoutingModel routingModel, RoutingIndexManager manager, double[,] distances, int vehicleCount)
+    {
+        // Register a callback to convert distance (km) to time (minutes) assuming 40 km/h average speed
+        int transitCallbackIndex = routingModel.RegisterTransitCallback((fromIndex, toIndex) =>
+        {
+            var fromNode = manager.IndexToNode(fromIndex);
+            var toNode = manager.IndexToNode(toIndex);
+            double distanceKm = distances[fromNode, toNode];
+            double timeMinutes = distanceKm * 1.5; // 40 km/h → 1.5 minutes per km
+            return Convert.ToInt32(timeMinutes);
+        });
+
+        // Add a time dimension with a max route duration of 480 minutes (8 hours)
+        routingModel.AddDimension(
+            transitCallbackIndex,
+            0,      // no slack (waiting time)
+            480,    // max total time per route
+            true,   // force all routes to start at time zero
+            "Time");
+
+        var timeDimension = routingModel.GetMutableDimension("Time");
+
+        // Require each route to perform at least 1 minute of work
+        for (int vehicleIdx = 0; vehicleIdx < vehicleCount; vehicleIdx++)
+        {
+            var endIndex = routingModel.End(vehicleIdx);
+            timeDimension.CumulVar(endIndex).SetMin(1);
+        }
+    }
+
+    /// <summary>
     /// Registers a callback function that returns the distance between two locations
     /// </summary>
     private int RegisterDistanceCallback(RoutingModel routing, RoutingIndexManager manager, GetRoutingProblemDataResponse data)
@@ -152,7 +233,7 @@ public class ScheduleSolver
             // Convert from routing variable index to distance matrix index
             var fromNode = manager.IndexToNode(fromIndex);
             var toNode = manager.IndexToNode(toIndex);
-            return data.Distances[fromNode, toNode];
+            return Convert.ToInt64(data.Distances[fromNode, toNode]);
         }
 
         // Register the distance callback
