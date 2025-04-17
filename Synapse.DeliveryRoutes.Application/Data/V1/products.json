@@ -1,0 +1,62 @@
+[
+  {
+    "ProductID": "CPAP_X500",
+    "RequiredVehicleType": "Car",
+    "RequiredCertification": "Respiratory",
+    "ProductName": "Portable CPAP Machine X500"
+  },
+  {
+    "ProductID": "Wheelchair_M3",
+    "RequiredVehicleType": "Car",
+    "RequiredCertification": "Mobility",
+    "ProductName": "Standard Manual Wheelchair M3"
+  },
+  {
+    "ProductID": "O2Concentrator_P5",
+    "RequiredVehicleType": "Car",
+    "RequiredCertification": "Respiratory",
+    "ProductName": "Portable Oxygen Concentrator P5"
+  },
+  {
+    "ProductID": "HospitalBed_F100",
+    "RequiredVehicleType": "Truck",
+    "RequiredCertification": "HospitalBeds",
+    "ProductName": "Full Electric Hospital Bed F100"
+  },
+  {
+    "ProductID": "Walker_R7",
+    "RequiredVehicleType": "Car",
+    "RequiredCertification": "Mobility",
+    "ProductName": "Rolling Walker R7 with Seat"
+  },
+  {
+    "ProductID": "Nebulizer_N2",
+    "RequiredVehicleType": "Car",
+    "RequiredCertification": "Basic",
+    "ProductName": "Compact Nebulizer N2"
+  },
+  {
+    "ProductID": "PatientLift_HPL400",
+    "RequiredVehicleType": "Truck",
+    "RequiredCertification": "Complex",
+    "ProductName": "Hydraulic Patient Lift HPL400"
+  },
+  {
+    "ProductID": "Commode_S1",
+    "RequiredVehicleType": "Car",
+    "RequiredCertification": "Basic",
+    "ProductName": "Standard Bedside Commode S1"
+  },
+  {
+    "ProductID": "SuctionMachine_Aspi8",
+    "RequiredVehicleType": "Car",
+    "RequiredCertification": "Respiratory",
+    "ProductName": "Portable Suction Machine Aspi8"
+  },
+  {
+    "ProductID": "SpecialtyMattress_APM2",
+    "RequiredVehicleType": "Truck",
+    "RequiredCertification": "HospitalBeds",
+    "ProductName": "Alternating Pressure Mattress APM2"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "DriverID": "DRV001",
+    "Name": "Adam Nowakowski",
+    "Certifications": [ "Respiratory", "Basic" ],
+    "WeeklySchedule": [
+      { "Monday": "AvailableFullDay" },
+      { "Tuesday": "AvailableFullDay" },
+      { "Wednesday": "AvailableMorning" },
+      { "Thursday": "AvailableFullDay" },
+      { "Friday": "AvailableFullDay" },
+      { "Saturday": "Unavailable" },
+      { "Sunday": "Unavailable" }
+    ],
+    "VehiclesCanDrive": [ "Car" ]
+  },
+  {
+    "DriverID": "DRV002",
+    "Name": "Ewa Piotrowska",
+    "Certifications": [ "Mobility", "HospitalBeds", "Basic" ],
+    "WeeklySchedule": [
+      { "Monday": "AvailableFullDay" },
+      { "Tuesday": "Unavailable" },
+      { "Wednesday": "AvailableFullDay" },
+      { "Thursday": "AvailableEvening" },
+      { "Friday": "AvailableFullDay" },
+      { "Saturday": "AvailableMorning" },
+      { "Sunday": "Unavailable" }
+    ],
+    "VehiclesCanDrive": [ "Truck", "Car" ]
+  },
+  {
+    "DriverID": "DRV003",
+    "Name": "Marek Zalewski",
+    "Certifications": [ "Respiratory", "Basic", "Complex", "Mobility", "HospitalBeds" ],
+    "WeeklySchedule": [
+      { "Monday": "AvailableMorning" },
+      { "Tuesday": "AvailableFullDay" },
+      { "Wednesday": "AvailableFullDay" },
+      { "Thursday": "AvailableFullDay" },
+      { "Friday": "AvailableEvening" },
+      { "Saturday": "Unavailable" },
+      { "Sunday": "AvailableFullDay" }
+    ],
+    "VehiclesCanDrive": [ "Truck", "Car" ]
+  }
+]
