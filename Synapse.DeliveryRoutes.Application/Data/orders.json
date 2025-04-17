@@ -8,7 +8,7 @@
       "Latitude": 41.923365,
       "Longitude": -87.52981
     },
-    "AvailableTimes": [ "Morning", "Afternoon" ],
+    "AvailableTimes": [ "Morning" ],
     "ProductIds": [
       "CPAP_X500",
       "MOBILITY_SCOOTER"
@@ -258,7 +258,7 @@
       "Latitude": 41.921873,
       "Longitude": -87.766957
     },
-    "AvailableTimes": [ "Morning", "Afternoon" ],
+    "AvailableTimes": [ "Afternoon" ],
     "ProductIds": [
       "CPAP_X500",
       "NEBULIZER_PRO"

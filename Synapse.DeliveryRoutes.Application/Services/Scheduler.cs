@@ -16,7 +16,7 @@ public class Scheduler(SchedulerContext schedulerContext)
         var searchParameters = operations_research_constraint_solver.DefaultRoutingSearchParameters();
         searchParameters.FirstSolutionStrategy = FirstSolutionStrategy.Types.Value.PathCheapestArc;
         searchParameters.LocalSearchMetaheuristic = LocalSearchMetaheuristic.Types.Value.GuidedLocalSearch;
-        searchParameters.TimeLimit = new Google.Protobuf.WellKnownTypes.Duration { Seconds = ScheduleSolverSettings.TimeLimitInSeconds };
+        searchParameters.TimeLimit = new Google.Protobuf.WellKnownTypes.Duration { Seconds = Settings.TimeLimitInSeconds };
 
         // Solve
         var solution = schedulerContext.RoutingModel.SolveWithParameters(searchParameters);
@@ -38,7 +38,7 @@ public class Scheduler(SchedulerContext schedulerContext)
         }
     }
 
-    public Dictionary<int, int[]> GetOrderNodeToAllowedVehiclesMap()
+    private Dictionary<int, int[]> GetOrderNodeToAllowedVehiclesMap()
     {
         var map = new Dictionary<int, int[]>();
 
@@ -156,7 +156,7 @@ public class Scheduler(SchedulerContext schedulerContext)
             }
 
             double distanceKm = schedulerContext.Distances[fromNode, toNode];
-            double minutesRequired = distanceKm * (60.0 / ScheduleSolverSettings.DrivingSpeedKmPerHour);
+            double minutesRequired = distanceKm * (60.0 / Settings.DrivingSpeedKmPerHour);
 
             if (toNode != 0)
             {
@@ -177,7 +177,7 @@ public class Scheduler(SchedulerContext schedulerContext)
         schedulerContext.RoutingModel.AddDimension(
             transitCallbackIndex,
             0,      // no slack (waiting time)
-            ScheduleSolverSettings.MinutesPerWorkday,    // max total time per route
+            Settings.MinutesPerWorkday,    // max total time per route
             true,   // force all routes to start at time zero
             "Time");
 
@@ -188,6 +188,35 @@ public class Scheduler(SchedulerContext schedulerContext)
         {
             var endIndex = schedulerContext.RoutingModel.End(vehicleIdx);
             timeDimension.CumulVar(endIndex).SetMin(1);
+        }
+
+        // 🔽 Add patient availability constraints based on order time windows
+        for (int orderIdx = 0; orderIdx < schedulerContext.InputData.Orders.Count; orderIdx++)
+        {
+            var order = schedulerContext.InputData.Orders[orderIdx];
+            int nodeIndex = orderIdx + 1; // +1 because node 0 is the depot
+            var routingIndex = schedulerContext.RoutingIndexManager.NodeToIndex(nodeIndex);
+
+            int earliest, latest;
+            if (order.AvailableTimes.Contains(TimeWindow.Morning) &&
+                !order.AvailableTimes.Contains(TimeWindow.Afternoon))
+            {
+                earliest = Settings.MorningStartMinute;
+                latest = Settings.MorningEndMinute;
+            }
+            else if (order.AvailableTimes.Contains(TimeWindow.Afternoon) &&
+                     !order.AvailableTimes.Contains(TimeWindow.Morning))
+            {
+                earliest = Settings.AfternoonStartMinute;
+                latest = Settings.AfternoonEndMinute;
+            }
+            else
+            {
+                earliest = Settings.MorningStartMinute;
+                latest = Settings.AfternoonEndMinute;
+            }
+
+            timeDimension.CumulVar(routingIndex).SetRange(earliest, latest);
         }
     }
 
