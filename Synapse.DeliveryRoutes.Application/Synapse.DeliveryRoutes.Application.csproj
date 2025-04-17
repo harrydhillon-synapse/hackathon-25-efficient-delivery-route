@@ -12,7 +12,6 @@
     <Compile Remove="Models\DriverSchedule.cs" />
     <Compile Remove="Models\GeoCoordinate.cs" />
     <Compile Remove="Models\Order.cs" />
-    <Compile Remove="Models\Product.cs" />
     <Compile Remove="Models\ProductCollection.cs" />
     <Compile Remove="Models\ProductSetupTimes.cs" />
     <Compile Remove="Models\Schedule.cs" />
