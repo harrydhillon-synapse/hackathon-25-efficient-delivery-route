@@ -2,11 +2,18 @@
 
 public class Office
 {
+    public required string Id { get; set; }
     public required string Name { get; set; }
     public required string Address { get; set; }
-    public required GeoCoordinate GeoCoordinates { get; set; }
+    public required GeoCoordinates Location { get; set; }
     public required ContactInfo Contact { get; set; }
     public List<string> Facilities { get; set; } = [];
+}
+
+public class GeoCoordinates
+{
+    public required double Latitude { get; set; }
+    public required double Longitude { get; set; }
 }
 
 public class ContactInfo
