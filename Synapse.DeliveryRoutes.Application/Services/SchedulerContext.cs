@@ -21,10 +21,21 @@ public class SchedulerContext
 
         // === DRIVER-VEHICLE MATCHING (1-to-1) ===
 
+        var certificationsRequiredForAllOrders = InputData.Orders
+            .SelectMany(o => o.ProductIds)
+            .Distinct()
+            .Select(productId => InputData.Products.Single(p => p.Id == productId))
+            .Select(p => p.DeliveryRequirements.Certification)
+            .Distinct()
+            .ToArray();
+
         // Create a list of vehicle-driver pairs where the driver can operate the vehicle
+        // and the driver can handle at least 1 order
         var compatibleAssignments = (from driver in InputData.Drivers
             from vehicle in inputData.Vehicles
             where driver.AllowedVehicles.Contains(vehicle.Type)
+                && driver.Certifications
+                    .Any(c => certificationsRequiredForAllOrders.Contains(c))
             select new { driver, vehicle }).ToList();
 
         // Select a distinct 1-to-1 assignment (greedy)
