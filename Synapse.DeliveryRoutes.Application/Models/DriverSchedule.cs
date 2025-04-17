@@ -23,7 +23,7 @@ public class DriverSchedule
         {
             output.Append($"    {deliveryIndex + 1}) ");
             var order = Orders[deliveryIndex];
-            output.AppendLine($"Patient {order.PatientName} with {order.ProductIds.Count} products at: {order.Address}");
+            output.AppendLine($"Order {order.Id} for patient {order.PatientName} with {order.ProductIds.Count} products at: {order.Address}");
         }
 
         return output.ToString();

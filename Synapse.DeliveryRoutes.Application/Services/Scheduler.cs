@@ -85,12 +85,29 @@ public class Scheduler(SchedulerContext schedulerContext)
         // Register a callback to convert distance (km) to time (minutes) assuming 40 km/h average speed
         int transitCallbackIndex = schedulerContext.RoutingModel.RegisterTransitCallback((fromIndex, toIndex) =>
         {
-            var fromNode = schedulerContext.RoutingIndexManager.IndexToNode(fromIndex);
-            var toNode = schedulerContext.RoutingIndexManager.IndexToNode(toIndex);
+            int fromNode = schedulerContext.RoutingIndexManager.IndexToNode(fromIndex);
+            int toNode = schedulerContext.RoutingIndexManager.IndexToNode(toIndex);
+
+
+            if (fromNode < 0 || fromNode >= schedulerContext.LocationCount ||
+                toNode < 0 || toNode >= schedulerContext.LocationCount)
+            {
+                return 0;
+            }
+
             double distanceKm = schedulerContext.Distances[fromNode, toNode];
-            double timeMinutes = distanceKm * 1.5; // 40 km/h → 1.5 minutes per km
-            return Convert.ToInt32(timeMinutes);
+            double minutesRequired = distanceKm * (60.0 / ScheduleSolverSettings.DrivingSpeedKmPerHour);
+
+            if (toNode != 0)
+            {
+                var order = schedulerContext.InputData.Orders[toNode - 1];
+                minutesRequired += Convert.ToDouble(EstimateSetupTime(order!));
+            }
+
+            return Convert.ToInt32(minutesRequired);
         });
+
+        schedulerContext.RoutingModel.SetArcCostEvaluatorOfAllVehicles(transitCallbackIndex);
 
         // Add a time dimension with a max route duration of 480 minutes (8 hours)
         schedulerContext.RoutingModel.AddDimension(
@@ -108,6 +125,44 @@ public class Scheduler(SchedulerContext schedulerContext)
             var endIndex = schedulerContext.RoutingModel.End(vehicleIdx);
             timeDimension.CumulVar(endIndex).SetMin(1);
         }
+    }
+
+    private int EstimateSetupTime(Order order)
+    {
+        int totalSetupTime = 0;
+
+        foreach (var productId in order.ProductIds)
+        {
+            var product = schedulerContext.InputData.Products.SingleOrDefault(o => o.Id == productId);
+            if (product != null)
+            {
+                var times = product.DeliveryRequirements.HistoricalSetupTimes;
+
+                if (times.Count > 0)
+                {
+                    List<int> filteredTimes;
+                    if (times.Count >= ScheduleSolverSettings.MinimumHistoricalSetupTimesToApplyStandardDeviation)
+                    {
+                        double mean = times.Average();
+                        double stdDev = Math.Sqrt(times.Average(v => Math.Pow(v - mean, 2)));
+                        filteredTimes = times.Where(t => Math.Abs(t - mean) <= 2 * stdDev).ToList();
+                    }
+                    else
+                    {
+                        filteredTimes = times.ToList(); // no filtering
+                    }
+
+                    if (filteredTimes.Count > 0)
+                    {
+                        double average = filteredTimes.Average();
+                        double stdDevBuffer = Math.Sqrt(filteredTimes.Average(v => Math.Pow(v - average, 2))) * ScheduleSolverSettings.HistoricalSetupTimesStandardDeviationTunableMultiple;
+                        totalSetupTime += Convert.ToInt32(Math.Round(average + stdDevBuffer));
+                    }
+                }
+            }
+        }
+
+        return Math.Max(ScheduleSolverSettings.MinimumDeliveryTimeMinutes, totalSetupTime);
     }
 
     /// <summary>
