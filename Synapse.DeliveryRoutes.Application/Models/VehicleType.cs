@@ -1,4 +1,6 @@
-﻿namespace Synapse.DeliveryRoutes.Application.Models;
+﻿using System.ComponentModel;
+
+namespace Synapse.DeliveryRoutes.Application.Models;
 
 public class Vehicle
 {
@@ -13,22 +15,37 @@ public class Vehicle
 
 public enum VehicleType
 {
+    [Description("Car")]
     Car = 1,
+
+    [Description("Truck")]
     Truck = 2
 }
 
 public enum VehicleCapacity
 {
+    [Description("Small")]
     Small = 1,
+
+    [Description("Medium")]
     Medium = 2,
+
+    [Description("Large")]
     Large = 3
 }
 
 public enum VehicleFeature
 {
+    [Description("Climate Control")]
     ClimateControl = 1,
+
+    [Description("GPS Tracking")]
     GPSTracking = 2,
+
+    [Description("Safety Equipment")]
     SafetyEquipment = 3,
+
+    [Description("Lift Gate")]
     LiftGate = 4
 }
 
