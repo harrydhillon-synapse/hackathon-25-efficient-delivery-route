@@ -1,6 +1,7 @@
 ﻿using Synapse.DeliveryRoutes.Application.Models;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Synapse.DeliveryRoutes.Application.Models.V1;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 

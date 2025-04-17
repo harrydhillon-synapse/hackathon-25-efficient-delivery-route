@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Synapse.DeliveryRoutes.Application.Models;
+namespace Synapse.DeliveryRoutes.Application.Models.V1;
 
 public class DriverSchedule
 {
