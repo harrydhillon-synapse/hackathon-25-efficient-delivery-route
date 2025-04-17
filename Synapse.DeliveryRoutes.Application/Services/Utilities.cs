@@ -128,6 +128,11 @@ public static class Utilities
                       .AppendLine($"        {order.Address}")
                       .AppendLine($"        → Drive {distanceKm:F1} km in approx {drivingMinutes} min")
                       .AppendLine($"        → Setup {order.ProductIds.Count} items in approx {setupTime} min");
+
+                foreach (var product in productsInOrder)
+                {
+                    output.AppendLine($"            - {product.Name}");
+                }
             }
             else
             {

@@ -51,14 +51,25 @@ public class Scheduler(SchedulerContext schedulerContext)
                 .Distinct()
                 .ToHashSet();
 
+            // Get all vehicle types that are acceptable for this order
+            var acceptableVehicleTypes = schedulerContext.InputData.Products
+                .Where(p => order.ProductIds.Contains(p.Id))
+                .SelectMany(p => p.DeliveryRequirements.TransportRequirements.VehicleTypes)
+                .Distinct()
+                .ToHashSet();
+
             var allowedVehicleIndices = new List<int>();
 
             for (int vehicleIdx = 0; vehicleIdx < schedulerContext.VehicleDriverAssignments.Count; vehicleIdx++)
             {
+                var vehicle = schedulerContext.VehicleDriverAssignments[vehicleIdx].Key;
                 var driver = schedulerContext.VehicleDriverAssignments[vehicleIdx].Value;
                 var driverCerts = driver.Certifications.ToHashSet();
 
-                if (requiredCerts.All(rc => driverCerts.Contains(rc)))
+                bool driverIsCertified = requiredCerts.All(rc => driverCerts.Contains(rc));
+                bool vehicleTypeIsCompatible = acceptableVehicleTypes.Contains(vehicle.Type);
+
+                if (driverIsCertified && vehicleTypeIsCompatible)
                 {
                     allowedVehicleIndices.Add(vehicleIdx);
                 }

@@ -11,7 +11,7 @@
     "PreferredDeliveryTimeWindow": "Morning",
     "ProductIds": [
       "CPAP_X500",
-      "NEBULIZER_PRO"
+      "MOBILITY_SCOOTER"
     ],
     "DeliveryDeadline": "2024-03-20",
     "Priority": "High",
@@ -36,7 +36,7 @@
     "PreferredDeliveryTimeWindow": "Morning",
     "ProductIds": [
       "CPAP_X500",
-      "NEBULIZER_PRO"
+      "WHEELCHAIR_ELITE"
     ],
     "DeliveryDeadline": "2024-03-20",
     "Priority": "High",
@@ -61,7 +61,7 @@
     "PreferredDeliveryTimeWindow": "Morning",
     "ProductIds": [
       "CPAP_X500",
-      "NEBULIZER_PRO"
+      "HOSPITAL_BED_DELUXE"
     ],
     "DeliveryDeadline": "2024-03-20",
     "Priority": "High",

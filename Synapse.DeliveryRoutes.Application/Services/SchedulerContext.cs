@@ -44,15 +44,38 @@ public class SchedulerContext
 
         foreach (var pair in compatibleAssignments)
         {
-            if (assignedDriverIds.Contains(pair.driver.Id)
-                || assignedVehicleIds.Contains(pair.vehicle.Id))
+            var driver = pair.driver;
+            var vehicle = pair.vehicle;
+
+            // Already matched?
+            if (assignedDriverIds.Contains(driver.Id) || assignedVehicleIds.Contains(vehicle.Id))
             {
                 continue;
             }
 
-            VehicleDriverAssignments.Add(new KeyValuePair<Vehicle, Driver>(pair.vehicle, pair.driver));
-            assignedDriverIds.Add(pair.driver.Id);
-            assignedVehicleIds.Add(pair.vehicle.Id);
+            var driverCerts = driver.Certifications.ToHashSet();
+            var canHandleAnyOrder = InputData.Orders.Any(order =>
+            {
+                var requiredCerts = InputData.Products
+                    .Where(p => order.ProductIds.Contains(p.Id))
+                    .Select(p => p.DeliveryRequirements.Certification)
+                    .ToHashSet();
+
+                var requiredVehicleTypes = InputData.Products
+                    .Where(p => order.ProductIds.Contains(p.Id))
+                    .SelectMany(p => p.DeliveryRequirements.TransportRequirements.VehicleTypes)
+                    .ToHashSet();
+
+                return requiredCerts.All(rc => driverCerts.Contains(rc)) &&
+                       requiredVehicleTypes.Contains(vehicle.Type);
+            });
+
+            if (!canHandleAnyOrder)
+                continue;
+
+            VehicleDriverAssignments.Add(new KeyValuePair<Vehicle, Driver>(vehicle, driver));
+            assignedDriverIds.Add(driver.Id);
+            assignedVehicleIds.Add(vehicle.Id);
         }
 
 
