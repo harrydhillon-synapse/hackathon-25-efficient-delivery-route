@@ -9,12 +9,12 @@ public class SchedulingInputDataRepository
     // Properties for all data types
 
     // JSON file paths (relative to the output directory)
-    private const string ProductsFile = "Data/products.json";
-    private const string SetupTimesFile = "Data/setup.json";
-    private const string OrdersFile = "Data/orders.json";
-    private const string DriversFile = "Data/drivers.json";
-    private const string VehiclesFile = "Data/vehicles.json";
-    private const string OfficeFile = "Data/office.json";
+    private const string ProductsFile = "Data/V1/products.json";
+    private const string SetupTimesFile = "Data/V1/setup.json";
+    private const string OrdersFile = "Data/V1/orders.json";
+    private const string DriversFile = "Data/V1/drivers.json";
+    private const string VehiclesFile = "Data/V1/vehicles.json";
+    private const string OfficeFile = "Data/V1/office.json";
 
     // Method to load all data
     public SchedulingInputData LoadAllData()
