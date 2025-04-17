@@ -11,7 +11,6 @@
     <Compile Remove="Models\Day.cs" />
     <Compile Remove="Models\DriverSchedule.cs" />
     <Compile Remove="Models\GeoCoordinate.cs" />
-    <Compile Remove="Models\Order.cs" />
     <Compile Remove="Models\ProductCollection.cs" />
     <Compile Remove="Models\ProductSetupTimes.cs" />
     <Compile Remove="Models\Schedule.cs" />
@@ -34,9 +33,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Data\products.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\setup.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Data\V1\drivers.json">

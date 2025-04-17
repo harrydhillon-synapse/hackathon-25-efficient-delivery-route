@@ -6,7 +6,7 @@ public class Office
     public required string Name { get; set; }
     public required string Address { get; set; }
     public required GeoCoordinates Location { get; set; }
-    public required ContactInfo Contact { get; set; }
+    public required OfficeContactInfo Contact { get; set; }
     public List<string> Facilities { get; set; } = [];
 }
 
@@ -16,7 +16,7 @@ public class GeoCoordinates
     public required double Longitude { get; set; }
 }
 
-public class ContactInfo
+public class OfficeContactInfo
 {
     public required string Phone { get; set; }
     public required string Email { get; set; }

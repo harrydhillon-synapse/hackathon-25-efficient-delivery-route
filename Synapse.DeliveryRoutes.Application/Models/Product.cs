@@ -117,3 +117,11 @@ public enum PackagingType
     [Description("Partially Disassembled")]
     PartiallyDisassembled = 5
 }
+
+public class EquipmentRequirements
+{
+    public int MinimumSetupTime { get; set; } // in minutes
+    public string? MaintenanceSchedule { get; set; }
+    public List<string> CleaningRequirements { get; set; } = [];
+    public List<string> TestingProcedures { get; set; } = [];
+}
