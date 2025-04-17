@@ -9,10 +9,3 @@ public class Driver
     public List<DriverScheduleEntry> Schedule { get; set; } = [];
     public List<VehicleType> AllowedVehicles { get; set; } = [];
 }
-
-public class DriverScheduleEntry
-{
-    public required DateOnly Date { get; set; }
-    public required TimeOnly StartTime { get; set; }
-    public required TimeOnly EndTime { get; set; }
-}

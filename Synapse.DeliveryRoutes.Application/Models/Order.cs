@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Synapse.DeliveryRoutes.Application.Models;
+﻿namespace Synapse.DeliveryRoutes.Application.Models;
 
 public class Order
 {
@@ -14,27 +12,4 @@ public class Order
     public DateOnly DeliveryDeadline { get; set; }
     public required OrderPriority Priority { get; set; }
     public List<string> Notes { get; set; } = [];
-}
-
-
-
-public enum OrderPriority
-{
-    [Description("Low")]
-    Low = 1,
-
-    [Description("Medium")]
-    Medium = 2,
-
-    [Description("High")]
-    High = 3
-}
-
-public enum TimeWindow
-{
-    [Description("Morning")]
-    Morning = 1,
-
-    [Description("Afternoon")]
-    Afternoon = 2
 }
