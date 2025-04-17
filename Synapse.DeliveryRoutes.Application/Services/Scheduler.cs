@@ -122,7 +122,8 @@ public class Scheduler(SchedulerContext schedulerContext)
             // Convert from routing variable index to distance matrix index
             var fromNode = schedulerContext.RoutingIndexManager.IndexToNode(fromIndex);
             var toNode = schedulerContext.RoutingIndexManager.IndexToNode(toIndex);
-            return Convert.ToInt64(schedulerContext.Distances[fromNode, toNode]);
+            var distance = schedulerContext.Distances[fromNode, toNode];
+            return Convert.ToInt64(distance);
         }
 
         // Register the distance callback
