@@ -7,6 +7,7 @@ public class Product
     public required string Category { get; set; }
     public required DetailedSpecifications DetailedSpecifications { get; set; }
     public required DeliveryRequirements DeliveryRequirements { get; set; }
+    public required EquipmentRequirements EquipmentRequirements { get; set; }
 }
 
 public class DetailedSpecifications
@@ -33,4 +34,12 @@ public class TransportationRequirements
 {
     public required bool TemperatureControlled { get; set; }
     public required string Orientation { get; set; }
+}
+
+public class EquipmentRequirements
+{
+    public int MinimumSetupTime { get; set; } // in minutes
+    public string? MaintenanceSchedule { get; set; }
+    public List<string> CleaningRequirements { get; set; } = [];
+    public List<string> TestingProcedures { get; set; } = [];
 }
