@@ -1,8 +1,21 @@
 {
-  "OfficeID": "CHICAGO_HQ",
-  "OfficeAddress": "500 W Madison St, Chicago, IL 60661, USA",
-  "OfficeGeocoordinates": {
-    "Latitude": 41.8820,
-    "Longitude": -87.6400
+  "office": {
+    "name": "CHICAGO_HQ",
+    "address": "500 W Madison St, Chicago, IL 60661, USA",
+    "geocoordinates": {
+      "latitude": 41.8820,
+      "longitude": -87.6400
+    },
+    "contact": {
+      "phone": "(415) 555-1234",
+      "email": "operations@medequip.com",
+      "hours": "Monday-Friday: 8:00 AM - 6:00 PM"
+    },
+    "facilities": [
+      "Loading Dock",
+      "Equipment Storage",
+      "Driver Lounge",
+      "Maintenance Bay"
+    ]
   }
-}
+} 

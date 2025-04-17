@@ -1,47 +1,49 @@
-[
-  {
-    "DriverID": "DRV001",
-    "Name": "Adam Nowakowski",
-    "Certifications": [ "Respiratory", "Basic" ],
-    "WeeklySchedule": [
-      { "Monday": "AvailableFullDay" },
-      { "Tuesday": "AvailableFullDay" },
-      { "Wednesday": "AvailableMorning" },
-      { "Thursday": "AvailableFullDay" },
-      { "Friday": "AvailableFullDay" },
-      { "Saturday": "Unavailable" },
-      { "Sunday": "Unavailable" }
-    ],
-    "VehiclesCanDrive": [ "Car" ]
-  },
-  {
-    "DriverID": "DRV002",
-    "Name": "Ewa Piotrowska",
-    "Certifications": [ "Mobility", "HospitalBeds", "Basic" ],
-    "WeeklySchedule": [
-      { "Monday": "AvailableFullDay" },
-      { "Tuesday": "Unavailable" },
-      { "Wednesday": "AvailableFullDay" },
-      { "Thursday": "AvailableEvening" },
-      { "Friday": "AvailableFullDay" },
-      { "Saturday": "AvailableMorning" },
-      { "Sunday": "Unavailable" }
-    ],
-    "VehiclesCanDrive": [ "Truck", "Car" ]
-  },
-  {
-    "DriverID": "DRV003",
-    "Name": "Marek Zalewski",
-    "Certifications": [ "Respiratory", "Basic", "Complex", "Mobility", "HospitalBeds" ],
-    "WeeklySchedule": [
-      { "Monday": "AvailableMorning" },
-      { "Tuesday": "AvailableFullDay" },
-      { "Wednesday": "AvailableFullDay" },
-      { "Thursday": "AvailableFullDay" },
-      { "Friday": "AvailableEvening" },
-      { "Saturday": "Unavailable" },
-      { "Sunday": "AvailableFullDay" }
-    ],
-    "VehiclesCanDrive": [ "Truck", "Car" ]
-  }
-]
+{
+  "drivers": [
+    {
+      "driver_id": "DRV001",
+      "name": "John Anderson",
+      "certifications": ["Respiratory", "Basic"],
+      "weekly_schedule": {
+        "monday": "available",
+        "tuesday": "available",
+        "wednesday": "available",
+        "thursday": "available",
+        "friday": "available",
+        "saturday": "unavailable",
+        "sunday": "unavailable"
+      },
+      "vehicles": ["Car"]
+    },
+    {
+      "driver_id": "DRV002",
+      "name": "Sarah Martinez",
+      "certifications": ["Mobility", "Hospital Beds", "Basic"],
+      "weekly_schedule": {
+        "monday": "available",
+        "tuesday": "available",
+        "wednesday": "half_day",
+        "thursday": "available",
+        "friday": "available",
+        "saturday": "half_day",
+        "sunday": "unavailable"
+      },
+      "vehicles": ["Truck", "Car"]
+    },
+    {
+      "driver_id": "DRV003",
+      "name": "Michael Thompson",
+      "certifications": ["Respiratory", "Basic", "Complex", "Mobility", "Hospital Beds"],
+      "weekly_schedule": {
+        "monday": "available",
+        "tuesday": "half_day",
+        "wednesday": "available",
+        "thursday": "available",
+        "friday": "half_day",
+        "saturday": "available",
+        "sunday": "unavailable"
+      },
+      "vehicles": ["Truck", "Car"]
+    }
+  ]
+} 
