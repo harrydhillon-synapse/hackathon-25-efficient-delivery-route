@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\AvailabilityStatus.cs" />
+    <Compile Remove="Models\Day.cs" />
+    <Compile Remove="Models\GeoCoordinate.cs" />
+    <Compile Remove="Models\ProductCollection.cs" />
+    <Compile Remove="Models\ProductSetupTimes.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.OrTools" Version="9.12.4544" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Data\drivers.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -17,9 +29,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Data\products.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\setup.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Data\vehicles.json">

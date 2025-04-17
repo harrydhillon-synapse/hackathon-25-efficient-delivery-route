@@ -1,1278 +1,302 @@
-{
-  "orders": [
-    {
-      "order_id": "ORD001",
-      "patient_name": "John Smith",
-      "address": "123 Main St, New York, NY 10001",
-      "geocoordinates": {
-        "latitude": 40.7128,
-        "longitude": -74.0060
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-03-20",
-      "priority": "High",
-      "delivery_notes": {
-        "accessibility": "Elevator access required",
-        "setup_requirements": "Patient needs assistance with setup",
-        "special_instructions": "Call 30 minutes before arrival"
-      },
-      "status": {
-        "current": "Created",
-        "timestamps": {
-          "created": "2024-03-19T09:00:00Z",
-          "assigned": null,
-          "in_transit": null,
-          "delivered": null,
-          "completed": null
-        }
-      },
-      "contact_information": {
-        "primary_phone": "212-555-1234",
-        "secondary_phone": "212-555-5678",
-        "email": "john.smith@example.com",
-        "emergency_contact": {
-          "name": "Jane Smith",
-          "relationship": "Spouse",
-          "phone": "212-555-9012"
-        }
-      },
-      "equipment_requirements": {
-        "setup_time": 45,
-        "maintenance_schedule": "Monthly",
-        "cleaning_requirements": "Daily cleaning required",
-        "testing_procedures": ["Pressure check", "Filter replacement"]
-      },
-      "driver_notes": {
-        "special_handling": "Fragile equipment",
-        "safety_precautions": "Wear gloves during setup",
-        "additional_requirements": "Bring extra filters"
-      }
-    },
-    {
-      "order_id": "ORD002",
-      "patient_name": "Mary Johnson",
-      "address": "456 Oak Ave, Los Angeles, CA 90001",
-      "geocoordinates": {
-        "latitude": 34.0522,
-        "longitude": -118.2437
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE"],
-      "delivery_deadline": "2024-03-21",
-      "priority": "Medium",
-      "delivery_notes": {
-        "accessibility": "Ground floor access",
-        "setup_requirements": "Professional setup required",
-        "special_instructions": "Patient will be home after 5 PM"
-      },
-      "status": {
-        "current": "Created",
-        "timestamps": {
-          "created": "2024-03-20T10:00:00Z",
-          "assigned": null,
-          "in_transit": null,
-          "delivered": null,
-          "completed": null
-        }
-      },
-      "contact_information": {
-        "primary_phone": "213-555-2345",
-        "secondary_phone": "213-555-6789",
-        "email": "mary.johnson@example.com",
-        "emergency_contact": {
-          "name": "Robert Johnson",
-          "relationship": "Son",
-          "phone": "213-555-0123"
-        }
-      },
-      "equipment_requirements": {
-        "setup_time": 60,
-        "maintenance_schedule": "Quarterly",
-        "cleaning_requirements": "Weekly cleaning required",
-        "testing_procedures": ["Bed functionality check", "Safety rail inspection"]
-      },
-      "driver_notes": {
-        "special_handling": "Heavy equipment",
-        "safety_precautions": "Use back brace",
-        "additional_requirements": "Bring extra mattress"
-      }
-    },
-    {
-      "order_id": "ORD003",
-      "patient_name": "Robert Williams",
-      "address": "789 Pine St, Chicago, IL 60601",
-      "geocoordinates": {
-        "latitude": 41.8781,
-        "longitude": -87.6298
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-03-22"
-    },
-    {
-      "order_id": "ORD004",
-      "patient_name": "Jennifer Brown",
-      "address": "321 Elm St, Houston, TX 77001",
-      "geocoordinates": {
-        "latitude": 29.7604,
-        "longitude": -95.3698
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["OXYGEN_TANK_100", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-03-23"
-    },
-    {
-      "order_id": "ORD005",
-      "patient_name": "Michael Davis",
-      "address": "654 Maple Dr, Phoenix, AZ 85001",
-      "geocoordinates": {
-        "latitude": 33.4484,
-        "longitude": -112.0740
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-03-24"
-    },
-    {
-      "order_id": "ORD006",
-      "patient_name": "Sarah Miller",
-      "address": "987 Cedar Ln, Philadelphia, PA 19101",
-      "geocoordinates": {
-        "latitude": 39.9526,
-        "longitude": -75.1652
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-03-25"
-    },
-    {
-      "order_id": "ORD007",
-      "patient_name": "David Wilson",
-      "address": "147 Birch Rd, San Antonio, TX 78201",
-      "geocoordinates": {
-        "latitude": 29.4241,
-        "longitude": -98.4936
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["PATIENT_LIFT"],
-      "delivery_deadline": "2024-03-26"
-    },
-    {
-      "order_id": "ORD008",
-      "patient_name": "Lisa Moore",
-      "address": "258 Walnut St, San Diego, CA 92101",
-      "geocoordinates": {
-        "latitude": 32.7157,
-        "longitude": -117.1611
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO", "OXYGEN_TANK_100"],
-      "delivery_deadline": "2024-03-27"
-    },
-    {
-      "order_id": "ORD009",
-      "patient_name": "James Taylor",
-      "address": "369 Spruce Ave, Dallas, TX 75201",
-      "geocoordinates": {
-        "latitude": 32.7767,
-        "longitude": -96.7970
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-03-28"
-    },
-    {
-      "order_id": "ORD010",
-      "patient_name": "Patricia Anderson",
-      "address": "741 Willow Way, San Jose, CA 95101",
-      "geocoordinates": {
-        "latitude": 37.3382,
-        "longitude": -121.8863
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-03-29"
-    },
-    {
-      "order_id": "ORD011",
-      "patient_name": "Elizabeth Garcia",
-      "address": "852 Oakwood Dr, Miami, FL 33101",
-      "geocoordinates": {
-        "latitude": 25.7617,
-        "longitude": -80.1918
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["BIPAP_MACHINE_200", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-03-30"
-    },
-    {
-      "order_id": "ORD012",
-      "patient_name": "William Rodriguez",
-      "address": "963 Pinecrest Ave, Seattle, WA 98101",
-      "geocoordinates": {
-        "latitude": 47.6062,
-        "longitude": -122.3321
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-03-31"
-    },
-    {
-      "order_id": "ORD013",
-      "patient_name": "Margaret Lee",
-      "address": "741 Maplewood Rd, Boston, MA 02101",
-      "geocoordinates": {
-        "latitude": 42.3601,
-        "longitude": -71.0589
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["WHEELCHAIR_ELITE"],
-      "delivery_deadline": "2024-04-01"
-    },
-    {
-      "order_id": "ORD014",
-      "patient_name": "Thomas Clark",
-      "address": "369 Birchwood Ln, Denver, CO 80201",
-      "geocoordinates": {
-        "latitude": 39.7392,
-        "longitude": -104.9903
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["CPAP_X500", "OXYGEN_TANK_100"],
-      "delivery_deadline": "2024-04-02"
-    },
-    {
-      "order_id": "ORD015",
-      "patient_name": "Susan Hall",
-      "address": "258 Cedarwood St, Atlanta, GA 30301",
-      "geocoordinates": {
-        "latitude": 33.7490,
-        "longitude": -84.3880
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-04-03"
-    },
-    {
-      "order_id": "ORD016",
-      "patient_name": "Richard Young",
-      "address": "147 Willowbrook Dr, Detroit, MI 48201",
-      "geocoordinates": {
-        "latitude": 42.3314,
-        "longitude": -83.0458
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-04-04"
-    },
-    {
-      "order_id": "ORD017",
-      "patient_name": "Karen White",
-      "address": "852 Elmwood Ave, Minneapolis, MN 55401",
-      "geocoordinates": {
-        "latitude": 44.9778,
-        "longitude": -93.2650
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["BIPAP_MACHINE_200", "NEBULIZER_PRO", "OXYGEN_TANK_100"],
-      "delivery_deadline": "2024-04-05"
-    },
-    {
-      "order_id": "ORD018",
-      "patient_name": "Joseph Harris",
-      "address": "963 Oakridge Dr, Cleveland, OH 44101",
-      "geocoordinates": {
-        "latitude": 41.4993,
-        "longitude": -81.6944
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT", "WHEELCHAIR_ELITE"],
-      "delivery_deadline": "2024-04-06"
-    },
-    {
-      "order_id": "ORD019",
-      "patient_name": "Nancy Martin",
-      "address": "741 Pinehurst Rd, Portland, OR 97201",
-      "geocoordinates": {
-        "latitude": 45.5152,
-        "longitude": -122.6784
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500"],
-      "delivery_deadline": "2024-04-07"
-    },
-    {
-      "order_id": "ORD020",
-      "patient_name": "Charles Thompson",
-      "address": "369 Maplewood Ave, Las Vegas, NV 89101",
-      "geocoordinates": {
-        "latitude": 36.1699,
-        "longitude": -115.1398
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-04-08"
-    },
-    {
-      "order_id": "ORD021",
-      "patient_name": "Betty Garcia",
-      "address": "258 Birchwood Ln, Orlando, FL 32801",
-      "geocoordinates": {
-        "latitude": 28.5383,
-        "longitude": -81.3792
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["WALKER_STANDARD", "WHEELCHAIR_ELITE"],
-      "delivery_deadline": "2024-04-09"
-    },
-    {
-      "order_id": "ORD022",
-      "patient_name": "Donald Martinez",
-      "address": "147 Cedarwood St, San Antonio, TX 78201",
-      "geocoordinates": {
-        "latitude": 29.4241,
-        "longitude": -98.4936
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-04-10"
-    },
-    {
-      "order_id": "ORD023",
-      "patient_name": "Dorothy Robinson",
-      "address": "852 Willowbrook Dr, Charlotte, NC 28201",
-      "geocoordinates": {
-        "latitude": 35.2271,
-        "longitude": -80.8431
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-04-11"
-    },
-    {
-      "order_id": "ORD024",
-      "patient_name": "George Clark",
-      "address": "963 Elmwood Ave, Indianapolis, IN 46201",
-      "geocoordinates": {
-        "latitude": 39.7684,
-        "longitude": -86.1581
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-04-12"
-    },
-    {
-      "order_id": "ORD025",
-      "patient_name": "Carol Lewis",
-      "address": "741 Oakridge Dr, Columbus, OH 43201",
-      "geocoordinates": {
-        "latitude": 39.9612,
-        "longitude": -82.9988
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-04-13"
-    },
-    {
-      "order_id": "ORD026",
-      "patient_name": "Edward Walker",
-      "address": "369 Pinehurst Rd, Fort Worth, TX 76101",
-      "geocoordinates": {
-        "latitude": 32.7555,
-        "longitude": -97.3308
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-04-14"
-    },
-    {
-      "order_id": "ORD027",
-      "patient_name": "Ruth Hall",
-      "address": "258 Maplewood Ave, Memphis, TN 38101",
-      "geocoordinates": {
-        "latitude": 35.1495,
-        "longitude": -90.0490
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-04-15"
-    },
-    {
-      "order_id": "ORD028",
-      "patient_name": "Frank Young",
-      "address": "147 Birchwood Ln, Baltimore, MD 21201",
-      "geocoordinates": {
-        "latitude": 39.2904,
-        "longitude": -76.6122
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-04-16"
-    },
-    {
-      "order_id": "ORD029",
-      "patient_name": "Shirley Allen",
-      "address": "852 Cedarwood St, Milwaukee, WI 53201",
-      "geocoordinates": {
-        "latitude": 43.0389,
-        "longitude": -87.9065
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-04-17"
-    },
-    {
-      "order_id": "ORD030",
-      "patient_name": "Harold King",
-      "address": "963 Willowbrook Dr, Albuquerque, NM 87101",
-      "geocoordinates": {
-        "latitude": 35.0844,
-        "longitude": -106.6504
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-04-18"
-    },
-    {
-      "order_id": "ORD031",
-      "patient_name": "Mildred Wright",
-      "address": "741 Elmwood Ave, Tucson, AZ 85701",
-      "geocoordinates": {
-        "latitude": 32.2226,
-        "longitude": -110.9747
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-04-19"
-    },
-    {
-      "order_id": "ORD032",
-      "patient_name": "Henry Lopez",
-      "address": "369 Oakridge Dr, Fresno, CA 93701",
-      "geocoordinates": {
-        "latitude": 36.7378,
-        "longitude": -119.7871
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-04-20"
-    },
-    {
-      "order_id": "ORD033",
-      "patient_name": "Evelyn Hill",
-      "address": "258 Pinehurst Rd, Sacramento, CA 95801",
-      "geocoordinates": {
-        "latitude": 38.5816,
-        "longitude": -121.4944
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-04-21"
-    },
-    {
-      "order_id": "ORD034",
-      "patient_name": "Raymond Scott",
-      "address": "147 Maplewood Ave, Kansas City, MO 64101",
-      "geocoordinates": {
-        "latitude": 39.0997,
-        "longitude": -94.5786
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-04-22"
-    },
-    {
-      "order_id": "ORD035",
-      "patient_name": "Frances Green",
-      "address": "852 Birchwood Ln, Mesa, AZ 85201",
-      "geocoordinates": {
-        "latitude": 33.4152,
-        "longitude": -111.8315
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-04-23"
-    },
-    {
-      "order_id": "ORD036",
-      "patient_name": "Eugene Adams",
-      "address": "963 Cedarwood St, Colorado Springs, CO 80901",
-      "geocoordinates": {
-        "latitude": 38.8339,
-        "longitude": -104.8214
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-04-24"
-    },
-    {
-      "order_id": "ORD037",
-      "patient_name": "Lois Baker",
-      "address": "741 Willowbrook Dr, Miami, FL 33101",
-      "geocoordinates": {
-        "latitude": 25.7617,
-        "longitude": -80.1918
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["WHEELCHAIR_ELITE"],
-      "delivery_deadline": "2024-04-25"
-    },
-    {
-      "order_id": "ORD038",
-      "patient_name": "Russell Nelson",
-      "address": "369 Elmwood Ave, Raleigh, NC 27601",
-      "geocoordinates": {
-        "latitude": 35.7796,
-        "longitude": -78.6382
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-04-26"
-    },
-    {
-      "order_id": "ORD039",
-      "patient_name": "Jean Carter",
-      "address": "258 Oakridge Dr, Omaha, NE 68101",
-      "geocoordinates": {
-        "latitude": 41.2565,
-        "longitude": -95.9345
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-04-27"
-    },
-    {
-      "order_id": "ORD040",
-      "patient_name": "Ralph Mitchell",
-      "address": "147 Pinehurst Rd, Minneapolis, MN 55401",
-      "geocoordinates": {
-        "latitude": 44.9778,
-        "longitude": -93.2650
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-04-28"
-    },
-    {
-      "order_id": "ORD041",
-      "patient_name": "Doris Perez",
-      "address": "852 Maplewood Ave, Wichita, KS 67201",
-      "geocoordinates": {
-        "latitude": 37.6872,
-        "longitude": -97.3301
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-04-29"
-    },
-    {
-      "order_id": "ORD042",
-      "patient_name": "Arthur Roberts",
-      "address": "963 Birchwood Ln, Arlington, TX 76001",
-      "geocoordinates": {
-        "latitude": 32.7357,
-        "longitude": -97.1081
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-04-30"
-    },
-    {
-      "order_id": "ORD043",
-      "patient_name": "Joyce Turner",
-      "address": "741 Cedarwood St, New Orleans, LA 70101",
-      "geocoordinates": {
-        "latitude": 29.9511,
-        "longitude": -90.0715
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-05-01"
-    },
-    {
-      "order_id": "ORD044",
-      "patient_name": "Lawrence Phillips",
-      "address": "369 Willowbrook Dr, Cleveland, OH 44101",
-      "geocoordinates": {
-        "latitude": 41.4993,
-        "longitude": -81.6944
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-05-02"
-    },
-    {
-      "order_id": "ORD045",
-      "patient_name": "Virginia Campbell",
-      "address": "258 Elmwood Ave, Bakersfield, CA 93301",
-      "geocoordinates": {
-        "latitude": 35.3733,
-        "longitude": -119.0187
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-05-03"
-    },
-    {
-      "order_id": "ORD046",
-      "patient_name": "Walter Parker",
-      "address": "147 Oakridge Dr, Tampa, FL 33601",
-      "geocoordinates": {
-        "latitude": 27.9506,
-        "longitude": -82.4572
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-05-04"
-    },
-    {
-      "order_id": "ORD047",
-      "patient_name": "Martha Evans",
-      "address": "852 Pinehurst Rd, Aurora, CO 80010",
-      "geocoordinates": {
-        "latitude": 39.7294,
-        "longitude": -104.8319
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-05-05"
-    },
-    {
-      "order_id": "ORD048",
-      "patient_name": "Harry Edwards",
-      "address": "963 Maplewood Ave, Honolulu, HI 96801",
-      "geocoordinates": {
-        "latitude": 21.3069,
-        "longitude": -157.8583
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-05-06"
-    },
-    {
-      "order_id": "ORD049",
-      "patient_name": "Beverly Collins",
-      "address": "741 Birchwood Ln, Anaheim, CA 92801",
-      "geocoordinates": {
-        "latitude": 33.8353,
-        "longitude": -117.9145
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-05-07"
-    },
-    {
-      "order_id": "ORD050",
-      "patient_name": "Ernest Stewart",
-      "address": "369 Cedarwood St, Santa Ana, CA 92701",
-      "geocoordinates": {
-        "latitude": 33.7455,
-        "longitude": -117.8677
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-05-08"
-    },
-    {
-      "order_id": "ORD051",
-      "patient_name": "Gloria Morris",
-      "address": "258 Willowbrook Dr, Riverside, CA 92501",
-      "geocoordinates": {
-        "latitude": 33.9806,
-        "longitude": -117.3755
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-05-09"
-    },
-    {
-      "order_id": "ORD052",
-      "patient_name": "Roger Rogers",
-      "address": "147 Elmwood Ave, St. Louis, MO 63101",
-      "geocoordinates": {
-        "latitude": 38.6270,
-        "longitude": -90.1994
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-05-10"
-    },
-    {
-      "order_id": "ORD053",
-      "patient_name": "Janet Reed",
-      "address": "852 Oakridge Dr, Corpus Christi, TX 78401",
-      "geocoordinates": {
-        "latitude": 27.8006,
-        "longitude": -97.3964
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-05-11"
-    },
-    {
-      "order_id": "ORD054",
-      "patient_name": "Howard Cook",
-      "address": "963 Pinehurst Rd, Pittsburgh, PA 15201",
-      "geocoordinates": {
-        "latitude": 40.4406,
-        "longitude": -79.9959
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-05-12"
-    },
-    {
-      "order_id": "ORD055",
-      "patient_name": "Diane Morgan",
-      "address": "741 Maplewood Ave, Lexington, KY 40501",
-      "geocoordinates": {
-        "latitude": 38.0406,
-        "longitude": -84.5037
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-05-13"
-    },
-    {
-      "order_id": "ORD056",
-      "patient_name": "Louis Bell",
-      "address": "369 Birchwood Ln, Anchorage, AK 99501",
-      "geocoordinates": {
-        "latitude": 61.2181,
-        "longitude": -149.9003
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-05-14"
-    },
-    {
-      "order_id": "ORD057",
-      "patient_name": "Bonnie Murphy",
-      "address": "258 Cedarwood St, Stockton, CA 95201",
-      "geocoordinates": {
-        "latitude": 37.9577,
-        "longitude": -121.2908
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-05-15"
-    },
-    {
-      "order_id": "ORD058",
-      "patient_name": "Earl Bailey",
-      "address": "147 Willowbrook Dr, Cincinnati, OH 45201",
-      "geocoordinates": {
-        "latitude": 39.1031,
-        "longitude": -84.5120
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-05-16"
-    },
-    {
-      "order_id": "ORD059",
-      "patient_name": "Ruby Rivera",
-      "address": "852 Elmwood Ave, Saint Paul, MN 55101",
-      "geocoordinates": {
-        "latitude": 44.9537,
-        "longitude": -93.0900
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["WHEELCHAIR_ELITE"],
-      "delivery_deadline": "2024-05-17"
-    },
-    {
-      "order_id": "ORD060",
-      "patient_name": "Carl Cooper",
-      "address": "963 Oakridge Dr, Toledo, OH 43601",
-      "geocoordinates": {
-        "latitude": 41.6639,
-        "longitude": -83.5552
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-05-18"
-    },
-    {
-      "order_id": "ORD061",
-      "patient_name": "Norma Richardson",
-      "address": "741 Pinehurst Rd, Newark, NJ 07101",
-      "geocoordinates": {
-        "latitude": 40.7357,
-        "longitude": -74.1724
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-05-19"
-    },
-    {
-      "order_id": "ORD062",
-      "patient_name": "Ralph Cox",
-      "address": "369 Maplewood Ave, Greensboro, NC 27401",
-      "geocoordinates": {
-        "latitude": 36.0726,
-        "longitude": -79.7920
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-05-20"
-    },
-    {
-      "order_id": "ORD063",
-      "patient_name": "Phyllis Howard",
-      "address": "258 Birchwood Ln, Plano, TX 75001",
-      "geocoordinates": {
-        "latitude": 33.0198,
-        "longitude": -96.6989
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-05-21"
-    },
-    {
-      "order_id": "ORD064",
-      "patient_name": "Bobby Ward",
-      "address": "147 Cedarwood St, Lincoln, NE 68501",
-      "geocoordinates": {
-        "latitude": 40.8136,
-        "longitude": -96.7026
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-05-22"
-    },
-    {
-      "order_id": "ORD065",
-      "patient_name": "Evelyn Torres",
-      "address": "852 Willowbrook Dr, Henderson, NV 89002",
-      "geocoordinates": {
-        "latitude": 36.0395,
-        "longitude": -114.9817
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-05-23"
-    },
-    {
-      "order_id": "ORD066",
-      "patient_name": "Johnny Peterson",
-      "address": "963 Elmwood Ave, Buffalo, NY 14201",
-      "geocoordinates": {
-        "latitude": 42.8864,
-        "longitude": -78.8784
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-05-24"
-    },
-    {
-      "order_id": "ORD067",
-      "patient_name": "Irene Gray",
-      "address": "741 Oakridge Dr, Fort Wayne, IN 46801",
-      "geocoordinates": {
-        "latitude": 41.0793,
-        "longitude": -85.1394
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-05-25"
-    },
-    {
-      "order_id": "ORD068",
-      "patient_name": "Roy Ramirez",
-      "address": "369 Pinehurst Rd, Jersey City, NJ 07301",
-      "geocoordinates": {
-        "latitude": 40.7282,
-        "longitude": -74.0776
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-05-26"
-    },
-    {
-      "order_id": "ORD069",
-      "patient_name": "Louise James",
-      "address": "258 Maplewood Ave, Chula Vista, CA 91910",
-      "geocoordinates": {
-        "latitude": 32.6401,
-        "longitude": -117.0842
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-05-27"
-    },
-    {
-      "order_id": "ORD070",
-      "patient_name": "Ralph Watson",
-      "address": "147 Birchwood Ln, Norfolk, VA 23501",
-      "geocoordinates": {
-        "latitude": 36.8508,
-        "longitude": -76.2859
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-05-28"
-    },
-    {
-      "order_id": "ORD071",
-      "patient_name": "Rose Brooks",
-      "address": "852 Cedarwood St, Chandler, AZ 85224",
-      "geocoordinates": {
-        "latitude": 33.3062,
-        "longitude": -111.8413
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-05-29"
-    },
-    {
-      "order_id": "ORD072",
-      "patient_name": "Eugene Kelly",
-      "address": "963 Willowbrook Dr, Laredo, TX 78040",
-      "geocoordinates": {
-        "latitude": 27.5306,
-        "longitude": -99.4803
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-05-30"
-    },
-    {
-      "order_id": "ORD073",
-      "patient_name": "Catherine Sanders",
-      "address": "741 Elmwood Ave, Madison, WI 53701",
-      "geocoordinates": {
-        "latitude": 43.0731,
-        "longitude": -89.4012
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-05-31"
-    },
-    {
-      "order_id": "ORD074",
-      "patient_name": "Harry Price",
-      "address": "369 Oakridge Dr, Durham, NC 27701",
-      "geocoordinates": {
-        "latitude": 35.9940,
-        "longitude": -78.8986
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-06-01"
-    },
-    {
-      "order_id": "ORD075",
-      "patient_name": "Frances Bennett",
-      "address": "258 Pinehurst Rd, Lubbock, TX 79401",
-      "geocoordinates": {
-        "latitude": 33.5779,
-        "longitude": -101.8552
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-06-02"
-    },
-    {
-      "order_id": "ORD076",
-      "patient_name": "Raymond Wood",
-      "address": "147 Maplewood Ave, Winston-Salem, NC 27101",
-      "geocoordinates": {
-        "latitude": 36.0999,
-        "longitude": -80.2442
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-06-03"
-    },
-    {
-      "order_id": "ORD077",
-      "patient_name": "Mildred Barnes",
-      "address": "852 Birchwood Ln, Garland, TX 75040",
-      "geocoordinates": {
-        "latitude": 32.9126,
-        "longitude": -96.6389
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-06-04"
-    },
-    {
-      "order_id": "ORD078",
-      "patient_name": "Earl Ross",
-      "address": "963 Cedarwood St, Glendale, AZ 85301",
-      "geocoordinates": {
-        "latitude": 33.5387,
-        "longitude": -112.1860
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-06-05"
-    },
-    {
-      "order_id": "ORD079",
-      "patient_name": "Lois Henderson",
-      "address": "741 Willowbrook Dr, Reno, NV 89501",
-      "geocoordinates": {
-        "latitude": 39.5296,
-        "longitude": -119.8138
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-06-06"
-    },
-    {
-      "order_id": "ORD080",
-      "patient_name": "Russell Coleman",
-      "address": "369 Elmwood Ave, Hialeah, FL 33010",
-      "geocoordinates": {
-        "latitude": 25.8576,
-        "longitude": -80.2781
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-06-07"
-    },
-    {
-      "order_id": "ORD081",
-      "patient_name": "Jean Jenkins",
-      "address": "258 Oakridge Dr, Chesapeake, VA 23320",
-      "geocoordinates": {
-        "latitude": 36.7682,
-        "longitude": -76.2875
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-06-08"
-    },
-    {
-      "order_id": "ORD082",
-      "patient_name": "Ralph Perry",
-      "address": "147 Pinehurst Rd, Scottsdale, AZ 85250",
-      "geocoordinates": {
-        "latitude": 33.4942,
-        "longitude": -111.9261
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-06-09"
-    },
-    {
-      "order_id": "ORD083",
-      "patient_name": "Doris Powell",
-      "address": "852 Maplewood Ave, North Las Vegas, NV 89030",
-      "geocoordinates": {
-        "latitude": 36.1989,
-        "longitude": -115.1175
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-06-10"
-    },
-    {
-      "order_id": "ORD084",
-      "patient_name": "Arthur Long",
-      "address": "963 Birchwood Ln, Fremont, CA 94536",
-      "geocoordinates": {
-        "latitude": 37.5483,
-        "longitude": -121.9886
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-06-11"
-    },
-    {
-      "order_id": "ORD085",
-      "patient_name": "Joyce Patterson",
-      "address": "741 Cedarwood St, Gilbert, AZ 85233",
-      "geocoordinates": {
-        "latitude": 33.3528,
-        "longitude": -111.7890
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-06-12"
-    },
-    {
-      "order_id": "ORD086",
-      "patient_name": "Lawrence Hughes",
-      "address": "369 Willowbrook Dr, Baton Rouge, LA 70801",
-      "geocoordinates": {
-        "latitude": 30.4515,
-        "longitude": -91.1871
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-06-13"
-    },
-    {
-      "order_id": "ORD087",
-      "patient_name": "Virginia Flores",
-      "address": "258 Elmwood Ave, Irving, TX 75038",
-      "geocoordinates": {
-        "latitude": 32.8140,
-        "longitude": -96.9489
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-06-14"
-    },
-    {
-      "order_id": "ORD088",
-      "patient_name": "Walter Washington",
-      "address": "147 Oakridge Dr, Spokane, WA 99201",
-      "geocoordinates": {
-        "latitude": 47.6588,
-        "longitude": -117.4260
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-06-15"
-    },
-    {
-      "order_id": "ORD089",
-      "patient_name": "Martha Butler",
-      "address": "852 Pinehurst Rd, Glendale, CA 91201",
-      "geocoordinates": {
-        "latitude": 34.1425,
-        "longitude": -118.2551
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-06-16"
-    },
-    {
-      "order_id": "ORD090",
-      "patient_name": "Harry Simmons",
-      "address": "963 Maplewood Ave, Rochester, NY 14602",
-      "geocoordinates": {
-        "latitude": 43.1566,
-        "longitude": -77.6088
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-06-17"
-    },
-    {
-      "order_id": "ORD091",
-      "patient_name": "Beverly Foster",
-      "address": "741 Birchwood Ln, Boise, ID 83701",
-      "geocoordinates": {
-        "latitude": 43.6150,
-        "longitude": -116.2023
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-06-18"
-    },
-    {
-      "order_id": "ORD092",
-      "patient_name": "Ernest Gonzales",
-      "address": "369 Cedarwood St, Montgomery, AL 36101",
-      "geocoordinates": {
-        "latitude": 32.3668,
-        "longitude": -86.3000
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-06-19"
-    },
-    {
-      "order_id": "ORD093",
-      "patient_name": "Gloria Bryant",
-      "address": "258 Willowbrook Dr, Des Moines, IA 50301",
-      "geocoordinates": {
-        "latitude": 41.5868,
-        "longitude": -93.6250
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "NEBULIZER_PRO"],
-      "delivery_deadline": "2024-06-20"
-    },
-    {
-      "order_id": "ORD094",
-      "patient_name": "Roger Alexander",
-      "address": "147 Elmwood Ave, Richmond, VA 23218",
-      "geocoordinates": {
-        "latitude": 37.5407,
-        "longitude": -77.4360
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["MOBILITY_SCOOTER", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-06-21"
-    },
-    {
-      "order_id": "ORD095",
-      "patient_name": "Janet Russell",
-      "address": "852 Oakridge Dr, Modesto, CA 95350",
-      "geocoordinates": {
-        "latitude": 37.6391,
-        "longitude": -120.9969
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["LIFT_CHAIR_PREMIUM"],
-      "delivery_deadline": "2024-06-22"
-    },
-    {
-      "order_id": "ORD096",
-      "patient_name": "Howard Griffin",
-      "address": "963 Pinehurst Rd, Fayetteville, NC 28301",
-      "geocoordinates": {
-        "latitude": 35.0527,
-        "longitude": -78.8784
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-06-23"
-    },
-    {
-      "order_id": "ORD097",
-      "patient_name": "Diane Diaz",
-      "address": "741 Maplewood Ave, Shreveport, LA 71101",
-      "geocoordinates": {
-        "latitude": 32.5252,
-        "longitude": -93.7502
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["CPAP_X500", "BIPAP_MACHINE_200"],
-      "delivery_deadline": "2024-06-24"
-    },
-    {
-      "order_id": "ORD098",
-      "patient_name": "Louis Hayes",
-      "address": "369 Birchwood Ln, Fontana, CA 92335",
-      "geocoordinates": {
-        "latitude": 34.0922,
-        "longitude": -117.4350
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["WHEELCHAIR_ELITE", "WALKER_STANDARD"],
-      "delivery_deadline": "2024-06-25"
-    },
-    {
-      "order_id": "ORD099",
-      "patient_name": "Bonnie Myers",
-      "address": "258 Cedarwood St, Oxnard, CA 93030",
-      "geocoordinates": {
-        "latitude": 34.1975,
-        "longitude": -119.1771
-      },
-      "preferred_time_window": "Morning",
-      "product_ids": ["MOBILITY_SCOOTER"],
-      "delivery_deadline": "2024-06-26"
-    },
-    {
-      "order_id": "ORD100",
-      "patient_name": "Earl Ford",
-      "address": "147 Willowbrook Dr, Moreno Valley, CA 92551",
-      "geocoordinates": {
-        "latitude": 33.9425,
-        "longitude": -117.2297
-      },
-      "preferred_time_window": "Evening",
-      "product_ids": ["HOSPITAL_BED_DELUXE", "PATIENT_LIFT"],
-      "delivery_deadline": "2024-06-27"
-    }
-  ]
-} 
+[
+  {
+    "Id": "ORD001",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 41.923365,
+      "Longitude": -87.52981
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD002",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 41.73421,
+      "Longitude": -87.614321
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD003",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 41.949815,
+      "Longitude": -87.489055
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD004",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 42.015582,
+      "Longitude": -87.467408
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD005",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 41.79307,
+      "Longitude": -87.686034
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD006",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 42.07904,
+      "Longitude": -87.463709
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD007",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 42.095036,
+      "Longitude": -87.429224
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD008",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 41.969698,
+      "Longitude": -87.697193
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD009",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 41.769221,
+      "Longitude": -87.644595
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD0010",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 41.709891,
+      "Longitude": -87.452072
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD0011",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 41.921873,
+      "Longitude": -87.766957
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  },
+  {
+    "Id": "ORD0012",
+    "PatientName": "John Smith",
+    "PatientPhone": "212-555-1234",
+    "Address": "123 Main St, New York, NY 10001",
+    "Location": {
+      "Latitude": 42.033675,
+      "Longitude": -87.417752
+    },
+    "PreferredDeliveryTimeWindow": "Morning",
+    "ProductIds": [
+      "CPAP_X500",
+      "NEBULIZER_PRO"
+    ],
+    "DeliveryDeadline": "2024-03-20",
+    "Priority": "High",
+    "Notes": [
+      "Elevator access required",
+      "Patient needs assistance with setup",
+      "Call 30 minutes before arrival",
+      "Fragile equipment",
+      "Wear gloves during setup",
+      "Bring extra filters"
+    ]
+  }
+]

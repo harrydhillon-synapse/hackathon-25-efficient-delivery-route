@@ -1,49 +1,111 @@
-{
-  "drivers": [
-    {
-      "driver_id": "DRV001",
-      "name": "John Anderson",
-      "certifications": ["Respiratory", "Basic"],
-      "weekly_schedule": {
-        "monday": "available",
-        "tuesday": "available",
-        "wednesday": "available",
-        "thursday": "available",
-        "friday": "available",
-        "saturday": "unavailable",
-        "sunday": "unavailable"
+[
+  {
+    "Id": "DRV001",
+    "Name": "John Anderson",
+    "Certifications": [ "Respiratory", "Basic" ],
+    "Schedule": [
+      {
+        "Date": "2025-04-21",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
       },
-      "vehicles": ["Car"]
-    },
-    {
-      "driver_id": "DRV002",
-      "name": "Sarah Martinez",
-      "certifications": ["Mobility", "Hospital Beds", "Basic"],
-      "weekly_schedule": {
-        "monday": "available",
-        "tuesday": "available",
-        "wednesday": "half_day",
-        "thursday": "available",
-        "friday": "available",
-        "saturday": "half_day",
-        "sunday": "unavailable"
+      {
+        "Date": "2025-04-22",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
       },
-      "vehicles": ["Truck", "Car"]
-    },
-    {
-      "driver_id": "DRV003",
-      "name": "Michael Thompson",
-      "certifications": ["Respiratory", "Basic", "Complex", "Mobility", "Hospital Beds"],
-      "weekly_schedule": {
-        "monday": "available",
-        "tuesday": "half_day",
-        "wednesday": "available",
-        "thursday": "available",
-        "friday": "half_day",
-        "saturday": "available",
-        "sunday": "unavailable"
+      {
+        "Date": "2025-04-23",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
       },
-      "vehicles": ["Truck", "Car"]
-    }
-  ]
-} 
+      {
+        "Date": "2025-04-24",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-25",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      }
+    ],
+    "AllowedVehicles": [ "Car" ]
+  },
+  {
+    "Id": "DRV002",
+    "Name": "Sarah Martinez",
+    "Certifications": [ "Mobility", "HospitalBeds", "Basic" ],
+    "Schedule": [
+      {
+        "Date": "2025-04-21",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-22",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-23",
+        "StartTime": "08:00",
+        "EndTime": "12:00"
+      },
+      {
+        "Date": "2025-04-24",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-25",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-26",
+        "StartTime": "08:00",
+        "EndTime": "12:00"
+      }
+    ],
+    "AllowedVehicles": [ "Truck", "Car" ]
+  },
+  {
+    "Id": "DRV003",
+    "Name": "Michael Thompson",
+    "Certifications": [ "Respiratory", "Basic", "Complex", "Mobility", "HospitalBeds" ],
+    "Schedule": [
+      {
+        "Date": "2025-04-21",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-22",
+        "StartTime": "08:00",
+        "EndTime": "12:00"
+      },
+      {
+        "Date": "2025-04-23",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-24",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-25",
+        "StartTime": "08:00",
+        "EndTime": "12:00"
+      },
+      {
+        "Date": "2025-04-26",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      }
+    ],
+    "AllowedVehicles": [ "Truck", "Car" ]
+  }
+]

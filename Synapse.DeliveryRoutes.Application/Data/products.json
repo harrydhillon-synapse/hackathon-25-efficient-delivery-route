@@ -1,324 +1,302 @@
-{
-  "products": [
-    {
-      "product_id": "CPAP_X500",
-      "name": "CPAP Machine X500",
-      "category": "Respiratory",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "20 cm",
-          "width": "15 cm",
-          "height": "10 cm",
-          "weight": "1.2 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Fragile - Handle with care",
-        "packaging": "Original manufacturer box with foam padding",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Upright position preferred",
-          "stacking_limit": "3 units"
-        },
-        "setup_assistance": "Level 2 - Basic training required"
-      },
-      "cost_and_billing": {
-        "base_price": 899.99,
-        "rental_rate": {
-          "daily": 15.99,
-          "weekly": 89.99,
-          "monthly": 299.99
-        }
-      },
-      "setup_time_data": [15, 18, 20, 17, 16, 19, 21, 15, 16, 18, 20, 17, 19, 16, 15, 18, 20, 17, 16, 19, 21, 15, 16, 18, 20, 17, 19, 16, 15, 18]
+[
+  {
+    "Id": "CPAP_X500",
+    "Name": "CPAP Machine X500",
+    "Category": "Respiratory",
+    "Dimensions": {
+      "Length": 20,
+      "Width": 15,
+      "Height": 10,
+      "Weight": 1.2
     },
-    {
-      "product_id": "OXYGEN_TANK_100",
-      "name": "Oxygen Tank 100L",
-      "category": "Respiratory",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "120 cm",
-          "width": "30 cm",
-          "height": "30 cm",
-          "weight": "15 kg"
-        }
+    "DeliveryRequirements": {
+      "SpecialHandling": "Fragile - Handle with care",
+      "PackagingType": "OriginalManufacturerBoxWithFoamPadding",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPositionPreferred",
+        "StackingLimit": "ThreeUnits"
       },
-      "delivery_requirements": {
-        "special_handling": "Handle with care - Pressurized container",
-        "packaging": "Original manufacturer case",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Upright position required",
-          "stacking_limit": "1 unit"
-        },
-        "setup_assistance": "Level 2 - Basic training required"
-      },
-      "cost_and_billing": {
-        "base_price": 499.99,
-        "rental_rate": {
-          "daily": 29.99,
-          "weekly": 149.99,
-          "monthly": 399.99
-        }
-      },
-      "setup_time_data": [25, 28, 30, 27, 26, 29, 31, 25, 26, 28, 30, 27, 29, 26, 25, 28, 30, 27, 26, 29, 31, 25, 26, 28, 30, 27, 29, 26, 25, 28]
+      "SetupAssistance": "Level2BasicTrainingRequired",
+      "HistoricalSetupTimes": [ 15, 18, 20, 17, 16, 19, 21, 15, 16, 18, 20, 17, 19, 16, 15, 18, 20, 17, 16, 19, 21, 15, 16, 18, 20, 17, 19, 16, 15, 18 ]
     },
-    {
-      "product_id": "WHEELCHAIR_ELITE",
-      "name": "Elite Wheelchair",
-      "category": "Mobility",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "100 cm",
-          "width": "65 cm",
-          "height": "90 cm",
-          "weight": "12 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Handle with care - Avoid impacts",
-        "packaging": "Original manufacturer box",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Upright position",
-          "stacking_limit": "2 units"
-        },
-        "setup_assistance": "Level 1 - Basic assembly required"
-      },
-      "cost_and_billing": {
-        "base_price": 599.99,
-        "rental_rate": {
-          "daily": 19.99,
-          "weekly": 99.99,
-          "monthly": 299.99
-        }
-      },
-      "setup_time_data": [20, 23, 25, 22, 21, 24, 26, 20, 21, 23, 25, 22, 24, 21, 20, 23, 25, 22, 21, 24, 26, 20, 21, 23, 25, 22, 24, 21, 20, 23]
-    },
-    {
-      "product_id": "HOSPITAL_BED_DELUXE",
-      "name": "Deluxe Hospital Bed",
-      "category": "Mobility",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "210 cm",
-          "width": "100 cm",
-          "height": "50-80 cm",
-          "weight": "120 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Heavy equipment - Two-person lift required",
-        "packaging": "Disassembled in multiple boxes",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Any position",
-          "stacking_limit": "Not stackable"
-        },
-        "setup_assistance": "Level 3 - Professional installation required"
-      },
-      "cost_and_billing": {
-        "base_price": 2499.99,
-        "rental_rate": {
-          "daily": 49.99,
-          "weekly": 249.99,
-          "monthly": 799.99
-        }
-      },
-      "setup_time_data": [45, 48, 50, 47, 46, 49, 51, 45, 46, 48, 50, 47, 49, 46, 45, 48, 50, 47, 46, 49, 51, 45, 46, 48, 50, 47, 49, 46, 45, 48]
-    },
-    {
-      "product_id": "NEBULIZER_PRO",
-      "name": "Professional Nebulizer",
-      "category": "Respiratory",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "25 cm",
-          "width": "20 cm",
-          "height": "15 cm",
-          "weight": "1.5 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Fragile - Handle with care",
-        "packaging": "Original manufacturer box with foam padding",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Upright position preferred",
-          "stacking_limit": "4 units"
-        },
-        "setup_assistance": "Level 1 - Basic assembly required"
-      },
-      "cost_and_billing": {
-        "base_price": 299.99,
-        "rental_rate": {
-          "daily": 12.99,
-          "weekly": 69.99,
-          "monthly": 199.99
-        }
-      },
-      "setup_time_data": [12, 15, 17, 14, 13, 16, 18, 12, 13, 15, 17, 14, 16, 13, 12, 15, 17, 14, 13, 16, 18, 12, 13, 15, 17, 14, 16, 13, 12, 15]
-    },
-    {
-      "product_id": "LIFT_CHAIR_PREMIUM",
-      "name": "Premium Lift Chair",
-      "category": "Mobility",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "90 cm",
-          "width": "85 cm",
-          "height": "100 cm",
-          "weight": "45 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Heavy equipment - Two-person lift required",
-        "packaging": "Disassembled in multiple boxes",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Any position",
-          "stacking_limit": "Not stackable"
-        },
-        "setup_assistance": "Level 2 - Basic assembly required"
-      },
-      "cost_and_billing": {
-        "base_price": 1499.99,
-        "rental_rate": {
-          "daily": 39.99,
-          "weekly": 199.99,
-          "monthly": 599.99
-        }
-      },
-      "setup_time_data": [35, 38, 40, 37, 36, 39, 41, 35, 36, 38, 40, 37, 39, 36, 35, 38, 40, 37, 36, 39, 41, 35, 36, 38, 40, 37, 39, 36, 35, 38]
-    },
-    {
-      "product_id": "WALKER_STANDARD",
-      "name": "Standard Walker",
-      "category": "Mobility",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "60 cm",
-          "width": "50 cm",
-          "height": "90 cm",
-          "weight": "3 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Handle with care",
-        "packaging": "Original manufacturer box",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Any position",
-          "stacking_limit": "5 units"
-        },
-        "setup_assistance": "Level 1 - Basic assembly required"
-      },
-      "cost_and_billing": {
-        "base_price": 99.99,
-        "rental_rate": {
-          "daily": 9.99,
-          "weekly": 49.99,
-          "monthly": 149.99
-        }
-      },
-      "setup_time_data": [8, 11, 13, 10, 9, 12, 14, 8, 9, 11, 13, 10, 12, 9, 8, 11, 13, 10, 9, 12, 14, 8, 9, 11, 13, 10, 12, 9, 8, 11]
-    },
-    {
-      "product_id": "BIPAP_MACHINE_200",
-      "name": "BiPAP Machine 200",
-      "category": "Respiratory",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "25 cm",
-          "width": "20 cm",
-          "height": "15 cm",
-          "weight": "2 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Fragile - Handle with care",
-        "packaging": "Original manufacturer box with foam padding",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Upright position preferred",
-          "stacking_limit": "3 units"
-        },
-        "setup_assistance": "Level 2 - Basic training required"
-      },
-      "cost_and_billing": {
-        "base_price": 1299.99,
-        "rental_rate": {
-          "daily": 19.99,
-          "weekly": 99.99,
-          "monthly": 349.99
-        }
-      },
-      "setup_time_data": [18, 21, 23, 20, 19, 22, 24, 18, 19, 21, 23, 20, 22, 19, 18, 21, 23, 20, 19, 22, 24, 18, 19, 21, 23, 20, 22, 19, 18, 21]
-    },
-    {
-      "product_id": "MOBILITY_SCOOTER",
-      "name": "Mobility Scooter",
-      "category": "Mobility",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "120 cm",
-          "width": "60 cm",
-          "height": "100 cm",
-          "weight": "45 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Heavy equipment - Two-person lift required",
-        "packaging": "Partially disassembled",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Upright position",
-          "stacking_limit": "Not stackable"
-        },
-        "setup_assistance": "Level 2 - Basic assembly required"
-      },
-      "cost_and_billing": {
-        "base_price": 1999.99,
-        "rental_rate": {
-          "daily": 39.99,
-          "weekly": 199.99,
-          "monthly": 599.99
-        }
-      },
-      "setup_time_data": [30, 33, 35, 32, 31, 34, 36, 30, 31, 33, 35, 32, 34, 31, 30, 33, 35, 32, 31, 34, 36, 30, 31, 33, 35, 32, 34, 31, 30, 33]
-    },
-    {
-      "product_id": "PATIENT_LIFT",
-      "name": "Patient Lift System",
-      "category": "Mobility",
-      "detailed_specifications": {
-        "dimensions": {
-          "length": "150 cm",
-          "width": "80 cm",
-          "height": "200 cm",
-          "weight": "35 kg"
-        }
-      },
-      "delivery_requirements": {
-        "special_handling": "Heavy equipment - Two-person lift required",
-        "packaging": "Disassembled in multiple boxes",
-        "transportation": {
-          "temperature_controlled": false,
-          "orientation": "Any position",
-          "stacking_limit": "Not stackable"
-        },
-        "setup_assistance": "Level 3 - Professional installation required"
-      },
-      "cost_and_billing": {
-        "base_price": 2999.99,
-        "rental_rate": {
-          "daily": 59.99,
-          "weekly": 299.99,
-          "monthly": 899.99
-        }
-      },
-      "setup_time_data": [40, 43, 45, 42, 41, 44, 46, 40, 41, 43, 45, 42, 44, 41, 40, 43, 45, 42, 41, 44, 46, 40, 41, 43, 45, 42, 44, 41, 40, 43]
+    "Billing": {
+      "BasePrice": 899.99,
+      "RentalRate": {
+        "Daily": 15.99,
+        "Weekly": 89.99,
+        "Monthly": 299.99
+      }
     }
-  ]
-} 
+  },
+  {
+    "Id": "OXYGEN_TANK_100",
+    "Name": "Oxygen Tank 100L",
+    "Category": "Respiratory",
+    "Dimensions": {
+      "Length": 120,
+      "Width": 30,
+      "Height": 30,
+      "Weight": 15
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Handle with care - Pressurized container",
+      "PackagingType": "OriginalManufacturerCase",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPositionRequired",
+        "StackingLimit": "OneUnit"
+      },
+      "SetupAssistance": "Level2BasicTrainingRequired",
+      "HistoricalSetupTimes": [ 25, 28, 30, 27, 26, 29, 31, 25, 26, 28, 30, 27, 29, 26, 25, 28, 30, 27, 26, 29, 31, 25, 26, 28, 30, 27, 29, 26, 25, 28 ]
+    },
+    "Billing": {
+      "BasePrice": 499.99,
+      "RentalRate": {
+        "Daily": 29.99,
+        "Weekly": 149.99,
+        "Monthly": 399.99
+      }
+    }
+  },
+  {
+    "Id": "WHEELCHAIR_ELITE",
+    "Name": "Elite Wheelchair",
+    "Category": "Mobility",
+    "Dimensions": {
+      "Length": 100,
+      "Width": 65,
+      "Height": 90,
+      "Weight": 12
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Handle with care - Avoid impacts",
+      "PackagingType": "OriginalManufacturerBox",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPosition",
+        "StackingLimit": "TwoUnits"
+      },
+      "SetupAssistance": "Level1BasicAssemblyRequired",
+      "HistoricalSetupTimes": [ 20, 23, 25, 22, 21, 24, 26, 20, 21, 23, 25, 22, 24, 21, 20, 23, 25, 22, 21, 24, 26, 20, 21, 23, 25, 22, 24, 21, 20, 23 ]
+    },
+    "Billing": {
+      "BasePrice": 599.99,
+      "RentalRate": {
+        "Daily": 19.99,
+        "Weekly": 99.99,
+        "Monthly": 299.99
+      }
+    }
+  },
+  {
+    "Id": "HOSPITAL_BED_DELUXE",
+    "Name": "Deluxe Hospital Bed",
+    "Category": "Mobility",
+    "Dimensions": {
+      "Length": 210,
+      "Width": 100,
+      "Height": 80,
+      "Weight": 120
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Heavy equipment - Two-person lift required",
+      "PackagingType": "DisassembledInMultipleBoxes",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "AnyPosition",
+        "StackingLimit": "NotStackable"
+      },
+      "SetupAssistance": "Level3ProfessionalInstallationRequired",
+      "HistoricalSetupTimes": [ 45, 48, 50, 47, 46, 49, 51, 45, 46, 48, 50, 47, 49, 46, 45, 48, 50, 47, 46, 49, 51, 45, 46, 48, 50, 47, 49, 46, 45, 48 ]
+    },
+    "Billing": {
+      "BasePrice": 2499.99,
+      "RentalRate": {
+        "Daily": 49.99,
+        "Weekly": 249.99,
+        "Monthly": 799.99
+      }
+    }
+  },
+  {
+    "Id": "NEBULIZER_PRO",
+    "Name": "Professional Nebulizer",
+    "Category": "Respiratory",
+    "Dimensions": {
+      "Length": 25,
+      "Width": 20,
+      "Height": 15,
+      "Weight": 1.5
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Fragile - Handle with care",
+      "PackagingType": "OriginalManufacturerBoxWithFoamPadding",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPositionPreferred",
+        "StackingLimit": "FourUnits"
+      },
+      "SetupAssistance": "Level1BasicAssemblyRequired",
+      "HistoricalSetupTimes": [ 12, 15, 17, 14, 13, 16, 18, 12, 13, 15, 17, 14, 16, 13, 12, 15, 17, 14, 13, 16, 18, 12, 13, 15, 17, 14, 16, 13, 12, 15 ]
+    },
+    "Billing": {
+      "BasePrice": 299.99,
+      "RentalRate": {
+        "Daily": 12.99,
+        "Weekly": 69.99,
+        "Monthly": 199.99
+      }
+    }
+  },
+  {
+    "Id": "LIFT_CHAIR_PREMIUM",
+    "Name": "Premium Lift Chair",
+    "Category": "Mobility",
+    "Dimensions": {
+      "Length": 90,
+      "Width": 85,
+      "Height": 100,
+      "Weight": 45
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Heavy equipment - Two-person lift required",
+      "PackagingType": "DisassembledInMultipleBoxes",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "AnyPosition",
+        "StackingLimit": "NotStackable"
+      },
+      "SetupAssistance": "Level2BasicAssemblyRequired",
+      "HistoricalSetupTimes": [ 35, 38, 40, 37, 36, 39, 41, 35, 36, 38, 40, 37, 39, 36, 35, 38, 40, 37, 36, 39, 41, 35, 36, 38, 40, 37, 39, 36, 35, 38 ]
+    },
+    "Billing": {
+      "BasePrice": 1499.99,
+      "RentalRate": {
+        "Daily": 39.99,
+        "Weekly": 199.99,
+        "Monthly": 599.99
+      }
+    }
+  },
+  {
+    "Id": "WALKER_STANDARD",
+    "Name": "Standard Walker",
+    "Category": "Mobility",
+    "Dimensions": {
+      "Length": 60,
+      "Width": 50,
+      "Height": 90,
+      "Weight": 3
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Handle with care",
+      "PackagingType": "OriginalManufacturerBox",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "AnyPosition",
+        "StackingLimit": "FiveUnits"
+      },
+      "SetupAssistance": "Level1BasicAssemblyRequired",
+      "HistoricalSetupTimes": [ 8, 11, 13, 10, 9, 12, 14, 8, 9, 11, 13, 10, 12, 9, 8, 11, 13, 10, 9, 12, 14, 8, 9, 11, 13, 10, 12, 9, 8, 11 ]
+    },
+    "Billing": {
+      "BasePrice": 99.99,
+      "RentalRate": {
+        "Daily": 9.99,
+        "Weekly": 49.99,
+        "Monthly": 149.99
+      }
+    }
+  },
+  {
+    "Id": "BIPAP_MACHINE_200",
+    "Name": "BiPAP Machine 200",
+    "Category": "Respiratory",
+    "Dimensions": {
+      "Length": 25,
+      "Width": 20,
+      "Height": 15,
+      "Weight": 2
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Fragile - Handle with care",
+      "PackagingType": "OriginalManufacturerBoxWithFoamPadding",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPositionPreferred",
+        "StackingLimit": "ThreeUnits"
+      },
+      "SetupAssistance": "Level2BasicTrainingRequired",
+      "HistoricalSetupTimes": [ 18, 21, 23, 20, 19, 22, 24, 18, 19, 21, 23, 20, 22, 19, 18, 21, 23, 20, 19, 22, 24, 18, 19, 21, 23, 20, 22, 19, 18, 21 ]
+    },
+    "Billing": {
+      "BasePrice": 1299.99,
+      "RentalRate": {
+        "Daily": 19.99,
+        "Weekly": 99.99,
+        "Monthly": 349.99
+      }
+    }
+  },
+  {
+    "Id": "MOBILITY_SCOOTER",
+    "Name": "Mobility Scooter",
+    "Category": "Mobility",
+    "Dimensions": {
+      "Length": 120,
+      "Width": 60,
+      "Height": 100,
+      "Weight": 45
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Heavy equipment - Two-person lift required",
+      "PackagingType": "PartiallyDisassembled",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPosition",
+        "StackingLimit": "NotStackable"
+      },
+      "SetupAssistance": "Level2BasicAssemblyRequired",
+      "HistoricalSetupTimes": [ 30, 33, 35, 32, 31, 34, 36, 30, 31, 33, 35, 32, 34, 31, 30, 33, 35, 32, 31, 34, 36, 30, 31, 33, 35, 32, 34, 31, 30, 33 ]
+    },
+    "Billing": {
+      "BasePrice": 1999.99,
+      "RentalRate": {
+        "Daily": 39.99,
+        "Weekly": 199.99,
+        "Monthly": 599.99
+      }
+    }
+  },
+  {
+    "Id": "PATIENT_LIFT",
+    "Name": "Patient Lift System",
+    "Category": "Mobility",
+    "Dimensions": {
+      "Length": 150,
+      "Width": 80,
+      "Height": 200,
+      "Weight": 35
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Heavy equipment - Two-person lift required",
+      "PackagingType": "DisassembledInMultipleBoxes",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "AnyPosition",
+        "StackingLimit": "NotStackable"
+      },
+      "SetupAssistance": "Level3ProfessionalInstallationRequired",
+      "HistoricalSetupTimes": [ 40, 43, 45, 42, 41, 44, 46, 40, 41, 43, 45, 42, 44, 41, 40, 43, 45, 42, 41, 44, 46, 40, 41, 43, 45, 42, 44, 41, 40, 43 ]
+    },
+    "Billing": {
+      "BasePrice": 2999.99,
+      "RentalRate": {
+        "Daily": 59.99,
+        "Weekly": 299.99,
+        "Monthly": 899.99
+      }
+    }
+  }
+]
