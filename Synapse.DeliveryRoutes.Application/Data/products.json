@@ -15,7 +15,7 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPositionPreferred",
-        "StackingLimit": "3Units"
+        "StackingLimit": "ThreeUnits"
       },
       "SetupAssistance": "Level2BasicTrainingRequired",
       "HistoricalSetupTimes": [ 15, 18, 20, 17, 16, 19, 21, 15, 16, 18, 20, 17, 19, 16, 15, 18, 20, 17, 16, 19, 21, 15, 16, 18, 20, 17, 19, 16, 15, 18 ]
@@ -45,7 +45,7 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPositionRequired",
-        "StackingLimit": "1Unit"
+        "StackingLimit": "OneUnit"
       },
       "SetupAssistance": "Level2BasicTrainingRequired",
       "HistoricalSetupTimes": [ 25, 28, 30, 27, 26, 29, 31, 25, 26, 28, 30, 27, 29, 26, 25, 28, 30, 27, 26, 29, 31, 25, 26, 28, 30, 27, 29, 26, 25, 28 ]
@@ -75,7 +75,7 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPosition",
-        "StackingLimit": "2Units"
+        "StackingLimit": "TwoUnits"
       },
       "SetupAssistance": "Level1BasicAssemblyRequired",
       "HistoricalSetupTimes": [ 20, 23, 25, 22, 21, 24, 26, 20, 21, 23, 25, 22, 24, 21, 20, 23, 25, 22, 21, 24, 26, 20, 21, 23, 25, 22, 24, 21, 20, 23 ]
@@ -135,7 +135,7 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPositionPreferred",
-        "StackingLimit": "4Units"
+        "StackingLimit": "FourUnits"
       },
       "SetupAssistance": "Level1BasicAssemblyRequired",
       "HistoricalSetupTimes": [ 12, 15, 17, 14, 13, 16, 18, 12, 13, 15, 17, 14, 16, 13, 12, 15, 17, 14, 13, 16, 18, 12, 13, 15, 17, 14, 16, 13, 12, 15 ]
@@ -195,7 +195,7 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "AnyPosition",
-        "StackingLimit": "5Units"
+        "StackingLimit": "FiveUnits"
       },
       "SetupAssistance": "Level1BasicAssemblyRequired",
       "HistoricalSetupTimes": [ 8, 11, 13, 10, 9, 12, 14, 8, 9, 11, 13, 10, 12, 9, 8, 11, 13, 10, 9, 12, 14, 8, 9, 11, 13, 10, 12, 9, 8, 11 ]
@@ -225,7 +225,7 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPositionPreferred",
-        "StackingLimit": "3Units"
+        "StackingLimit": "ThreeUnits"
       },
       "SetupAssistance": "Level2BasicTrainingRequired",
       "HistoricalSetupTimes": [ 18, 21, 23, 20, 19, 22, 24, 18, 19, 21, 23, 20, 22, 19, 18, 21, 23, 20, 19, 22, 24, 18, 19, 21, 23, 20, 22, 19, 18, 21 ]

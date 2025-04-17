@@ -1,4 +1,4 @@
-﻿using Synapse.DeliveryRoutes.Application.Models.V1;
+﻿using Synapse.DeliveryRoutes.Application.Models;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
@@ -21,7 +21,7 @@ public class DistanceMatrix
     /// </summary>
     /// <param name="locations">Array of location coordinates where index 0 is the office/depot</param>
     /// <returns>The populated distance matrix</returns>
-    public double[,] Build(GeoCoordinate[] locations)
+    public double[,] Build(GeoCoordinates[] locations)
     {
         for (int i = 0; i < _numberOfLocations; i++)
         {

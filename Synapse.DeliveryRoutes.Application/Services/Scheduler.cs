@@ -1,5 +1,5 @@
 ﻿using Google.OrTools.ConstraintSolver;
-using Synapse.DeliveryRoutes.Application.Models.V1;
+using Synapse.DeliveryRoutes.Application.Models;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 

@@ -1,5 +1,5 @@
 ﻿using Google.OrTools.ConstraintSolver;
-using Synapse.DeliveryRoutes.Application.Models.V1;
+using Synapse.DeliveryRoutes.Application.Models;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
@@ -13,8 +13,8 @@ public class SchedulerContext
 
         // === All Locations including Depot at 0 ===
 
-        Locations = new List<GeoCoordinate> { inputData.Office.OfficeGeocoordinates }
-            .Concat(inputData.Orders.Select(o => o.Geocoordinates))
+        Locations = new List<GeoCoordinates> { inputData.Office.Location }
+            .Concat(inputData.Orders.Select(o => o.Location))
             .ToArray();
 
 
@@ -24,7 +24,7 @@ public class SchedulerContext
         // Create a list of vehicle-driver pairs where the driver can operate the vehicle
         var compatibleAssignments = (from driver in InputData.Drivers
             from vehicle in inputData.Vehicles
-            where driver.VehiclesCanDrive.Contains(vehicle.Type)
+            where driver.AllowedVehicles.Contains(vehicle.Type)
             select new { driver, vehicle }).ToList();
 
         // Select a distinct 1-to-1 assignment (greedy)
@@ -33,15 +33,15 @@ public class SchedulerContext
 
         foreach (var pair in compatibleAssignments)
         {
-            if (assignedDriverIds.Contains(pair.driver.DriverID)
-                || assignedVehicleIds.Contains(pair.vehicle.VehicleID))
+            if (assignedDriverIds.Contains(pair.driver.Id)
+                || assignedVehicleIds.Contains(pair.vehicle.Id))
             {
                 continue;
             }
 
             VehicleDriverAssignments.Add(new KeyValuePair<Vehicle, Driver>(pair.vehicle, pair.driver));
-            assignedDriverIds.Add(pair.driver.DriverID);
-            assignedVehicleIds.Add(pair.vehicle.VehicleID);
+            assignedDriverIds.Add(pair.driver.Id);
+            assignedVehicleIds.Add(pair.vehicle.Id);
         }
 
 
@@ -65,7 +65,7 @@ public class SchedulerContext
         RoutingModel = new RoutingModel(RoutingIndexManager);
     }
     public SchedulingInputData InputData { get; }
-    public GeoCoordinate[] Locations { get; }
+    public GeoCoordinates[] Locations { get; }
     public List<KeyValuePair<Vehicle, Driver>> VehicleDriverAssignments { get; set; } = [];
     public DistanceMatrix DistanceMatrix { get; }
     public double[,] Distances { get; }

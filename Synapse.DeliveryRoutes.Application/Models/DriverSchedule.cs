@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Synapse.DeliveryRoutes.Application.Models.V1;
+namespace Synapse.DeliveryRoutes.Application.Models;
 
 public class DriverSchedule
 {
@@ -18,7 +18,7 @@ public class DriverSchedule
         }
 
         var output = new StringBuilder();
-        output.AppendLine($"{Driver.Name} (Vehicle {Vehicle.VehicleID} - {Vehicle.Type}) has {Orders.Length} deliveries");
+        output.AppendLine($"{Driver.Name} (Vehicle {Vehicle.Id} - {Vehicle.Type}) has {Orders.Length} deliveries");
         for (int deliveryIndex = 0; deliveryIndex < Orders.Length; deliveryIndex++)
         {
             output.Append($"    {deliveryIndex + 1}) ");

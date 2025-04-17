@@ -9,12 +9,9 @@
   <ItemGroup>
     <Compile Remove="Models\AvailabilityStatus.cs" />
     <Compile Remove="Models\Day.cs" />
-    <Compile Remove="Models\DriverSchedule.cs" />
     <Compile Remove="Models\GeoCoordinate.cs" />
     <Compile Remove="Models\ProductCollection.cs" />
     <Compile Remove="Models\ProductSetupTimes.cs" />
-    <Compile Remove="Models\Schedule.cs" />
-    <Compile Remove="Models\SchedulingInputData.cs" />
   </ItemGroup>
 
   <ItemGroup>

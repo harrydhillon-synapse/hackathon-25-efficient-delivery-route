@@ -1,35 +1,34 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using Synapse.DeliveryRoutes.Application.Models.V1;
+using Synapse.DeliveryRoutes.Application.Models;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
 public class SchedulingInputDataRepository
 {
-    // Properties for all data types
-
     // JSON file paths (relative to the output directory)
-    private const string ProductsFile = "Data/V1/products.json";
-    private const string SetupTimesFile = "Data/V1/setup.json";
-    private const string OrdersFile = "Data/V1/orders.json";
-    private const string DriversFile = "Data/V1/drivers.json";
-    private const string VehiclesFile = "Data/V1/vehicles.json";
-    private const string OfficeFile = "Data/V1/office.json";
+    private const string ProductsFile = "Data/products.json";
+    private const string OrdersFile = "Data/orders.json";
+    private const string DriversFile = "Data/drivers.json";
+    private const string VehiclesFile = "Data/vehicles.json";
+    private const string OfficeFile = "Data/office.json";
 
     // Method to load all data
     public SchedulingInputData LoadAllData()
     {
         var options = new JsonSerializerOptions
         {
-            Converters = { new JsonStringEnumConverter() },
+            Converters =
+            {
+                new JsonStringEnumConverter(),
+                new DateOnlyJsonConverter(),
+                new TimeOnlyJsonConverter()
+            },
             PropertyNameCaseInsensitive = true
         };
 
         var productsJson = File.ReadAllText(ProductsFile);
         var products = JsonSerializer.Deserialize<List<Product>>(productsJson, options);
-
-        var setupTimesJson = File.ReadAllText(SetupTimesFile);
-        var setupTimes = JsonSerializer.Deserialize<ProductSetupTimes>(setupTimesJson, options);
 
         var ordersJson = File.ReadAllText(OrdersFile);
         var orders = JsonSerializer.Deserialize<List<Order>>(ordersJson, options);
@@ -46,11 +45,32 @@ public class SchedulingInputDataRepository
         return new SchedulingInputData
         {
             Products = products!,
-            SetupTimes = setupTimes!.Products,
             Orders = orders!,
             Drivers = drivers!,
             Vehicles = vehicles!,
             Office = office!
         };
+    }
+
+    public class DateOnlyJsonConverter : JsonConverter<DateOnly>
+    {
+        private const string Format = "yyyy-MM-dd";
+
+        public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            => DateOnly.ParseExact(reader.GetString()!, Format);
+
+        public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options)
+            => writer.WriteStringValue(value.ToString(Format));
+    }
+
+    public class TimeOnlyJsonConverter : JsonConverter<TimeOnly>
+    {
+        private const string Format = "HH:mm";
+
+        public override TimeOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            => TimeOnly.ParseExact(reader.GetString()!, Format);
+
+        public override void Write(Utf8JsonWriter writer, TimeOnly value, JsonSerializerOptions options)
+            => writer.WriteStringValue(value.ToString(Format));
     }
 }
