@@ -57,6 +57,8 @@ public class Scheduler(SchedulerContext schedulerContext)
                 Orders = orders.ToArray(),
                 Driver = keyValuePair.Value,
                 Vehicle = keyValuePair.Key,
+                EndLocation = schedulerContext.InputData.Office.Location,
+                StartLocation = schedulerContext.InputData.Office.Location,
             };
             schedules.Add(schedule);
         }
@@ -101,7 +103,11 @@ public class Scheduler(SchedulerContext schedulerContext)
             if (toNode != 0)
             {
                 var order = schedulerContext.InputData.Orders[toNode - 1];
-                minutesRequired += Convert.ToDouble(EstimateSetupTime(order!));
+                var products = schedulerContext.InputData.Products
+                    .Where(o => order.ProductIds.Contains(o.Id))
+                    .ToArray();
+                var setupMinutes = Utilities.EstimateSetupTime(products.ToArray());
+                minutesRequired += Convert.ToDouble(setupMinutes);
             }
 
             return Convert.ToInt32(minutesRequired);
@@ -125,44 +131,6 @@ public class Scheduler(SchedulerContext schedulerContext)
             var endIndex = schedulerContext.RoutingModel.End(vehicleIdx);
             timeDimension.CumulVar(endIndex).SetMin(1);
         }
-    }
-
-    private int EstimateSetupTime(Order order)
-    {
-        int totalSetupTime = 0;
-
-        foreach (var productId in order.ProductIds)
-        {
-            var product = schedulerContext.InputData.Products.SingleOrDefault(o => o.Id == productId);
-            if (product != null)
-            {
-                var times = product.DeliveryRequirements.HistoricalSetupTimes;
-
-                if (times.Count > 0)
-                {
-                    List<int> filteredTimes;
-                    if (times.Count >= ScheduleSolverSettings.MinimumHistoricalSetupTimesToApplyStandardDeviation)
-                    {
-                        double mean = times.Average();
-                        double stdDev = Math.Sqrt(times.Average(v => Math.Pow(v - mean, 2)));
-                        filteredTimes = times.Where(t => Math.Abs(t - mean) <= 2 * stdDev).ToList();
-                    }
-                    else
-                    {
-                        filteredTimes = times.ToList(); // no filtering
-                    }
-
-                    if (filteredTimes.Count > 0)
-                    {
-                        double average = filteredTimes.Average();
-                        double stdDevBuffer = Math.Sqrt(filteredTimes.Average(v => Math.Pow(v - average, 2))) * ScheduleSolverSettings.HistoricalSetupTimesStandardDeviationTunableMultiple;
-                        totalSetupTime += Convert.ToInt32(Math.Round(average + stdDevBuffer));
-                    }
-                }
-            }
-        }
-
-        return Math.Max(ScheduleSolverSettings.MinimumDeliveryTimeMinutes, totalSetupTime);
     }
 
     /// <summary>

@@ -21,7 +21,6 @@ public class SchedulerTests
         Assert.NotNull(result);
         Assert.True(result.Successful);
         
-        _testOutputHelper.WriteLine($"Schedule:");
-        _testOutputHelper.WriteLine($"{result}");
+        _testOutputHelper.WriteLine(Utilities.ToString(result, inputData.Products.ToArray()));
     }
 }
