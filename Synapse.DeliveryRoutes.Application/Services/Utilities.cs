@@ -80,6 +80,7 @@ public static class Utilities
         foreach (var driverSchedule in schedule.DriverSchedules!)
         {
             output.AppendLine(Utilities.ToString(driverSchedule, allProducts));
+            output.AppendLine();
         }
 
         return output.ToString();
@@ -100,6 +101,9 @@ public static class Utilities
             .Concat(new List<GeoCoordinates> { driverSchedule.EndLocation })
             .ToArray();
 
+        var totalDrivingMinutes = 0;
+        var totalSetupMinutes = 0;
+
         for (var i = 0; i < locations.Length - 1; i++)
         {
             var fromLocation = locations[i];
@@ -111,12 +115,14 @@ public static class Utilities
 
             double minutesRequired = distanceKm * (60.0 / ScheduleSolverSettings.DrivingSpeedKmPerHour);
             int drivingMinutes = Convert.ToInt32(minutesRequired);
+            totalDrivingMinutes += drivingMinutes;
 
             if (i < driverSchedule.Orders.Length)
             {
                 var order = driverSchedule.Orders[i];
                 var productsInOrder = allProducts.Where(o => order.ProductIds.Contains(o.Id)).ToArray();
                 int setupTime = Utilities.EstimateSetupTime(productsInOrder);
+                totalSetupMinutes += setupTime;
 
                 output.AppendLine($"    {i + 1}) Deliver order {order.Id} to patient {order.PatientName} at")
                       .AppendLine($"        {order.Address}")
@@ -129,6 +135,10 @@ public static class Utilities
                 output.AppendLine($"        → Drive {distanceKm:F1} km in approx {drivingMinutes} min");
             }
         }
+
+        output.AppendLine($"Total driving time: {TimeSpan.FromMinutes(totalDrivingMinutes):hh\\:mm}");
+        output.AppendLine($"Total setup time: {TimeSpan.FromMinutes(totalSetupMinutes):hh\\:mm}");
+        output.AppendLine($"Total time: {TimeSpan.FromMinutes(totalDrivingMinutes + totalSetupMinutes):hh\\:mm}");
 
         return output.ToString();
     }

@@ -9,6 +9,7 @@ public class Scheduler(SchedulerContext schedulerContext)
     {
         RegisterDistanceCallback();
         AddTimeDimension();
+        ApplyDriverCertificationConstraints();
         PreferToUseAllVehicles();
 
         // Solver parameters
@@ -21,6 +22,52 @@ public class Scheduler(SchedulerContext schedulerContext)
         var solution = schedulerContext.RoutingModel.SolveWithParameters(searchParameters);
 
         return ProcessSolution(solution);
+    }
+
+    private void ApplyDriverCertificationConstraints()
+    {
+        var orderToAllowedVehicles = GetOrderNodeToAllowedVehiclesMap();
+        foreach (var kvp in orderToAllowedVehicles)
+        {
+            int nodeIndex = kvp.Key; // This is the real-world node index (e.g., 1 for first order)
+            var allowedVehiclesIndices = kvp.Value;
+
+            // Convert real-world node index to internal OR-Tools routing index
+            var routingIndex = schedulerContext.RoutingIndexManager.NodeToIndex(nodeIndex);
+            schedulerContext.RoutingModel.SetAllowedVehiclesForIndex(allowedVehiclesIndices, routingIndex);
+        }
+    }
+
+    public Dictionary<int, int[]> GetOrderNodeToAllowedVehiclesMap()
+    {
+        var map = new Dictionary<int, int[]>();
+
+        for (int orderIdx = 0; orderIdx < schedulerContext.InputData.Orders.Count; orderIdx++)
+        {
+            var order = schedulerContext.InputData.Orders[orderIdx];
+            var requiredCerts = schedulerContext.InputData.Products
+                .Where(p => order.ProductIds.Contains(p.Id))
+                .Select(p => p.DeliveryRequirements.Certification)
+                .Distinct()
+                .ToHashSet();
+
+            var allowedVehicleIndices = new List<int>();
+
+            for (int vehicleIdx = 0; vehicleIdx < schedulerContext.VehicleDriverAssignments.Count; vehicleIdx++)
+            {
+                var driver = schedulerContext.VehicleDriverAssignments[vehicleIdx].Value;
+                var driverCerts = driver.Certifications.ToHashSet();
+
+                if (requiredCerts.All(rc => driverCerts.Contains(rc)))
+                {
+                    allowedVehicleIndices.Add(vehicleIdx);
+                }
+            }
+
+            map[orderIdx + 1] = allowedVehicleIndices.ToArray(); // +1 because node 0 is the depot
+        }
+
+        return map;
     }
 
     private Schedule ProcessSolution(Assignment? solution)
