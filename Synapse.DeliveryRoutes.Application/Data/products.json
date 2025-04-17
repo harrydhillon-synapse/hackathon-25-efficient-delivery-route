@@ -2,7 +2,6 @@
   {
     "Id": "CPAP_X500",
     "Name": "CPAP Machine X500",
-    "Category": "Respiratory",
     "Dimensions": {
       "Length": 20,
       "Width": 15,
@@ -17,6 +16,7 @@
         "Orientation": "UprightPositionPreferred",
         "StackingLimit": "ThreeUnits"
       },
+      "Certification": "Respiratory",
       "SetupAssistance": "Level2BasicTrainingRequired",
       "HistoricalSetupTimes": [ 15, 18, 20, 17, 16, 19, 21, 15, 16, 18, 20, 17, 19, 16, 15, 18, 20, 17, 16, 19, 21, 15, 16, 18, 20, 17, 19, 16, 15, 18 ]
     },
@@ -32,7 +32,6 @@
   {
     "Id": "OXYGEN_TANK_100",
     "Name": "Oxygen Tank 100L",
-    "Category": "Respiratory",
     "Dimensions": {
       "Length": 120,
       "Width": 30,
@@ -47,6 +46,7 @@
         "Orientation": "UprightPositionRequired",
         "StackingLimit": "OneUnit"
       },
+      "Certification": "Respiratory",
       "SetupAssistance": "Level2BasicTrainingRequired",
       "HistoricalSetupTimes": [ 25, 28, 30, 27, 26, 29, 31, 25, 26, 28, 30, 27, 29, 26, 25, 28, 30, 27, 26, 29, 31, 25, 26, 28, 30, 27, 29, 26, 25, 28 ]
     },
@@ -62,7 +62,6 @@
   {
     "Id": "WHEELCHAIR_ELITE",
     "Name": "Elite Wheelchair",
-    "Category": "Mobility",
     "Dimensions": {
       "Length": 100,
       "Width": 65,
@@ -77,6 +76,7 @@
         "Orientation": "UprightPosition",
         "StackingLimit": "TwoUnits"
       },
+      "Certification": "Mobility",
       "SetupAssistance": "Level1BasicAssemblyRequired",
       "HistoricalSetupTimes": [ 20, 23, 25, 22, 21, 24, 26, 20, 21, 23, 25, 22, 24, 21, 20, 23, 25, 22, 21, 24, 26, 20, 21, 23, 25, 22, 24, 21, 20, 23 ]
     },
@@ -92,7 +92,6 @@
   {
     "Id": "HOSPITAL_BED_DELUXE",
     "Name": "Deluxe Hospital Bed",
-    "Category": "Mobility",
     "Dimensions": {
       "Length": 210,
       "Width": 100,
@@ -107,6 +106,7 @@
         "Orientation": "AnyPosition",
         "StackingLimit": "NotStackable"
       },
+      "Certification": "Mobility",
       "SetupAssistance": "Level3ProfessionalInstallationRequired",
       "HistoricalSetupTimes": [ 45, 48, 50, 47, 46, 49, 51, 45, 46, 48, 50, 47, 49, 46, 45, 48, 50, 47, 46, 49, 51, 45, 46, 48, 50, 47, 49, 46, 45, 48 ]
     },
@@ -122,7 +122,6 @@
   {
     "Id": "NEBULIZER_PRO",
     "Name": "Professional Nebulizer",
-    "Category": "Respiratory",
     "Dimensions": {
       "Length": 25,
       "Width": 20,
@@ -137,6 +136,7 @@
         "Orientation": "UprightPositionPreferred",
         "StackingLimit": "FourUnits"
       },
+      "Certification": "Respiratory",
       "SetupAssistance": "Level1BasicAssemblyRequired",
       "HistoricalSetupTimes": [ 12, 15, 17, 14, 13, 16, 18, 12, 13, 15, 17, 14, 16, 13, 12, 15, 17, 14, 13, 16, 18, 12, 13, 15, 17, 14, 16, 13, 12, 15 ]
     },
@@ -152,7 +152,6 @@
   {
     "Id": "LIFT_CHAIR_PREMIUM",
     "Name": "Premium Lift Chair",
-    "Category": "Mobility",
     "Dimensions": {
       "Length": 90,
       "Width": 85,
@@ -167,6 +166,7 @@
         "Orientation": "AnyPosition",
         "StackingLimit": "NotStackable"
       },
+      "Certification": "Mobility",
       "SetupAssistance": "Level2BasicAssemblyRequired",
       "HistoricalSetupTimes": [ 35, 38, 40, 37, 36, 39, 41, 35, 36, 38, 40, 37, 39, 36, 35, 38, 40, 37, 36, 39, 41, 35, 36, 38, 40, 37, 39, 36, 35, 38 ]
     },
@@ -182,7 +182,6 @@
   {
     "Id": "WALKER_STANDARD",
     "Name": "Standard Walker",
-    "Category": "Mobility",
     "Dimensions": {
       "Length": 60,
       "Width": 50,
@@ -197,6 +196,7 @@
         "Orientation": "AnyPosition",
         "StackingLimit": "FiveUnits"
       },
+      "Certification": "Mobility",
       "SetupAssistance": "Level1BasicAssemblyRequired",
       "HistoricalSetupTimes": [ 8, 11, 13, 10, 9, 12, 14, 8, 9, 11, 13, 10, 12, 9, 8, 11, 13, 10, 9, 12, 14, 8, 9, 11, 13, 10, 12, 9, 8, 11 ]
     },
@@ -212,7 +212,6 @@
   {
     "Id": "BIPAP_MACHINE_200",
     "Name": "BiPAP Machine 200",
-    "Category": "Respiratory",
     "Dimensions": {
       "Length": 25,
       "Width": 20,
@@ -227,6 +226,7 @@
         "Orientation": "UprightPositionPreferred",
         "StackingLimit": "ThreeUnits"
       },
+      "Certification": "Respiratory",
       "SetupAssistance": "Level2BasicTrainingRequired",
       "HistoricalSetupTimes": [ 18, 21, 23, 20, 19, 22, 24, 18, 19, 21, 23, 20, 22, 19, 18, 21, 23, 20, 19, 22, 24, 18, 19, 21, 23, 20, 22, 19, 18, 21 ]
     },
@@ -242,7 +242,6 @@
   {
     "Id": "MOBILITY_SCOOTER",
     "Name": "Mobility Scooter",
-    "Category": "Mobility",
     "Dimensions": {
       "Length": 120,
       "Width": 60,
@@ -257,6 +256,7 @@
         "Orientation": "UprightPosition",
         "StackingLimit": "NotStackable"
       },
+      "Certification": "Mobility",
       "SetupAssistance": "Level2BasicAssemblyRequired",
       "HistoricalSetupTimes": [ 30, 33, 35, 32, 31, 34, 36, 30, 31, 33, 35, 32, 34, 31, 30, 33, 35, 32, 31, 34, 36, 30, 31, 33, 35, 32, 34, 31, 30, 33 ]
     },
@@ -272,7 +272,6 @@
   {
     "Id": "PATIENT_LIFT",
     "Name": "Patient Lift System",
-    "Category": "Mobility",
     "Dimensions": {
       "Length": 150,
       "Width": 80,
@@ -287,6 +286,7 @@
         "Orientation": "AnyPosition",
         "StackingLimit": "NotStackable"
       },
+      "Certification": "Mobility",
       "SetupAssistance": "Level3ProfessionalInstallationRequired",
       "HistoricalSetupTimes": [ 40, 43, 45, 42, 41, 44, 46, 40, 41, 43, 45, 42, 44, 41, 40, 43, 45, 42, 41, 44, 46, 40, 41, 43, 45, 42, 44, 41, 40, 43 ]
     },
