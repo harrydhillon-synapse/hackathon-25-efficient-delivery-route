@@ -1,4 +1,4 @@
-﻿namespace Synapse.DeliveryRoutes.Api.Models;
+﻿namespace Synapse.DeliveryRoutes.Application.ViewModels;
 
 public class RouteSummaryViewModel
 {

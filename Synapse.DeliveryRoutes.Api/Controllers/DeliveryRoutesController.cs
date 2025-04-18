@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Synapse.DeliveryRoutes.Api.Models;
 using Synapse.DeliveryRoutes.Application.Models;
 using Synapse.DeliveryRoutes.Application.Services;
 using System.Text.Json;
+using Synapse.DeliveryRoutes.Application.ViewModels;
 
 namespace Synapse.DeliveryRoutes.Api.Controllers;
 

@@ -1,6 +1,6 @@
 ﻿using Synapse.DeliveryRoutes.Application.Models;
 
-namespace Synapse.DeliveryRoutes.Api.Models;
+namespace Synapse.DeliveryRoutes.Application.ViewModels;
 
 public class OfficeViewModel
 {
