@@ -5,7 +5,7 @@ using Synapse.DeliveryRoutes.Application.Services;
 try
 {
     Console.WriteLine("Loading input data...");
-    var inputData = new SchedulingInputDataRepository().LoadAllData(DataSet.Original);
+    var inputData = new SchedulingInputDataRepository().LoadAllData(DataSet.ComplexDemo);
 
     Console.WriteLine("Solving schedule...");
     var result = new Scheduler(inputData).CreateSchedule();

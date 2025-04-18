@@ -1,12 +1,9 @@
 [
   {
     "Id": "DRV001",
-    "Name": "Sarah Martinez",
+    "Name": "John Anderson",
     "PhotoFileName": "driver1.png",
-    "Certifications": [
-      "Respiratory",
-      "Basic"
-    ],
+    "Certifications": [ "Respiratory", "Basic" ],
     "Schedule": [
       {
         "Date": "2025-04-21",
@@ -22,21 +19,25 @@
         "Date": "2025-04-23",
         "StartTime": "08:00",
         "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-24",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-25",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
       }
     ],
-    "AllowedVehicles": [
-      "Car"
-    ]
+    "AllowedVehicles": [ "Car" ]
   },
   {
     "Id": "DRV002",
-    "Name": "Michael Thompson",
+    "Name": "Sarah Martinez",
     "PhotoFileName": "driver2.png",
-    "Certifications": [
-      "Mobility",
-      "HospitalBeds",
-      "Basic"
-    ],
+    "Certifications": [ "Mobility", "HospitalBeds", "Basic" ],
     "Schedule": [
       {
         "Date": "2025-04-21",
@@ -51,12 +52,63 @@
       {
         "Date": "2025-04-23",
         "StartTime": "08:00",
+        "EndTime": "12:00"
+      },
+      {
+        "Date": "2025-04-24",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-25",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-26",
+        "StartTime": "08:00",
+        "EndTime": "12:00"
+      }
+    ],
+    "AllowedVehicles": [ "Truck", "Car" ]
+  },
+  {
+    "Id": "DRV003",
+    "Name": "Michael Thompson",
+    "PhotoFileName": "driver3.png",
+    "Certifications": [ "Respiratory", "Basic", "Complex", "Mobility", "HospitalBeds" ],
+    "Schedule": [
+      {
+        "Date": "2025-04-21",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-22",
+        "StartTime": "08:00",
+        "EndTime": "12:00"
+      },
+      {
+        "Date": "2025-04-23",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-24",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-25",
+        "StartTime": "08:00",
+        "EndTime": "12:00"
+      },
+      {
+        "Date": "2025-04-26",
+        "StartTime": "08:00",
         "EndTime": "17:00"
       }
     ],
-    "AllowedVehicles": [
-      "Truck",
-      "Car"
-    ]
+    "AllowedVehicles": [ "Truck", "Car" ]
   }
 ]

@@ -918,10 +918,10 @@ public class SchedulerTests
     }
 
     [Theory]
-    [InlineData(DataSet.Original, null)]
+    [InlineData(DataSet.Test, null)]
     //[InlineData(DataSet.Test, null)]
-    [InlineData(DataSet.DemoSimple, null)]
-    [InlineData(DataSet.DemoComplex, null)]
+    [InlineData(DataSet.SimpleDemo, null)]
+    [InlineData(DataSet.ComplexDemo, null)]
     public void CreateSchedule(DataSet dataSet, string deliverByDateString)
     {
         var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);

@@ -15,10 +15,9 @@ public class SchedulingInputDataRepositoryTests
     }
 
     [Theory]
-    [InlineData(DataSet.Original)]
     [InlineData(DataSet.Test)]
-    [InlineData(DataSet.DemoSimple)]
-    [InlineData(DataSet.DemoComplex)]
+    [InlineData(DataSet.SimpleDemo)]
+    [InlineData(DataSet.ComplexDemo)]
     public void LoadAllData(DataSet dataSet)
     {
         var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);

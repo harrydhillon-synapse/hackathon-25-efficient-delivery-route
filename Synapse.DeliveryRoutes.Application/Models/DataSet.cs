@@ -2,8 +2,7 @@
 
 public enum DataSet
 {
-    Original,
     Test,
-    DemoSimple,
-    DemoComplex
+    SimpleDemo,
+    ComplexDemo
 }

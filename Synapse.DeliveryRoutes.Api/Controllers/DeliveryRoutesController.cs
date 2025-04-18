@@ -20,7 +20,7 @@ public class DeliveryRoutesController : ControllerBase
     }
 
     [HttpPost("generate/{dataSet}")]
-    public string GenerateRoutes(DataSet dataSet)
+    public GenerateDeliveryRoutesResponse GenerateRoutes(DataSet dataSet)
     {
         var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);
         var result = new Scheduler(inputData).CreateSchedule();
@@ -33,7 +33,17 @@ public class DeliveryRoutesController : ControllerBase
         var json = JsonSerializer.Serialize(routes, new JsonSerializerOptions { WriteIndented = true });
         System.IO.File.WriteAllText(filePath, json);
 
-        return "OK";
+        var response = new GenerateDeliveryRoutesResponse
+        {
+            Result = result.Successful
+                ? GenerateDeliveryRoutesResult.Succeeded
+                : GenerateDeliveryRoutesResult.Failed,
+            RouteCount = result.Successful
+                ? routes.Length
+                : null
+        };
+
+        return response;
     }
 
     [HttpGet()]
