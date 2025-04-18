@@ -2,6 +2,7 @@
   {
     "Id": "DRV001",
     "Name": "Sarah Martinez",
+    "PhotoFileName": "driver1.png",
     "Certifications": [
       "Respiratory",
       "Basic"
@@ -30,6 +31,7 @@
   {
     "Id": "DRV002",
     "Name": "Michael Thompson",
+    "PhotoFileName": "driver2.png",
     "Certifications": [
       "Mobility",
       "HospitalBeds",

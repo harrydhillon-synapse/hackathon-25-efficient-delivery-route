@@ -2,6 +2,7 @@
   {
     "Id": "DRV001",
     "Name": "John Anderson",
+    "PhotoFileName": "driver1.png",
     "Certifications": [
       "Respiratory",
       "Mobility",
