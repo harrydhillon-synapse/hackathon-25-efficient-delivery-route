@@ -366,3 +366,4 @@ FodyWeavers.xsd
 
 # Logs from Seq running locally
 .logs/
+Synapse.DeliveryRoutes.Api/App_Data/Routes/result.json
