@@ -5,10 +5,7 @@
     "PhotoFileName": "driver1.png",
     "Certifications": [
       "Respiratory",
-      "Basic",
-      "Complex",
-      "Mobility",
-      "HospitalBeds"
+      "Mobility"
     ],
     "Schedule": [
       {
@@ -38,10 +35,7 @@
     "PhotoFileName": "driver2.png",
     "Certifications": [
       "Respiratory",
-      "Basic",
-      "Complex",
-      "Mobility",
-      "HospitalBeds"
+      "Mobility"
     ],
     "Schedule": [
       {
@@ -71,10 +65,7 @@
     "PhotoFileName": "driver3.png",
     "Certifications": [
       "Respiratory",
-      "Basic",
-      "Complex",
-      "Mobility",
-      "HospitalBeds"
+      "Mobility"
     ],
     "Schedule": [
       {
@@ -104,10 +95,7 @@
     "PhotoFileName": "driver4.png",
     "Certifications": [
       "Respiratory",
-      "Basic",
-      "Complex",
-      "Mobility",
-      "HospitalBeds"
+      "Mobility"
     ],
     "Schedule": [
       {
@@ -137,10 +125,7 @@
     "PhotoFileName": "driver5.png",
     "Certifications": [
       "Respiratory",
-      "Basic",
-      "Complex",
-      "Mobility",
-      "HospitalBeds"
+      "Mobility"
     ],
     "Schedule": [
       {
@@ -170,10 +155,7 @@
     "PhotoFileName": "driver6.png",
     "Certifications": [
       "Respiratory",
-      "Basic",
-      "Complex",
-      "Mobility",
-      "HospitalBeds"
+      "Mobility"
     ],
     "Schedule": [
       {

@@ -1,10 +1,10 @@
 [
   {
     "Id": "VHC001",
-    "Type": "Truck",
-    "Make": "Ford",
-    "Model": "Transit Connect",
-    "Year": 2023,
+    "Type": "Car",
+    "Make": "Toyota",
+    "Model": "Camry",
+    "Year": 2021,
     "Capacity": "Medium",
     "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment" ]
   },
@@ -13,7 +13,7 @@
     "Type": "Truck",
     "Make": "Mercedes-Benz",
     "Model": "Sprinter",
-    "Year": 2023,
+    "Year": 2021,
     "Capacity": "Large",
     "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment", "LiftGate" ]
   },
@@ -22,16 +22,16 @@
     "Type": "Truck",
     "Make": "Chevrolet",
     "Model": "Express Cargo",
-    "Year": 2023,
+    "Year": 2021,
     "Capacity": "Medium",
     "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment" ]
   },
   {
     "Id": "VHC004",
-    "Type": "Truck",
-    "Make": "Ford",
-    "Model": "Transit Connect",
-    "Year": 2023,
+    "Type": "Car",
+    "Make": "Toyota",
+    "Model": "Camry",
+    "Year": 2025,
     "Capacity": "Medium",
     "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment" ]
   },
@@ -40,7 +40,7 @@
     "Type": "Truck",
     "Make": "Mercedes-Benz",
     "Model": "Sprinter",
-    "Year": 2023,
+    "Year": 2025,
     "Capacity": "Large",
     "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment", "LiftGate" ]
   },
@@ -49,7 +49,7 @@
     "Type": "Truck",
     "Make": "Chevrolet",
     "Model": "Express Cargo",
-    "Year": 2023,
+    "Year": 2025,
     "Capacity": "Medium",
     "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment" ]
   }
