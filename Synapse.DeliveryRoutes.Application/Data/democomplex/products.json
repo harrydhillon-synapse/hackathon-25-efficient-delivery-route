@@ -2,6 +2,7 @@
   {
     "Id": "CPAP_X500",
     "Name": "CPAP Machine X500",
+    "PhotoFileName": "product1.png",
     "Dimensions": {
       "Length": 20,
       "Width": 15,
@@ -67,6 +68,7 @@
   {
     "Id": "OXYGEN_TANK_100",
     "Name": "Oxygen Tank 100L",
+    "PhotoFileName": "product2.png",
     "Dimensions": {
       "Length": 120,
       "Width": 30,
@@ -132,6 +134,7 @@
   {
     "Id": "WHEELCHAIR_ELITE",
     "Name": "Elite Wheelchair",
+    "PhotoFileName": "product3.png",
     "Dimensions": {
       "Length": 100,
       "Width": 65,
@@ -196,6 +199,7 @@
   {
     "Id": "HOSPITAL_BED_DELUXE",
     "Name": "Deluxe Hospital Bed",
+    "PhotoFileName": "product4.png",
     "Dimensions": {
       "Length": 210,
       "Width": 100,
@@ -260,6 +264,7 @@
   {
     "Id": "NEBULIZER_PRO",
     "Name": "Professional Nebulizer",
+    "PhotoFileName": "product5.png",
     "Dimensions": {
       "Length": 25,
       "Width": 20,
@@ -325,6 +330,7 @@
   {
     "Id": "LIFT_CHAIR_PREMIUM",
     "Name": "Premium Lift Chair",
+    "PhotoFileName": "product6.png",
     "Dimensions": {
       "Length": 90,
       "Width": 85,
@@ -389,6 +395,7 @@
   {
     "Id": "WALKER_STANDARD",
     "Name": "Standard Walker",
+    "PhotoFileName": "product7.png",
     "Dimensions": {
       "Length": 60,
       "Width": 50,
@@ -454,6 +461,7 @@
   {
     "Id": "BIPAP_MACHINE_200",
     "Name": "BiPAP Machine 200",
+    "PhotoFileName": "product8.png",
     "Dimensions": {
       "Length": 25,
       "Width": 20,
@@ -519,6 +527,7 @@
   {
     "Id": "MOBILITY_SCOOTER",
     "Name": "Mobility Scooter",
+    "PhotoFileName": "product9.png",
     "Dimensions": {
       "Length": 120,
       "Width": 60,
@@ -583,6 +592,7 @@
   {
     "Id": "PATIENT_LIFT",
     "Name": "Patient Lift System",
+    "PhotoFileName": "product10.png",
     "Dimensions": {
       "Length": 150,
       "Width": 80,

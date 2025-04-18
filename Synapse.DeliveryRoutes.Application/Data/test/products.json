@@ -2,6 +2,7 @@
   {
     "Id": "CPAP_X500",
     "Name": "CPAP Machine X500",
+    "PhotoFileName": "product1.png",
     "Dimensions": {
       "Length": 20,
       "Width": 15,
@@ -67,6 +68,7 @@
   {
     "Id": "OXYGEN_TANK_100",
     "Name": "Oxygen Tank 100L",
+    "PhotoFileName": "product2.png",
     "Dimensions": {
       "Length": 120,
       "Width": 30,
@@ -132,6 +134,7 @@
   {
     "Id": "WHEELCHAIR_ELITE",
     "Name": "Elite Wheelchair",
+    "PhotoFileName": "product3.png",
     "Dimensions": {
       "Length": 100,
       "Width": 65,
@@ -196,6 +199,7 @@
   {
     "Id": "HOSPITAL_BED_DELUXE",
     "Name": "Deluxe Hospital Bed",
+    "PhotoFileName": "product4.png",
     "Dimensions": {
       "Length": 210,
       "Width": 100,
