@@ -17,6 +17,7 @@ public class Scheduler(SchedulerContext schedulerContext)
         searchParameters.FirstSolutionStrategy = FirstSolutionStrategy.Types.Value.PathCheapestArc;
         searchParameters.LocalSearchMetaheuristic = LocalSearchMetaheuristic.Types.Value.GuidedLocalSearch;
         searchParameters.TimeLimit = new Google.Protobuf.WellKnownTypes.Duration { Seconds = Settings.TimeLimitInSeconds };
+        searchParameters.LogSearch = true;
 
         // Solve
         var solution = schedulerContext.RoutingModel.SolveWithParameters(searchParameters);
@@ -166,6 +167,7 @@ public class Scheduler(SchedulerContext schedulerContext)
                     .ToArray();
                 var setupMinutes = Utilities.EstimateSetupTime(products.ToArray());
                 minutesRequired += Convert.ToDouble(setupMinutes);
+                minutesRequired += Settings.BreakTimeBetweenAppointments;
             }
 
             return Convert.ToInt32(minutesRequired);

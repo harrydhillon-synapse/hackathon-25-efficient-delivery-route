@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35818.85 d17.13
+VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.DeliveryRoutes.Application", "Synapse.DeliveryRoutes.Application\Synapse.DeliveryRoutes.Application.csproj", "{14557A43-4F0B-4617-86BE-B303E994416E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.DeliveryRoutes.Tests", "Synapse.DeliveryRoutes.Tests\Synapse.DeliveryRoutes.Tests.csproj", "{8F7DB048-0055-4EE1-B32B-D79FF5768CFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.DeliveryRoutes.RouteScheduler", "Synapse.DeliveryRoutes.RouteScheduler\Synapse.DeliveryRoutes.RouteScheduler.csproj", "{2D6516C6-2ED6-43AE-83B2-597F554B84FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8F7DB048-0055-4EE1-B32B-D79FF5768CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F7DB048-0055-4EE1-B32B-D79FF5768CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F7DB048-0055-4EE1-B32B-D79FF5768CFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D6516C6-2ED6-43AE-83B2-597F554B84FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6516C6-2ED6-43AE-83B2-597F554B84FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6516C6-2ED6-43AE-83B2-597F554B84FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6516C6-2ED6-43AE-83B2-597F554B84FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

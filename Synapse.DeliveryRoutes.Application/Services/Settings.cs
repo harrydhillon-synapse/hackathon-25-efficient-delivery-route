@@ -13,4 +13,5 @@ public static class Settings
     public const int MorningEndMinute = 239;
     public const int AfternoonStartMinute = 240;
     public const int AfternoonEndMinute = 480;
+    public const int BreakTimeBetweenAppointments = 15;
 }
