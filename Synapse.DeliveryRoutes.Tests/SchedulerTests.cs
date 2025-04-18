@@ -788,6 +788,98 @@ public class SchedulerTests
 
                 Add("Case 10 - Extra vehicles and drivers", input, expected);
             }
+
+            // Case 11: Single driver, car & truck eligible, must choose truck
+            {
+                var car = new Vehicle { Id = "Car1", Type = VehicleType.Car, Make = "A", Model = "B", Year = 2020, Capacity = new VehicleCapacity() };
+                var truck = new Vehicle { Id = "Truck1", Type = VehicleType.Truck, Make = "X", Model = "Y", Year = 2021, Capacity = new VehicleCapacity() };
+
+                var driver = new Driver
+                {
+                    Id = "D1",
+                    Name = "Driver1",
+                    Certifications = [CertificationType.HospitalBeds],
+                    AllowedVehicles = [VehicleType.Car, VehicleType.Truck]
+                };
+
+                var product1 = new Product
+                {
+                    Id = "P1",
+                    Name = "Hospital Bed",
+                    Dimensions = new Dimensions(),
+                    DeliveryRequirements = new DeliveryRequirements
+                    {
+                        Certification = CertificationType.HospitalBeds,
+                        PackagingType = PackagingType.OriginalManufacturerBox,
+                        SetupAssistance = SetupAssistanceLevel.Level1BasicAssemblyRequired,
+                        TransportRequirements = new TransportRequirements
+                        {
+                            VehicleTypes = [VehicleType.Truck], // Must be truck
+                            Orientation = Orientation.AnyPosition,
+                            StackingLimit = StackingLimit.FiveUnits,
+                            TemperatureControlled = false
+                        },
+                        SpecialHandling = "None"
+                    }
+                };
+
+                var product2 = new Product
+                {
+                    Id = "P2",
+                    Name = "CPAP",
+                    Dimensions = new Dimensions(),
+                    DeliveryRequirements = new DeliveryRequirements
+                    {
+                        Certification = CertificationType.HospitalBeds,
+                        PackagingType = PackagingType.OriginalManufacturerBox,
+                        SetupAssistance = SetupAssistanceLevel.Level1BasicAssemblyRequired,
+                        TransportRequirements = new TransportRequirements
+                        {
+                            VehicleTypes = [VehicleType.Car, VehicleType.Truck], // Must be truck
+                            Orientation = Orientation.AnyPosition,
+                            StackingLimit = StackingLimit.FiveUnits,
+                            TemperatureControlled = false
+                        },
+                        SpecialHandling = "None"
+                    }
+                };
+
+                var order = new Order
+                {
+                    Id = "O1",
+                    PatientName = "Test",
+                    PatientPhone = "123",
+                    Address = "123 Main St",
+                    Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
+                    AvailableTimes = [],
+                    ProductIds = ["P1", "P2"],
+                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    Priority = OrderPriority.Medium
+                };
+
+                var input = new SchedulingInputData
+                {
+                    Office = new Office
+                    {
+                        Id = "",
+                        Name = "",
+                        Address = "",
+                        Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
+                        Contact = new OfficeContactInfo { Phone = "", Email = "", Hours = "" }
+                    },
+                    Drivers = [driver],
+                    Vehicles = [car, truck],
+                    Products = [product1, product2],
+                    Orders = [order]
+                };
+
+                var expected = new List<KeyValuePair<Vehicle, Driver>>
+                {
+                    new(truck, driver)
+                };
+
+                Add("Case 11 - Driver must use truck, not car", input, expected);
+            }
         }
     }
 
