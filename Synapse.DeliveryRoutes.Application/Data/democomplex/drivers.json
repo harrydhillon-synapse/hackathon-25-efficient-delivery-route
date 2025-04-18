@@ -2,6 +2,7 @@
   {
     "Id": "DRV001",
     "Name": "Sarah Martinez",
+    "PhotoFileName": "driver1.png",
     "Certifications": [
       "Respiratory",
       "Basic"
@@ -30,6 +31,7 @@
   {
     "Id": "DRV002",
     "Name": "Michael Thompson",
+    "PhotoFileName": "driver2.png",
     "Certifications": [
       "Mobility",
       "HospitalBeds",
@@ -60,6 +62,7 @@
   {
     "Id": "DRV003",
     "Name": "Emily Johnson",
+    "PhotoFileName": "driver3.png",
     "Certifications": [
       "Respiratory",
       "Basic",
@@ -92,6 +95,7 @@
   {
     "Id": "DRV004",
     "Name": "David Wilson",
+    "PhotoFileName": "driver4.png",
     "Certifications": [
       "Mobility",
       "Basic"
@@ -120,6 +124,7 @@
   {
     "Id": "DRV005",
     "Name": "Lisa Brown",
+    "PhotoFileName": "driver5.png",
     "Certifications": [
       "Respiratory",
       "Mobility",
@@ -149,6 +154,7 @@
   {
     "Id": "DRV006",
     "Name": "Robert Taylor",
+    "PhotoFileName": "driver6.png",
     "Certifications": [
       "Respiratory",
       "Mobility",

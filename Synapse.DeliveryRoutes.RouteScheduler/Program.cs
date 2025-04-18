@@ -1,4 +1,5 @@
-﻿using Synapse.DeliveryRoutes.Application.Models;
+﻿using System.Text.Json;
+using Synapse.DeliveryRoutes.Application.Models;
 using Synapse.DeliveryRoutes.Application.Services;
 
 try
@@ -6,11 +7,8 @@ try
     Console.WriteLine("Loading input data...");
     var inputData = new SchedulingInputDataRepository().LoadAllData(DataSet.Original);
 
-    Console.WriteLine("Creating scheduler context...");
-    var context = new SchedulerContext(inputData);
-
     Console.WriteLine("Solving schedule...");
-    var result = new Scheduler(context).CreateSchedule();
+    var result = new Scheduler(inputData).CreateSchedule();
 
     if (!result.Successful)
     {
@@ -20,6 +18,12 @@ try
     {
         Console.WriteLine("Schedule solved successfully.\n");
         Console.WriteLine(Utilities.ToString(result, inputData.Products.ToArray()));
+
+        var deliveryRoutes = Utilities.ConvertToDeliveryRoutes(result, inputData);
+        Console.WriteLine(JsonSerializer.Serialize(deliveryRoutes, new JsonSerializerOptions
+        {
+            WriteIndented = true
+        }));
     }
 }
 catch (Exception ex)
