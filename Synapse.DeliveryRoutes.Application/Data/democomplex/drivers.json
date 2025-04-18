@@ -5,7 +5,10 @@
     "PhotoFileName": "driver1.png",
     "Certifications": [
       "Respiratory",
-      "Basic"
+      "Basic",
+      "Complex",
+      "Mobility",
+      "HospitalBeds"
     ],
     "Schedule": [
       {
@@ -25,6 +28,7 @@
       }
     ],
     "AllowedVehicles": [
+      "Truck",
       "Car"
     ]
   },
@@ -33,9 +37,11 @@
     "Name": "Michael Thompson",
     "PhotoFileName": "driver2.png",
     "Certifications": [
+      "Respiratory",
+      "Basic",
+      "Complex",
       "Mobility",
-      "HospitalBeds",
-      "Basic"
+      "HospitalBeds"
     ],
     "Schedule": [
       {
@@ -97,8 +103,11 @@
     "Name": "David Wilson",
     "PhotoFileName": "driver4.png",
     "Certifications": [
+      "Respiratory",
+      "Basic",
+      "Complex",
       "Mobility",
-      "Basic"
+      "HospitalBeds"
     ],
     "Schedule": [
       {
@@ -118,7 +127,8 @@
       }
     ],
     "AllowedVehicles": [
-      "Truck"
+      "Truck",
+      "Car"
     ]
   },
   {
@@ -127,8 +137,10 @@
     "PhotoFileName": "driver5.png",
     "Certifications": [
       "Respiratory",
+      "Basic",
+      "Complex",
       "Mobility",
-      "Basic"
+      "HospitalBeds"
     ],
     "Schedule": [
       {
@@ -148,6 +160,7 @@
       }
     ],
     "AllowedVehicles": [
+      "Truck",
       "Car"
     ]
   },
@@ -157,9 +170,10 @@
     "PhotoFileName": "driver6.png",
     "Certifications": [
       "Respiratory",
+      "Basic",
+      "Complex",
       "Mobility",
-      "HospitalBeds",
-      "Basic"
+      "HospitalBeds"
     ],
     "Schedule": [
       {
