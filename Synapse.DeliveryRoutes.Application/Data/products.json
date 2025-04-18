@@ -14,7 +14,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPositionPreferred",
-        "StackingLimit": "ThreeUnits"
+        "StackingLimit": "ThreeUnits",
+        "VehicleTypes": [ "Car", "Truck" ]
       },
       "Certification": "Respiratory",
       "SetupAssistance": "Level2BasicTrainingRequired",
@@ -44,7 +45,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPositionRequired",
-        "StackingLimit": "OneUnit"
+        "StackingLimit": "OneUnit",
+        "VehicleTypes": [ "Car", "Truck" ]
       },
       "Certification": "Respiratory",
       "SetupAssistance": "Level2BasicTrainingRequired",
@@ -74,7 +76,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPosition",
-        "StackingLimit": "TwoUnits"
+        "StackingLimit": "TwoUnits",
+        "VehicleTypes": [ "Truck" ]
       },
       "Certification": "Mobility",
       "SetupAssistance": "Level1BasicAssemblyRequired",
@@ -104,7 +107,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "AnyPosition",
-        "StackingLimit": "NotStackable"
+        "StackingLimit": "NotStackable",
+        "VehicleTypes": [ "Truck" ]
       },
       "Certification": "Mobility",
       "SetupAssistance": "Level3ProfessionalInstallationRequired",
@@ -134,7 +138,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPositionPreferred",
-        "StackingLimit": "FourUnits"
+        "StackingLimit": "FourUnits",
+        "VehicleTypes": [ "Car", "Truck" ]
       },
       "Certification": "Respiratory",
       "SetupAssistance": "Level1BasicAssemblyRequired",
@@ -164,7 +169,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "AnyPosition",
-        "StackingLimit": "NotStackable"
+        "StackingLimit": "NotStackable",
+        "VehicleTypes": [ "Truck" ]
       },
       "Certification": "Mobility",
       "SetupAssistance": "Level2BasicAssemblyRequired",
@@ -194,7 +200,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "AnyPosition",
-        "StackingLimit": "FiveUnits"
+        "StackingLimit": "FiveUnits",
+        "VehicleTypes": [ "Car", "Truck" ]
       },
       "Certification": "Mobility",
       "SetupAssistance": "Level1BasicAssemblyRequired",
@@ -224,7 +231,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPositionPreferred",
-        "StackingLimit": "ThreeUnits"
+        "StackingLimit": "ThreeUnits",
+        "VehicleTypes": [ "Car", "Truck" ]
       },
       "Certification": "Respiratory",
       "SetupAssistance": "Level2BasicTrainingRequired",
@@ -254,7 +262,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "UprightPosition",
-        "StackingLimit": "NotStackable"
+        "StackingLimit": "NotStackable",
+        "VehicleTypes": [ "Truck" ]
       },
       "Certification": "Mobility",
       "SetupAssistance": "Level2BasicAssemblyRequired",
@@ -284,7 +293,8 @@
       "TransportRequirements": {
         "TemperatureControlled": false,
         "Orientation": "AnyPosition",
-        "StackingLimit": "NotStackable"
+        "StackingLimit": "NotStackable",
+        "VehicleTypes": [ "Truck" ]
       },
       "Certification": "Mobility",
       "SetupAssistance": "Level3ProfessionalInstallationRequired",

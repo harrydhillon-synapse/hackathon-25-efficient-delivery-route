@@ -45,7 +45,7 @@ public static class Utilities
             if (times.Count > 0)
             {
                 List<int> filteredTimes;
-                if (times.Count >= ScheduleSolverSettings.MinimumHistoricalSetupTimesToApplyStandardDeviation)
+                if (times.Count >= Settings.MinimumHistoricalSetupTimesToApplyStandardDeviation)
                 {
                     double mean = times.Average();
                     double stdDev = Math.Sqrt(times.Average(v => Math.Pow(v - mean, 2)));
@@ -59,13 +59,13 @@ public static class Utilities
                 if (filteredTimes.Count > 0)
                 {
                     double average = filteredTimes.Average();
-                    double stdDevBuffer = Math.Sqrt(filteredTimes.Average(v => Math.Pow(v - average, 2))) * ScheduleSolverSettings.HistoricalSetupTimesStandardDeviationTunableMultiple;
+                    double stdDevBuffer = Math.Sqrt(filteredTimes.Average(v => Math.Pow(v - average, 2))) * Settings.HistoricalSetupTimesStandardDeviationTunableMultiple;
                     totalSetupTime += Convert.ToInt32(Math.Round(average + stdDevBuffer));
                 }
             }
         }
 
-        return Math.Max(ScheduleSolverSettings.MinimumDeliveryTimeMinutes, totalSetupTime);
+        return Math.Max(Settings.MinimumDeliveryTimeMinutes, totalSetupTime);
     }
 
     public static string ToString(Schedule schedule, Product[] allProducts)
@@ -113,7 +113,7 @@ public static class Utilities
                 fromLocation.Latitude, fromLocation.Longitude,
                 toLocation.Latitude, toLocation.Longitude);
 
-            double minutesRequired = distanceKm * (60.0 / ScheduleSolverSettings.DrivingSpeedKmPerHour);
+            double minutesRequired = distanceKm * (60.0 / Settings.DrivingSpeedKmPerHour);
             int drivingMinutes = Convert.ToInt32(minutesRequired);
             totalDrivingMinutes += drivingMinutes;
 
@@ -128,6 +128,11 @@ public static class Utilities
                       .AppendLine($"        {order.Address}")
                       .AppendLine($"        → Drive {distanceKm:F1} km in approx {drivingMinutes} min")
                       .AppendLine($"        → Setup {order.ProductIds.Count} items in approx {setupTime} min");
+
+                foreach (var product in productsInOrder)
+                {
+                    output.AppendLine($"            - {product.Name}");
+                }
             }
             else
             {

@@ -38,7 +38,7 @@ public class DistanceMatrix
                     locations[j].Longitude);
 
                 // Convert to integer by scaling
-                _matrix[i, j] = distance * ScheduleSolverSettings.ScaleFactor;
+                _matrix[i, j] = distance * Settings.ScaleFactor;
             }
         }
 
