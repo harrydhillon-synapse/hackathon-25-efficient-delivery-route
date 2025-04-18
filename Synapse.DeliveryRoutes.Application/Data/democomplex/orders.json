@@ -14,7 +14,7 @@
     ],
     "ProductIds": [
       "OXYGEN_TANK_100",
-      "HOSPITAL_BED_DELUXE"
+      "CPAP_X500"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "Medium",
@@ -38,8 +38,6 @@
     ],
     "ProductIds": [
       "PATIENT_LIFT",
-      "WALKER_STANDARD",
-      "NEBULIZER_PRO",
       "CPAP_X500"
     ],
     "DeliveryDeadline": "2025-04-21",
@@ -63,7 +61,6 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "PATIENT_LIFT",
       "CPAP_X500"
     ],
     "DeliveryDeadline": "2025-04-21",
@@ -112,9 +109,7 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "OXYGEN_TANK_100",
-      "HOSPITAL_BED_DELUXE",
-      "BIPAP_MACHINE_200"
+      "HOSPITAL_BED_DELUXE"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "High",
@@ -183,7 +178,6 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "HOSPITAL_BED_DELUXE",
       "WHEELCHAIR_ELITE",
       "NEBULIZER_PRO"
     ],
@@ -208,7 +202,7 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "WHEELCHAIR_ELITE"
+      "CPAP_X500"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "Medium",
@@ -231,7 +225,7 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "MOBILITY_SCOOTER"
+      "OXYGEN_TANK_100"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "Medium",
@@ -254,8 +248,8 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "WALKER_STANDARD",
-      "LIFT_CHAIR_PREMIUM"
+      "CPAP_X500",
+      "OXYGEN_TANK_100"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "Medium",
@@ -278,10 +272,7 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "NEBULIZER_PRO",
-      "HOSPITAL_BED_DELUXE",
-      "LIFT_CHAIR_PREMIUM",
-      "PATIENT_LIFT"
+      "CPAP_X500"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "High",
@@ -304,10 +295,7 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "CPAP_X500",
-      "WALKER_STANDARD",
-      "HOSPITAL_BED_DELUXE",
-      "WHEELCHAIR_ELITE"
+      "OXYGEN_TANK_100"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "High",
@@ -330,7 +318,6 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "WHEELCHAIR_ELITE",
       "WALKER_STANDARD"
     ],
     "DeliveryDeadline": "2025-04-21",
@@ -354,9 +341,7 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "HOSPITAL_BED_DELUXE",
-      "CPAP_X500",
-      "LIFT_CHAIR_PREMIUM"
+      "CPAP_X500"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "High",
@@ -379,10 +364,7 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "PATIENT_LIFT",
-      "OXYGEN_TANK_100",
-      "BIPAP_MACHINE_200",
-      "MOBILITY_SCOOTER"
+      "OXYGEN_TANK_100"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "Low",
@@ -405,8 +387,8 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "HOSPITAL_BED_DELUXE",
-      "PATIENT_LIFT"
+      "CPAP_X500",
+      "OXYGEN_TANK_100"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "Low",
@@ -429,9 +411,8 @@
       "Afternoon"
     ],
     "ProductIds": [
-      "WHEELCHAIR_ELITE",
-      "WALKER_STANDARD",
-      "CPAP_X500"
+      "CPAP_X500",
+      "OXYGEN_TANK_100"
     ],
     "DeliveryDeadline": "2025-04-21",
     "Priority": "Low",

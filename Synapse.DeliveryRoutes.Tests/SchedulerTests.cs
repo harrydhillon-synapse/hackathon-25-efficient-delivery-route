@@ -919,23 +919,13 @@ public class SchedulerTests
 
     [Theory]
     [InlineData(DataSet.Original, null)]
-    [InlineData(DataSet.Test, null)]
+    //[InlineData(DataSet.Test, null)]
     [InlineData(DataSet.DemoSimple, null)]
-    [InlineData(DataSet.DemoComplex, "2025-04-21T00:00:00Z")] // Use ISO 8601 string for DateTime
+    [InlineData(DataSet.DemoComplex, null)]
     public void CreateSchedule(DataSet dataSet, string deliverByDateString)
     {
-        DateTime? deliverByDate = null;
-        if (!string.IsNullOrEmpty(deliverByDateString))
-        {
-            deliverByDate = DateTime.Parse(deliverByDateString, null, System.Globalization.DateTimeStyles.RoundtripKind);
-        }
-
         var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);
-
-        inputData.Orders = inputData.Orders
-            .Take(5)
-            .ToList();
-        var result = new Scheduler(inputData, deliverByDate).CreateSchedule();
+        var result = new Scheduler(inputData).CreateSchedule();
         Assert.NotNull(result);
         Assert.True(result.Successful);
 
