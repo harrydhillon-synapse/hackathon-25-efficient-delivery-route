@@ -19,34 +19,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\democomplex\drivers.json">
+    <None Update="Data\complexdemo\drivers.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\democomplex\office.json">
+    <None Update="Data\complexdemo\office.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\democomplex\orders.json">
+    <None Update="Data\complexdemo\orders.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\democomplex\products.json">
+    <None Update="Data\complexdemo\products.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\democomplex\vehicles.json">
+    <None Update="Data\complexdemo\vehicles.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\demosimple\drivers.json">
+    <None Update="Data\simpledemo\drivers.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\demosimple\office.json">
+    <None Update="Data\simpledemo\office.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\demosimple\orders.json">
+    <None Update="Data\simpledemo\orders.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\demosimple\products.json">
+    <None Update="Data\simpledemo\products.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\demosimple\vehicles.json">
+    <None Update="Data\simpledemo\vehicles.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Data\test\drivers.json">
