@@ -443,4 +443,75 @@ public static class Utilities
 
         return routes.ToArray();
     }
+    
+    public static List<KeyValuePair<Vehicle, Driver>> CalculateDriverVehicleAssignments(
+    List<DriverAssignmentDto> drivers,
+    List<VehicleAssignmentDto> vehicles,
+    List<OrderAssignmentDto> orders)
+    {
+        // Final list of assignments (Vehicle -> Driver)
+        var assignments = new List<KeyValuePair<Vehicle, Driver>>();
+
+        // Track assigned drivers and vehicles
+        var assignedDriverIds = new HashSet<string>();
+        var assignedVehicleIds = new HashSet<string>();
+
+        // Build a lookup for orders by ID for fast reference
+        var orderById = orders.ToDictionary(o => o.Order.Id);
+
+        // Step 1: Build compatibility map of (driverId, vehicleId) -> list of compatible orders
+        var compatibilityMap = new Dictionary<(string driverId, string vehicleId), List<Order>>();
+
+        foreach (var driverDto in drivers)
+        {
+            foreach (var vehicle in driverDto.AllowedVehicles)
+            {
+                // Only consider this vehicle if it's known in the VehicleAssignmentDtos
+                var vehicleDto = vehicles.FirstOrDefault(v => v.Vehicle.Id == vehicle.Id);
+                if (vehicleDto == null)
+                    continue;
+
+                var compatibleOrders = new List<Order>();
+
+                foreach (var order in driverDto.CertifiedForOrders)
+                {
+                    if (!orderById.TryGetValue(order.Id, out var orderDto))
+                        continue;
+
+                    // Check if vehicle is also compatible with the order
+                    bool vehicleCompatible = orderDto.CompatibleVehicles.Any(v => v.Id == vehicle.Id);
+                    if (vehicleCompatible)
+                    {
+                        compatibleOrders.Add(order);
+                    }
+                }
+
+                if (compatibleOrders.Count > 0)
+                {
+                    compatibilityMap[(driverDto.Driver.Id, vehicle.Id)] = compatibleOrders;
+                }
+            }
+        }
+
+        // Step 2: Greedily assign driver-vehicle pairs to cover orders
+        // We sort the compatibilityMap by the number of orders each pair can handle
+        foreach (var pair in compatibilityMap
+            .OrderByDescending(kvp => kvp.Value.Count))
+        {
+            var (driverId, vehicleId) = pair.Key;
+            if (assignedDriverIds.Contains(driverId) || assignedVehicleIds.Contains(vehicleId))
+                continue;
+
+            var driver = drivers.First(d => d.Driver.Id == driverId).Driver;
+            var vehicle = vehicles.First(v => v.Vehicle.Id == vehicleId).Vehicle;
+
+            // Assign the pair
+            assignments.Add(new KeyValuePair<Vehicle, Driver>(vehicle, driver));
+            assignedDriverIds.Add(driverId);
+            assignedVehicleIds.Add(vehicleId);
+        }
+
+        return assignments;
+    }
+
 }
