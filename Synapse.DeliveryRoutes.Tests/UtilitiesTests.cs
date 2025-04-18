@@ -75,6 +75,33 @@ public class UtilitiesTests
         }
     }
 
+    [Theory]
+    [ClassData(typeof(BuildDriverAssignmentDtosTheoryData))]
+    public void BuildDriverAssignmentDtos_ReturnsExpectedResults(
+        string caseName,
+        SchedulingInputData inputData,
+        List<DriverAssignmentDto> expectedDtos)
+    {
+        _output.WriteLine($"Running test case: {caseName}");
+
+        var result = Utilities.BuildDriverAssignmentDtos(inputData);
+
+        Assert.Equal(expectedDtos.Count, result.Count);
+
+        foreach (var expected in expectedDtos)
+        {
+            var actual = result.SingleOrDefault(r => r.Driver.Id == expected.Driver.Id);
+            Assert.NotNull(actual);
+
+            Assert.Equal(
+                expected.AllowedVehicles.Select(v => v.Id).OrderBy(x => x),
+                actual.AllowedVehicles.Select(v => v.Id).OrderBy(x => x));
+
+            Assert.Equal(
+                expected.CertifiedForOrders.Select(o => o.Id).OrderBy(x => x),
+                actual.CertifiedForOrders.Select(o => o.Id).OrderBy(x => x));
+        }
+    }
     public class BuildOrderAssignmentDtosTheoryData
         : TheoryData<string, SchedulingInputData, List<OrderAssignmentDto>>
     {
@@ -686,5 +713,259 @@ public class UtilitiesTests
             }
         }
     }
+
+    public class BuildDriverAssignmentDtosTheoryData
+    : TheoryData<string, SchedulingInputData, List<DriverAssignmentDto>>
+    {
+        public BuildDriverAssignmentDtosTheoryData()
+        {
+            // Case 1: Basic Match
+            {
+                var product = TestData.Product("P1", CertificationType.Basic, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1"]);
+                var driver = TestData.Driver("D1", [CertificationType.Basic], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product], [driver], [vehicle]);
+
+                Add("Case 1 - Basic Match", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order]
+                }
+                ]);
+            }
+
+            // Case 2: No Certified Orders
+            {
+                var product = TestData.Product("P1", CertificationType.HospitalBeds, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1"]);
+                var driver = TestData.Driver("D1", [CertificationType.Basic], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product], [driver], [vehicle]);
+
+                Add("Case 2 - No Certified Orders", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = []
+                }
+                ]);
+            }
+
+            // Case 3: No Allowed Vehicles
+            {
+                var product = TestData.Product("P1", CertificationType.Basic, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1"]);
+                var driver = TestData.Driver("D1", [CertificationType.Basic], [VehicleType.Car]); // can't drive anything
+                var vehicle = TestData.Vehicle("V1", VehicleType.Truck);
+
+                var input = TestData.Input([order], [product], [driver], [vehicle]);
+
+                Add("Case 3 - No Allowed Vehicles", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [],
+                    CertifiedForOrders = [order]
+                }
+                ]);
+            }
+
+            // Case 4: Driver Cert Partially Matches
+            {
+                var product1 = TestData.Product("P1", CertificationType.Basic, [VehicleType.Car]);
+                var product2 = TestData.Product("P2", CertificationType.Respiratory, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1", "P2"]);
+                var driver = TestData.Driver("D1", [CertificationType.Basic], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product1, product2], [driver], [vehicle]);
+
+                Add("Case 4 - Driver Cert Partially Matches", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = []
+                }
+                ]);
+            }
+
+            // Case 5: Multiple Drivers, Filtered Results
+            {
+                var product = TestData.Product("P1", CertificationType.Basic, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1"]);
+                var driver1 = TestData.Driver("D1", [CertificationType.Basic], [VehicleType.Car]);
+                var driver2 = TestData.Driver("D2", [CertificationType.Complex], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product], [driver1, driver2], [vehicle]);
+
+                Add("Case 5 - Multiple Drivers, Filtered Results", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver1,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order]
+                },
+                new DriverAssignmentDto
+                {
+                    Driver = driver2,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = []
+                }
+                ]);
+            }
+
+            // Case 6: Order with Multiple Products, All Certs Present
+            {
+                var product1 = TestData.Product("P1", CertificationType.Basic, [VehicleType.Car]);
+                var product2 = TestData.Product("P2", CertificationType.Mobility, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1", "P2"]);
+                var driver = TestData.Driver("D1", [CertificationType.Basic, CertificationType.Mobility], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product1, product2], [driver], [vehicle]);
+
+                Add("Case 6 - All Certs Present", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order]
+                }
+                ]);
+            }
+
+            // Case 7: Order with Multiple Products, One Cert Missing
+            {
+                var product1 = TestData.Product("P1", CertificationType.Basic, [VehicleType.Car]);
+                var product2 = TestData.Product("P2", CertificationType.Mobility, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1", "P2"]);
+                var driver = TestData.Driver("D1", [CertificationType.Basic], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product1, product2], [driver], [vehicle]);
+
+                Add("Case 7 - One Cert Missing", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = []
+                }
+                ]);
+            }
+
+            // Case 8: All Drivers and Vehicles Valid
+            {
+                var product = TestData.Product("P1", CertificationType.Complex, [VehicleType.Truck]);
+                var order = TestData.Order("O1", ["P1"]);
+                var driver1 = TestData.Driver("D1", [CertificationType.Complex], [VehicleType.Truck]);
+                var driver2 = TestData.Driver("D2", [CertificationType.Complex], [VehicleType.Truck]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Truck);
+
+                var input = TestData.Input([order], [product], [driver1, driver2], [vehicle]);
+
+                Add("Case 8 - All Valid", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver1,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order]
+                },
+                new DriverAssignmentDto
+                {
+                    Driver = driver2,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order]
+                }
+                ]);
+            }
+
+            // Case 9: Product With Shared Certification Requirements
+            {
+                var product = TestData.Product("P1", CertificationType.Respiratory, [VehicleType.Car]);
+                var order1 = TestData.Order("O1", ["P1"]);
+                var order2 = TestData.Order("O2", ["P1"]);
+                var driver = TestData.Driver("D1", [CertificationType.Respiratory], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order1, order2], [product], [driver], [vehicle]);
+
+                Add("Case 9 - Shared Certs", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order1, order2]
+                }
+                ]);
+            }
+
+            // Case 10: Driver With Duplicate AllowedVehicles
+            {
+                var product = TestData.Product("P1", CertificationType.Basic, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1"]);
+                var driver = TestData.Driver("D1", [CertificationType.Basic], [VehicleType.Car, VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product], [driver], [vehicle]);
+
+                Add("Case 10 - Duplicate AllowedVehicles", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order]
+                }
+                ]);
+            }
+
+            // Case 11: Driver With Extra Certs
+            {
+                var product = TestData.Product("P1", CertificationType.Basic, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1"]);
+                var driver = TestData.Driver("D1", [CertificationType.Basic, CertificationType.Complex], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product], [driver], [vehicle]);
+
+                Add("Case 11 - Extra Certs", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order]
+                }
+                ]);
+            }
+
+            // Case 12: Duplicate Product IDs in Order
+            {
+                var product = TestData.Product("P1", CertificationType.Mobility, [VehicleType.Car]);
+                var order = TestData.Order("O1", ["P1", "P1"]);
+                var driver = TestData.Driver("D1", [CertificationType.Mobility], [VehicleType.Car]);
+                var vehicle = TestData.Vehicle("V1", VehicleType.Car);
+
+                var input = TestData.Input([order], [product], [driver], [vehicle]);
+
+                Add("Case 12 - Duplicate Product IDs", input, [
+                    new DriverAssignmentDto
+                {
+                    Driver = driver,
+                    AllowedVehicles = [vehicle],
+                    CertifiedForOrders = [order]
+                }
+                ]);
+            }
+        }
+    }
+
 
 }

@@ -20,64 +20,14 @@ public class Scheduler
 
         // === DRIVER-VEHICLE MATCHING (1-to-1) ===
 
-        var vehicleDriverAssignments = new List<KeyValuePair<Vehicle, Driver>>();
+        // Step 1: Build all assignment DTOs
+        var driverDtos = Utilities.BuildDriverAssignmentDtos(inputData);
+        var vehicleDtos = Utilities.BuildVehicleAssignmentDtos(inputData);
+        var orderDtos = Utilities.BuildOrderAssignmentDtos(inputData);
 
-        var certificationsRequiredForAllOrders = inputData.Orders
-            .SelectMany(o => o.ProductIds)
-            .Distinct()
-            .Select(productId => inputData.Products.Single(p => p.Id == productId))
-            .Select(p => p.DeliveryRequirements.Certification)
-            .Distinct()
-            .ToArray();
+        // Step 2: Run assignment calculation using the compatibility matrix
+        var vehicleDriverAssignments = Utilities.CalculateDriverVehicleAssignments(driverDtos, vehicleDtos, orderDtos);
 
-        // Create a list of vehicle-driver pairs where the driver can operate the vehicle
-        // and the driver can handle at least 1 order
-        var compatibleAssignments = (from driver in inputData.Drivers
-                                     from vehicle in inputData.Vehicles
-                                     where driver.AllowedVehicles.Contains(vehicle.Type)
-                                         && driver.Certifications
-                                             .Any(c => certificationsRequiredForAllOrders.Contains(c))
-                                     select new { driver, vehicle }).ToList();
-
-        // Select a distinct 1-to-1 assignment (greedy)
-        var assignedDriverIds = new HashSet<string>();
-        var assignedVehicleIds = new HashSet<string>();
-
-        foreach (var pair in compatibleAssignments)
-        {
-            var driver = pair.driver;
-            var vehicle = pair.vehicle;
-
-            // Already matched?
-            if (assignedDriverIds.Contains(driver.Id) || assignedVehicleIds.Contains(vehicle.Id))
-            {
-                continue;
-            }
-
-            var driverCerts = driver.Certifications.ToHashSet();
-            var canHandleAnyOrder = inputData.Orders.Any(order =>
-            {
-                var requiredCerts = inputData.Products
-                    .Where(p => order.ProductIds.Contains(p.Id))
-                    .Select(p => p.DeliveryRequirements.Certification)
-                    .ToHashSet();
-
-                var requiredVehicleTypes = inputData.Products
-                    .Where(p => order.ProductIds.Contains(p.Id))
-                    .SelectMany(p => p.DeliveryRequirements.TransportRequirements.VehicleTypes)
-                    .ToHashSet();
-
-                return requiredCerts.All(rc => driverCerts.Contains(rc)) &&
-                       requiredVehicleTypes.Contains(vehicle.Type);
-            });
-
-            if (!canHandleAnyOrder)
-                continue;
-
-            vehicleDriverAssignments.Add(new KeyValuePair<Vehicle, Driver>(vehicle, driver));
-            assignedDriverIds.Add(driver.Id);
-            assignedVehicleIds.Add(vehicle.Id);
-        }
 
 
 
