@@ -6,5 +6,4 @@ public class Product
     public required string Name { get; set; }
     public required Dimensions Dimensions { get; set; }
     public required DeliveryRequirements DeliveryRequirements { get; set; }
-    public required Billing Billing { get; set; }
 }

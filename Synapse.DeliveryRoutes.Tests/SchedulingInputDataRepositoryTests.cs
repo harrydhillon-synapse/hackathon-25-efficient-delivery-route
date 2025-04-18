@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Synapse.DeliveryRoutes.Application.Models;
 using Synapse.DeliveryRoutes.Application.Services;
 using Xunit.Abstractions;
 
@@ -13,10 +14,14 @@ public class SchedulingInputDataRepositoryTests
         _testOutputHelper = testOutputHelper;
     }
 
-    [Fact]
-    public void LoadAllData()
+    [Theory]
+    [InlineData(DataSet.Original)]
+    [InlineData(DataSet.Test)]
+    [InlineData(DataSet.DemoSimple)]
+    [InlineData(DataSet.DemoComplex)]
+    public void LoadAllData(DataSet dataSet)
     {
-        var inputData = new SchedulingInputDataRepository().LoadAllData();
+        var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);
         Assert.NotNull(inputData);
         
         _testOutputHelper.WriteLine($"{JsonSerializer.Serialize(inputData)}");

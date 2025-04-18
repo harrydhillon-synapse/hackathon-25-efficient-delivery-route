@@ -1,0 +1,22 @@
+[
+  {
+    "Id": "DRV001",
+    "Name": "John Anderson",
+    "Certifications": [
+      "Respiratory",
+      "Mobility",
+      "Basic"
+    ],
+    "Schedule": [
+      {
+        "Date": "2024-03-25",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      }
+    ],
+    "AllowedVehicles": [
+      "Truck",
+      "Car"
+    ]
+  }
+]

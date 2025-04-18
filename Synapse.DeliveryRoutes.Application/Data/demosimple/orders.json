@@ -1,0 +1,96 @@
+[
+  {
+    "Id": "ORD001",
+    "PatientName": "Andrew Brown",
+    "PatientPhone": "312-555-5220",
+    "Address": "2797 Cedar St, Chicago, IL",
+    "Location": {
+      "Latitude": 41.852101,
+      "Longitude": -87.58506
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "CPAP_X500"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "High",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  },
+  {
+    "Id": "ORD002",
+    "PatientName": "Brian Lopez",
+    "PatientPhone": "312-555-5031",
+    "Address": "8738 River St, Chicago, IL",
+    "Location": {
+      "Latitude": 41.773107,
+      "Longitude": -87.480838
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "CPAP_X500",
+      "HOSPITAL_BED_DELUXE"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "Medium",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  },
+  {
+    "Id": "ORD003",
+    "PatientName": "John Roberts",
+    "PatientPhone": "312-555-9476",
+    "Address": "815 Lake St, Chicago, IL",
+    "Location": {
+      "Latitude": 41.928093,
+      "Longitude": -87.530035
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "CPAP_X500",
+      "HOSPITAL_BED_DELUXE"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "High",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  },
+  {
+    "Id": "ORD004",
+    "PatientName": "Thomas Mitchell",
+    "PatientPhone": "312-555-7269",
+    "Address": "787 Oak St, Chicago, IL",
+    "Location": {
+      "Latitude": 41.914589,
+      "Longitude": -87.613404
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "WHEELCHAIR_ELITE"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "Medium",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  }
+]

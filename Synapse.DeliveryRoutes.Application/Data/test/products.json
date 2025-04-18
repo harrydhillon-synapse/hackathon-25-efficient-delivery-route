@@ -1,0 +1,260 @@
+[
+  {
+    "Id": "CPAP_X500",
+    "Name": "CPAP Machine X500",
+    "Dimensions": {
+      "Length": 20,
+      "Width": 15,
+      "Height": 10,
+      "Weight": 1.2
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Fragile - Handle with care",
+      "PackagingType": "OriginalManufacturerBoxWithFoamPadding",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPositionPreferred",
+        "StackingLimit": "ThreeUnits",
+        "VehicleTypes": [
+          "Car",
+          "Truck"
+        ]
+      },
+      "Certification": "Respiratory",
+      "SetupAssistance": "Level2BasicTrainingRequired",
+      "HistoricalSetupTimes": [
+        15,
+        18,
+        20,
+        17,
+        16,
+        19,
+        21,
+        15,
+        16,
+        18,
+        20,
+        17,
+        19,
+        16,
+        15,
+        18,
+        20,
+        17,
+        16,
+        19,
+        21,
+        15,
+        16,
+        18,
+        20,
+        17,
+        19,
+        16,
+        15,
+        18
+      ]
+    },
+    "Billing": {
+      "BasePrice": 899.99,
+      "RentalRate": {
+        "Daily": 15.99,
+        "Weekly": 89.99,
+        "Monthly": 299.99
+      }
+    }
+  },
+  {
+    "Id": "OXYGEN_TANK_100",
+    "Name": "Oxygen Tank 100L",
+    "Dimensions": {
+      "Length": 120,
+      "Width": 30,
+      "Height": 30,
+      "Weight": 15
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Handle with care - Pressurized container",
+      "PackagingType": "OriginalManufacturerCase",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPositionRequired",
+        "StackingLimit": "OneUnit",
+        "VehicleTypes": [
+          "Car",
+          "Truck"
+        ]
+      },
+      "Certification": "Respiratory",
+      "SetupAssistance": "Level2BasicTrainingRequired",
+      "HistoricalSetupTimes": [
+        25,
+        28,
+        30,
+        27,
+        26,
+        29,
+        31,
+        25,
+        26,
+        28,
+        30,
+        27,
+        29,
+        26,
+        25,
+        28,
+        30,
+        27,
+        26,
+        29,
+        31,
+        25,
+        26,
+        28,
+        30,
+        27,
+        29,
+        26,
+        25,
+        28
+      ]
+    },
+    "Billing": {
+      "BasePrice": 499.99,
+      "RentalRate": {
+        "Daily": 29.99,
+        "Weekly": 149.99,
+        "Monthly": 399.99
+      }
+    }
+  },
+  {
+    "Id": "WHEELCHAIR_ELITE",
+    "Name": "Elite Wheelchair",
+    "Dimensions": {
+      "Length": 100,
+      "Width": 65,
+      "Height": 90,
+      "Weight": 12
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Handle with care - Avoid impacts",
+      "PackagingType": "OriginalManufacturerBox",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPosition",
+        "StackingLimit": "TwoUnits",
+        "VehicleTypes": [
+          "Truck"
+        ]
+      },
+      "Certification": "Mobility",
+      "SetupAssistance": "Level1BasicAssemblyRequired",
+      "HistoricalSetupTimes": [
+        20,
+        23,
+        25,
+        22,
+        21,
+        24,
+        26,
+        20,
+        21,
+        23,
+        25,
+        22,
+        24,
+        21,
+        20,
+        23,
+        25,
+        22,
+        21,
+        24,
+        26,
+        20,
+        21,
+        23,
+        25,
+        22,
+        24,
+        21,
+        20,
+        23
+      ]
+    },
+    "Billing": {
+      "BasePrice": 599.99,
+      "RentalRate": {
+        "Daily": 19.99,
+        "Weekly": 99.99,
+        "Monthly": 299.99
+      }
+    }
+  },
+  {
+    "Id": "HOSPITAL_BED_DELUXE",
+    "Name": "Deluxe Hospital Bed",
+    "Dimensions": {
+      "Length": 210,
+      "Width": 100,
+      "Height": 80,
+      "Weight": 120
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Heavy equipment - Two-person lift required",
+      "PackagingType": "DisassembledInMultipleBoxes",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "AnyPosition",
+        "StackingLimit": "NotStackable",
+        "VehicleTypes": [
+          "Truck"
+        ]
+      },
+      "Certification": "Mobility",
+      "SetupAssistance": "Level3ProfessionalInstallationRequired",
+      "HistoricalSetupTimes": [
+        45,
+        48,
+        50,
+        47,
+        46,
+        49,
+        51,
+        45,
+        46,
+        48,
+        50,
+        47,
+        49,
+        46,
+        45,
+        48,
+        50,
+        47,
+        46,
+        49,
+        51,
+        45,
+        46,
+        48,
+        50,
+        47,
+        49,
+        46,
+        45,
+        48
+      ]
+    },
+    "Billing": {
+      "BasePrice": 2499.99,
+      "RentalRate": {
+        "Daily": 49.99,
+        "Weekly": 249.99,
+        "Monthly": 799.99
+      }
+    }
+  }
+]

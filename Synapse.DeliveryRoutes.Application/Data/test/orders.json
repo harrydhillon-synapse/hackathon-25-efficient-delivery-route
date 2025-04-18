@@ -1,0 +1,149 @@
+[
+  {
+    "Id": "ORD001",
+    "PatientName": "Andrew Nguyen",
+    "PatientPhone": "312-555-1366",
+    "Address": "5139 Elm St, Chicago, IL",
+    "Location": {
+      "Latitude": 42.038568,
+      "Longitude": -87.221152
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "OXYGEN_TANK_100",
+      "HOSPITAL_BED_DELUXE"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "Medium",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  },
+  {
+    "Id": "ORD002",
+    "PatientName": "Richard Walker",
+    "PatientPhone": "312-555-5259",
+    "Address": "8281 Oak St, Chicago, IL",
+    "Location": {
+      "Latitude": 41.679452,
+      "Longitude": -87.763201
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "PATIENT_LIFT",
+      "WALKER_STANDARD",
+      "NEBULIZER_PRO",
+      "CPAP_X500"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "Low",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  },
+  {
+    "Id": "ORD003",
+    "PatientName": "Susan Green",
+    "PatientPhone": "312-555-8040",
+    "Address": "7836 Washington St, Chicago, IL",
+    "Location": {
+      "Latitude": 42.126094,
+      "Longitude": -87.137241
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "PATIENT_LIFT",
+      "CPAP_X500"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "Low",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  },
+  {
+    "Id": "ORD004",
+    "PatientName": "Karen Harris",
+    "PatientPhone": "312-555-3582",
+    "Address": "4366 Elm St, Chicago, IL",
+    "Location": {
+      "Latitude": 41.964093,
+      "Longitude": -88.32297
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "CPAP_X500",
+      "BIPAP_MACHINE_200",
+      "OXYGEN_TANK_100"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "Medium",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  },
+  {
+    "Id": "ORD005",
+    "PatientName": "Christopher Green",
+    "PatientPhone": "312-555-1527",
+    "Address": "4441 Oak St, Chicago, IL",
+    "Location": {
+      "Latitude": 41.752883,
+      "Longitude": -87.074999
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "OXYGEN_TANK_100",
+      "HOSPITAL_BED_DELUXE",
+      "BIPAP_MACHINE_200"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "High",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  },
+  {
+    "Id": "ORD006",
+    "PatientName": "William Roberts",
+    "PatientPhone": "312-555-8244",
+    "Address": "9313 Main St, Chicago, IL",
+    "Location": {
+      "Latitude": 41.996885,
+      "Longitude": -87.101601
+    },
+    "AvailableTimes": [
+      "Morning",
+      "Afternoon"
+    ],
+    "ProductIds": [
+      "LIFT_CHAIR_PREMIUM"
+    ],
+    "DeliveryDeadline": "2025-04-21",
+    "Priority": "Low",
+    "Notes": [
+      "Call 30 minutes before arrival",
+      "Fragile equipment"
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "Id": "VHC001",
+    "Type": "Car",
+    "Make": "Ford",
+    "Model": "Transit Connect",
+    "Year": 2023,
+    "Capacity": "Medium",
+    "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment" ]
+  },
+  {
+    "Id": "VHC002",
+    "Type": "Truck",
+    "Make": "Mercedes-Benz",
+    "Model": "Sprinter",
+    "Year": 2023,
+    "Capacity": "Large",
+    "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment", "LiftGate" ]
+  },
+  {
+    "Id": "VHC003",
+    "Type": "Car",
+    "Make": "Chevrolet",
+    "Model": "Express Cargo",
+    "Year": 2023,
+    "Capacity": "Medium",
+    "Features": [ "ClimateControl", "GPSTracking", "SafetyEquipment" ]
+  }
+]
