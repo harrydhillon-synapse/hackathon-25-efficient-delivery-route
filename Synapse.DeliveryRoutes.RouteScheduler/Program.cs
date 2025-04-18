@@ -1,9 +1,10 @@
-﻿using Synapse.DeliveryRoutes.Application.Services;
+﻿using Synapse.DeliveryRoutes.Application.Models;
+using Synapse.DeliveryRoutes.Application.Services;
 
 try
 {
     Console.WriteLine("Loading input data...");
-    var inputData = new SchedulingInputDataRepository().LoadAllData();
+    var inputData = new SchedulingInputDataRepository().LoadAllData(DataSet.Original);
 
     Console.WriteLine("Creating scheduler context...");
     var context = new SchedulerContext(inputData);

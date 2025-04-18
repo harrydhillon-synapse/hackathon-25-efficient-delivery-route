@@ -1,0 +1,60 @@
+[
+  {
+    "Id": "DRV001",
+    "Name": "Sarah Martinez",
+    "Certifications": [
+      "Respiratory",
+      "Basic"
+    ],
+    "Schedule": [
+      {
+        "Date": "2025-04-21",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-22",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-23",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      }
+    ],
+    "AllowedVehicles": [
+      "Car"
+    ]
+  },
+  {
+    "Id": "DRV002",
+    "Name": "Michael Thompson",
+    "Certifications": [
+      "Mobility",
+      "HospitalBeds",
+      "Basic"
+    ],
+    "Schedule": [
+      {
+        "Date": "2025-04-21",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-22",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      },
+      {
+        "Date": "2025-04-23",
+        "StartTime": "08:00",
+        "EndTime": "17:00"
+      }
+    ],
+    "AllowedVehicles": [
+      "Truck",
+      "Car"
+    ]
+  }
+]

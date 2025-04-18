@@ -2,7 +2,7 @@
 
 public static class Settings
 {
-    public const int TimeLimitInSeconds = 7;
+    public const int TimeLimitInSeconds = 10;
     public const double ScaleFactor = 1;
     public const int MinutesPerWorkday = AfternoonEndMinute - 1;
     public const double HistoricalSetupTimesStandardDeviationTunableMultiple  = 0.4;
@@ -13,5 +13,5 @@ public static class Settings
     public const int MorningEndMinute = 239;
     public const int AfternoonStartMinute = 240;
     public const int AfternoonEndMinute = 480;
-    public const int BreakTimeBetweenAppointments = 15;
+    public const int BreakTimeBetweenAppointments = 0;
 }

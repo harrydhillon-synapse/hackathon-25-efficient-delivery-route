@@ -1,0 +1,148 @@
+[
+  {
+    "Id": "CPAP_X500",
+    "Name": "CPAP Machine X500",
+    "Dimensions": {
+      "Length": 20,
+      "Width": 15,
+      "Height": 10,
+      "Weight": 1.2
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Fragile - Handle with care",
+      "PackagingType": "OriginalManufacturerBoxWithFoamPadding",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPositionPreferred",
+        "StackingLimit": "ThreeUnits",
+        "VehicleTypes": [
+          "Car",
+          "Truck"
+        ]
+      },
+      "Certification": "Respiratory",
+      "SetupAssistance": "Level2BasicTrainingRequired",
+      "HistoricalSetupTimes": [
+        15,
+        18,
+        20,
+        17,
+        16,
+        19,
+        21,
+        15,
+        16,
+        18
+      ]
+    }
+  },
+  {
+    "Id": "NEBULIZER_PRO",
+    "Name": "Professional Nebulizer",
+    "Dimensions": {
+      "Length": 25,
+      "Width": 20,
+      "Height": 15,
+      "Weight": 1.5
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Fragile - Handle with care",
+      "PackagingType": "OriginalManufacturerBoxWithFoamPadding",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPositionPreferred",
+        "StackingLimit": "FourUnits",
+        "VehicleTypes": [
+          "Car",
+          "Truck"
+        ]
+      },
+      "Certification": "Respiratory",
+      "SetupAssistance": "Level1BasicAssemblyRequired",
+      "HistoricalSetupTimes": [
+        12,
+        15,
+        17,
+        14,
+        13,
+        16,
+        18,
+        12,
+        13,
+        15
+      ]
+    }
+  },
+  {
+    "Id": "WHEELCHAIR_ELITE",
+    "Name": "Elite Wheelchair",
+    "Dimensions": {
+      "Length": 100,
+      "Width": 65,
+      "Height": 90,
+      "Weight": 12
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Handle with care - Avoid impacts",
+      "PackagingType": "OriginalManufacturerBox",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "UprightPosition",
+        "StackingLimit": "TwoUnits",
+        "VehicleTypes": [
+          "Truck"
+        ]
+      },
+      "Certification": "Mobility",
+      "SetupAssistance": "Level1BasicAssemblyRequired",
+      "HistoricalSetupTimes": [
+        20,
+        23,
+        25,
+        22,
+        21,
+        24,
+        26,
+        20,
+        21,
+        23
+      ]
+    }
+  },
+  {
+    "Id": "HOSPITAL_BED_DELUXE",
+    "Name": "Deluxe Hospital Bed",
+    "Dimensions": {
+      "Length": 210,
+      "Width": 100,
+      "Height": 80,
+      "Weight": 120
+    },
+    "DeliveryRequirements": {
+      "SpecialHandling": "Heavy equipment - Two-person lift required",
+      "PackagingType": "DisassembledInMultipleBoxes",
+      "TransportRequirements": {
+        "TemperatureControlled": false,
+        "Orientation": "AnyPosition",
+        "StackingLimit": "NotStackable",
+        "VehicleTypes": [
+          "Truck"
+        ]
+      },
+      "Certification": "Mobility",
+      "SetupAssistance": "Level3ProfessionalInstallationRequired",
+      "HistoricalSetupTimes": [
+        45,
+        48,
+        50,
+        47,
+        46,
+        49,
+        51,
+        45,
+        46,
+        48
+      ]
+    }
+  }
+]

@@ -1,3 +1,4 @@
+using Synapse.DeliveryRoutes.Application.Models;
 using Synapse.DeliveryRoutes.Application.Services;
 using Xunit.Abstractions;
 
@@ -12,10 +13,14 @@ public class SchedulerTests
         _testOutputHelper = testOutputHelper;
     }
 
-    [Fact]
-    public void SolveSchedule()
+    [Theory]
+    [InlineData(DataSet.Original)]
+    [InlineData(DataSet.Test)]
+    [InlineData(DataSet.DemoSimple)]
+    [InlineData(DataSet.DemoComplex)]
+    public void LoadAllData(DataSet dataSet)
     {
-        var inputData = new SchedulingInputDataRepository().LoadAllData();
+        var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);
         var context = new SchedulerContext(inputData);
         var result = new Scheduler(context).CreateSchedule();
         Assert.NotNull(result);

@@ -6,15 +6,8 @@ namespace Synapse.DeliveryRoutes.Application.Services;
 
 public class SchedulingInputDataRepository
 {
-    // JSON file paths (relative to the output directory)
-    private const string ProductsFile = "Data/products.json";
-    private const string OrdersFile = "Data/orders.json";
-    private const string DriversFile = "Data/drivers.json";
-    private const string VehiclesFile = "Data/vehicles.json";
-    private const string OfficeFile = "Data/office.json";
-
     // Method to load all data
-    public SchedulingInputData LoadAllData()
+    public SchedulingInputData LoadAllData(DataSet dataSet)
     {
         var options = new JsonSerializerOptions
         {
@@ -26,20 +19,21 @@ public class SchedulingInputDataRepository
             },
             PropertyNameCaseInsensitive = true
         };
+        var dataFilePaths = new DataFilePaths(dataSet);
 
-        var productsJson = File.ReadAllText(ProductsFile);
+        var productsJson = File.ReadAllText(dataFilePaths.ProductsFile);
         var products = JsonSerializer.Deserialize<List<Product>>(productsJson, options);
 
-        var ordersJson = File.ReadAllText(OrdersFile);
+        var ordersJson = File.ReadAllText(dataFilePaths.OrdersFile);
         var orders = JsonSerializer.Deserialize<List<Order>>(ordersJson, options);
 
-        var driversJson = File.ReadAllText(DriversFile);
+        var driversJson = File.ReadAllText(dataFilePaths.DriversFile);
         var drivers = JsonSerializer.Deserialize<List<Driver>>(driversJson, options);
 
-        var vehiclesJson = File.ReadAllText(VehiclesFile);
+        var vehiclesJson = File.ReadAllText(dataFilePaths.VehiclesFile);
         var vehicles = JsonSerializer.Deserialize<List<Vehicle>>(vehiclesJson, options);
 
-        var officeJson = File.ReadAllText(OfficeFile);
+        var officeJson = File.ReadAllText(dataFilePaths.OfficeFile);
         var office = JsonSerializer.Deserialize<Office>(officeJson, options);
 
         return new SchedulingInputData
