@@ -2,6 +2,13 @@
 
 public class GenerateDeliveryRoutesResponse
 {
-    public required GenerateDeliveryRoutesResult Result { get; set; }
-    public required int? RouteCount { get; set; }
+    /// <summary>
+    /// Indicates if route generation succeeded.
+    /// </summary>
+    public GenerateDeliveryRoutesResult Result { get; set; }
+
+    /// <summary>
+    /// The number of routes generated (null if failed).
+    /// </summary>
+    public int? RouteCount { get; set; }
 }

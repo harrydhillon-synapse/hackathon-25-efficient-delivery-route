@@ -1,4 +1,6 @@
-﻿namespace Synapse.DeliveryRoutes.Application.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Synapse.DeliveryRoutes.Application.Models;
 
 public enum DataSet
 {
