@@ -1,11 +1,45 @@
 ﻿using Synapse.DeliveryRoutes.Application.Models;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
 
 public static class Utilities
 {
+    /// <summary>
+    /// Builds the distance matrix using the Haversine formula (Level 1 approach)
+    /// </summary>
+    /// <param name="locations">Array of location coordinates where index 0 is the office/depot</param>
+    /// <returns>The populated distance matrix</returns>
+    public static double[,] BuildDistanceMatrix(GeoCoordinates[] locations)
+    {
+        var numberOfLocations = locations.Length;
+        var matrix = new double[locations.Length, locations.Length];
+
+        for (int i = 0; i < numberOfLocations; i++)
+        {
+            for (int j = 0; j < numberOfLocations; j++)
+            {
+                if (i == j)
+                {
+                    matrix[i, j] = 0; // Distance to self is zero
+                    continue;
+                }
+
+                // Calculate Haversine distance between coordinates
+                double distance = Utilities.CalculateHaversineDistance(
+                    locations[i].Latitude,
+                    locations[i].Longitude,
+                    locations[j].Latitude,
+                    locations[j].Longitude);
+
+                // Convert to integer by scaling
+                matrix[i, j] = distance * Settings.ScaleFactor;
+            }
+        }
+
+        return matrix;
+    }
+
     /// <summary>
     /// Calculates the "as the crow flies" distance between two points using the Haversine formula
     /// </summary>

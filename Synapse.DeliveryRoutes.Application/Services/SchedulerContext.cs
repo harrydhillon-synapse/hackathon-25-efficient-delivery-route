@@ -82,8 +82,7 @@ public class SchedulerContext
 
         // === Distances ===
 
-        DistanceMatrix = new DistanceMatrix(LocationCount);
-        Distances = DistanceMatrix.Build(Locations);
+        Distances = Utilities.BuildDistanceMatrix(Locations);
 
 
 
@@ -101,7 +100,6 @@ public class SchedulerContext
     public SchedulingInputData InputData { get; }
     public GeoCoordinates[] Locations { get; }
     public List<KeyValuePair<Vehicle, Driver>> VehicleDriverAssignments { get; set; } = [];
-    public DistanceMatrix DistanceMatrix { get; }
     public double[,] Distances { get; }
     public RoutingIndexManager RoutingIndexManager { get; }
     public RoutingModel RoutingModel { get; }
