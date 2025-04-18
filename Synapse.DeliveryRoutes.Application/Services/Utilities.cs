@@ -382,9 +382,9 @@ public static class Utilities
                     },
                     ExpectedDriveTimeMinutes = driveTimeMinutes,
                     ExpectedSetupTimeMinutes = orderSetupTime,
-                    ExpectedArrivalTime = currentTime.ToString("HH:mm"),
+                    ExpectedArrivalTime = currentTime.AddMinutes(driveTimeMinutes) .ToString("hh:mm tt"),
                     DriveTimeDescription = $"Drive {distanceMiles:F1} miles in approx {driveTimeMinutes:HH:mm}",
-                    ExpectedFinishTime = currentTime.AddMinutes(driveTimeMinutes + orderSetupTime).ToString("HH:mm"),
+                    ExpectedFinishTime = currentTime.AddMinutes(driveTimeMinutes + orderSetupTime).ToString("hh:mm tt"),
                     Products = productViewModels,
                     Notes = order.Notes
                 };
@@ -393,6 +393,16 @@ public static class Utilities
 
                 currentTime = currentTime.AddMinutes(driveTimeMinutes + orderSetupTime);
             }
+
+            // Add drive time from last delivery location to office
+            var lastDeliveryLocation = locations[^1];
+
+            double returnDistanceKm = Utilities.CalculateHaversineDistance(
+                lastDeliveryLocation.Latitude, lastDeliveryLocation.Longitude,
+                inputData.Office.Location.Latitude, inputData.Office.Location.Longitude);
+
+            int returnDriveTimeMinutes = Convert.ToInt32(returnDistanceKm * (60.0 / Settings.DrivingSpeedKmPerHour));
+            currentTime = currentTime.AddMinutes(returnDriveTimeMinutes);
 
             var route = new DeliveryRouteViewModel
             {
@@ -420,7 +430,7 @@ public static class Utilities
                 Summary = new RouteSummaryViewModel
                 {
                     DistanceMiles = Math.Round(totalDistanceMiles, 1),
-                    EstimateTimeOfReturnToBase = currentTime.ToString("HH:mm"),
+                    EstimateTimeOfReturnToBase = currentTime.ToString("hh:mm tt"),
                     EfficiencyPercent = 93, // hardcoded is fine
                     StopsCompleted = 0,
                     TotalStops = deliveries.Count
