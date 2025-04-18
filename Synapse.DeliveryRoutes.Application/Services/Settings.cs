@@ -2,7 +2,7 @@
 
 public static class Settings
 {
-    public const int TimeLimitInSeconds = 10;
+    public const int TimeLimitInSeconds = 5;
     public const double ScaleFactor = 1;
     public const int MinutesPerWorkday = AfternoonEndMinute - 1;
     public const double HistoricalSetupTimesStandardDeviationTunableMultiple  = 0.4;
