@@ -18,7 +18,7 @@ public class SchedulerTests
     [InlineData(DataSet.Test)]
     [InlineData(DataSet.DemoSimple)]
     [InlineData(DataSet.DemoComplex)]
-    public void LoadAllData(DataSet dataSet)
+    public void CreateSchedule(DataSet dataSet)
     {
         var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);
         var result = new Scheduler(inputData).CreateSchedule();

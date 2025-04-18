@@ -5,11 +5,108 @@ namespace Synapse.DeliveryRoutes.Application.Services;
 
 public class Scheduler
 {
+    private const int DepotIndex = 0;
     private readonly SchedulerContext _schedulerContext;
 
-    public Scheduler(SchedulingInputData schedulingInputData)
+    public Scheduler(SchedulingInputData inputData)
     {
-        _schedulerContext = new SchedulerContext(schedulingInputData);
+        // === All Locations including Depot at 0 ===
+
+        var locations = new List<GeoCoordinates> { inputData.Office.Location }
+            .Concat(inputData.Orders.Select(o => o.Location))
+            .ToArray();
+
+
+
+        // === DRIVER-VEHICLE MATCHING (1-to-1) ===
+
+        var vehicleDriverAssignments = new List<KeyValuePair<Vehicle, Driver>>();
+
+        var certificationsRequiredForAllOrders = inputData.Orders
+            .SelectMany(o => o.ProductIds)
+            .Distinct()
+            .Select(productId => inputData.Products.Single(p => p.Id == productId))
+            .Select(p => p.DeliveryRequirements.Certification)
+            .Distinct()
+            .ToArray();
+
+        // Create a list of vehicle-driver pairs where the driver can operate the vehicle
+        // and the driver can handle at least 1 order
+        var compatibleAssignments = (from driver in inputData.Drivers
+                                     from vehicle in inputData.Vehicles
+                                     where driver.AllowedVehicles.Contains(vehicle.Type)
+                                         && driver.Certifications
+                                             .Any(c => certificationsRequiredForAllOrders.Contains(c))
+                                     select new { driver, vehicle }).ToList();
+
+        // Select a distinct 1-to-1 assignment (greedy)
+        var assignedDriverIds = new HashSet<string>();
+        var assignedVehicleIds = new HashSet<string>();
+
+        foreach (var pair in compatibleAssignments)
+        {
+            var driver = pair.driver;
+            var vehicle = pair.vehicle;
+
+            // Already matched?
+            if (assignedDriverIds.Contains(driver.Id) || assignedVehicleIds.Contains(vehicle.Id))
+            {
+                continue;
+            }
+
+            var driverCerts = driver.Certifications.ToHashSet();
+            var canHandleAnyOrder = inputData.Orders.Any(order =>
+            {
+                var requiredCerts = inputData.Products
+                    .Where(p => order.ProductIds.Contains(p.Id))
+                    .Select(p => p.DeliveryRequirements.Certification)
+                    .ToHashSet();
+
+                var requiredVehicleTypes = inputData.Products
+                    .Where(p => order.ProductIds.Contains(p.Id))
+                    .SelectMany(p => p.DeliveryRequirements.TransportRequirements.VehicleTypes)
+                    .ToHashSet();
+
+                return requiredCerts.All(rc => driverCerts.Contains(rc)) &&
+                       requiredVehicleTypes.Contains(vehicle.Type);
+            });
+
+            if (!canHandleAnyOrder)
+                continue;
+
+            vehicleDriverAssignments.Add(new KeyValuePair<Vehicle, Driver>(vehicle, driver));
+            assignedDriverIds.Add(driver.Id);
+            assignedVehicleIds.Add(vehicle.Id);
+        }
+
+
+
+        // === Distances ===
+
+        var distances = Utilities.BuildDistanceMatrix(locations);
+
+
+
+        // === Routing Manager and Model ===
+
+        // Create the routing index manager
+        var routingIndexManager = new RoutingIndexManager(
+            locations.Length,
+            vehicleDriverAssignments.Count,
+            DepotIndex);
+
+        // Create the routing model
+        var routingModel = new RoutingModel(routingIndexManager);
+
+        _schedulerContext = new SchedulerContext
+        {
+            RoutingModel = routingModel,
+            RoutingIndexManager = routingIndexManager,
+            Distances = distances,
+            InputData = inputData,
+            Locations = locations,
+            VehicleDriverAssignments = vehicleDriverAssignments
+        };
     }
 
     public Schedule CreateSchedule()
