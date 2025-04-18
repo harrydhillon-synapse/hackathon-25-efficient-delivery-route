@@ -1,4 +1,5 @@
 ﻿using Synapse.DeliveryRoutes.Application.Models;
+using Synapse.DeliveryRoutes.Application.Models.Dtos;
 using System.Text;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
@@ -181,4 +182,106 @@ public static class Utilities
 
         return output.ToString();
     }
+    
+    public static List<OrderAssignmentDto> BuildOrderAssignmentDtos(SchedulingInputData inputData)
+    {
+        var productById = inputData.Products.ToDictionary(p => p.Id);
+
+        var orderDtos = inputData.Orders.Select(order =>
+        {
+            var requiredCerts = order.ProductIds
+                .Select(pid => productById[pid].DeliveryRequirements.Certification)
+                .Distinct()
+                .ToHashSet();
+
+            var acceptableVehicleTypes = order.ProductIds
+                .Select(pid => productById[pid].DeliveryRequirements.TransportRequirements.VehicleTypes)
+                .Aggregate((a, b) => a.Intersect(b).ToArray())
+                .ToHashSet();
+
+            var certifiedDrivers = inputData.Drivers
+                .Where(d => requiredCerts.All(c => d.Certifications.Contains(c)))
+                .ToList();
+
+            var compatibleVehicles = inputData.Vehicles
+                .Where(v => acceptableVehicleTypes.Contains(v.Type))
+                .ToList();
+
+            return new OrderAssignmentDto
+            {
+                Order = order,
+                CertifiedDrivers = certifiedDrivers,
+                CompatibleVehicles = compatibleVehicles
+            };
+        }).ToList();
+
+        return orderDtos;
+    }
+
+    public static List<VehicleAssignmentDto> BuildVehicleAssignmentDtos(SchedulingInputData inputData)
+    {
+        var productById = inputData.Products.ToDictionary(p => p.Id);
+
+        var vehicleDtos = inputData.Vehicles.Select(vehicle =>
+        {
+            var transportableOrders = inputData.Orders
+                .Where(order =>
+                {
+                    var acceptableVehicleTypes = order.ProductIds
+                        .Select(pid => productById[pid].DeliveryRequirements.TransportRequirements.VehicleTypes)
+                        .Aggregate((a, b) => a.Intersect(b).ToArray())
+                        .ToHashSet();
+
+                    return acceptableVehicleTypes.Contains(vehicle.Type);
+                })
+                .ToList();
+
+            var allowedDrivers = inputData.Drivers
+                .Where(d => d.AllowedVehicles.Contains(vehicle.Type))
+                .ToList();
+
+            return new VehicleAssignmentDto
+            {
+                Vehicle = vehicle,
+                TransportableOrders = transportableOrders,
+                AllowedDrivers = allowedDrivers
+            };
+        }).ToList();
+
+        return vehicleDtos;
+    }
+
+    public static List<DriverAssignmentDto> BuildDriverAssignmentDtos(SchedulingInputData inputData)
+    {
+        var productById = inputData.Products.ToDictionary(p => p.Id);
+
+        var driverDtos = inputData.Drivers.Select(driver =>
+        {
+            var allowedVehicles = inputData.Vehicles
+                .Where(v => driver.AllowedVehicles.Contains(v.Type))
+                .ToList();
+
+            var certifiedOrders = inputData.Orders
+                .Where(order =>
+                {
+                    var requiredCerts = order.ProductIds
+                        .Select(pid => productById[pid].DeliveryRequirements.Certification)
+                        .Distinct()
+                        .ToHashSet();
+
+                    return requiredCerts.All(c => driver.Certifications.Contains(c));
+                })
+                .ToList();
+
+            return new DriverAssignmentDto
+            {
+                Driver = driver,
+                AllowedVehicles = allowedVehicles,
+                CertifiedForOrders = certifiedOrders
+            };
+        }).ToList();
+
+        return driverDtos;
+    }
+
 }
