@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.DeliveryRoutes.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.DeliveryRoutes.RouteScheduler", "Synapse.DeliveryRoutes.RouteScheduler\Synapse.DeliveryRoutes.RouteScheduler.csproj", "{2D6516C6-2ED6-43AE-83B2-597F554B84FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.DeliveryRoutes.Api", "Synapse.DeliveryRoutes.Api\Synapse.DeliveryRoutes.Api.csproj", "{D9855DEE-7EE6-4F28-A8A9-0257C5D440BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2D6516C6-2ED6-43AE-83B2-597F554B84FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D6516C6-2ED6-43AE-83B2-597F554B84FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D6516C6-2ED6-43AE-83B2-597F554B84FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9855DEE-7EE6-4F28-A8A9-0257C5D440BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9855DEE-7EE6-4F28-A8A9-0257C5D440BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9855DEE-7EE6-4F28-A8A9-0257C5D440BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9855DEE-7EE6-4F28-A8A9-0257C5D440BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
