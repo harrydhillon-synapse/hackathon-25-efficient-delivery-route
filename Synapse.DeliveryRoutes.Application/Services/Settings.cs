@@ -14,4 +14,5 @@ public static class Settings
     public const int AfternoonStartMinute = 240;
     public const int AfternoonEndMinute = 480;
     public const int BreakTimeBetweenAppointments = 0;
+    public static readonly TimeSpan MorningStartTime = new TimeSpan(9, 0, 0);
 }

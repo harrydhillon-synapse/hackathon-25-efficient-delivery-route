@@ -22,7 +22,8 @@ public static class TestData
             PackagingType = PackagingType.OriginalManufacturerBox,
             SetupAssistance = SetupAssistanceLevel.Level1BasicAssemblyRequired,
             SpecialHandling = "None"
-        }
+        },
+        PhotoFileName = ""
     };
 
     public static Order Order(string id, List<string> productIds) => new()
@@ -44,7 +45,8 @@ public static class TestData
         Name = id,
         Certifications = certs,
         AllowedVehicles = allowed,
-        Schedule = []
+        Schedule = [],
+        PhotoFileName = ""
     };
 
     public static Vehicle Vehicle(string id, VehicleType type) => new()

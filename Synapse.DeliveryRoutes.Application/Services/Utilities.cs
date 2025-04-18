@@ -1,5 +1,6 @@
 ﻿using Synapse.DeliveryRoutes.Application.Models;
 using Synapse.DeliveryRoutes.Application.Models.Dtos;
+using Synapse.DeliveryRoutes.Application.ViewModels;
 using System.Text;
 
 namespace Synapse.DeliveryRoutes.Application.Services;
@@ -284,4 +285,152 @@ public static class Utilities
         return driverDtos;
     }
 
+    public static (string Start, string End) GetDeliveryWindowRange(TimeWindow[] timeWindows)
+    {
+        bool hasMorning = timeWindows.Contains(TimeWindow.Morning);
+        bool hasAfternoon = timeWindows.Contains(TimeWindow.Afternoon);
+
+        if (hasMorning && hasAfternoon)
+        {
+            return ("09:00", "17:00"); // full day
+        }
+        else if (hasMorning)
+        {
+            return ("09:00", "13:00");
+        }
+        else if (hasAfternoon)
+        {
+            return ("13:00", "17:00");
+        }
+
+        // If no window provided, fallback to full day
+        return ("09:00", "17:00");
+    }
+
+    public static DeliveryRouteViewModel[] ConvertToDeliveryRoutes(Schedule schedule, SchedulingInputData inputData)
+    {
+        if (!schedule.Successful || schedule.DriverSchedules == null)
+            return Array.Empty<DeliveryRouteViewModel>();
+
+        var productById = inputData.Products.ToDictionary(p => p.Id);
+
+        var routes = new List<DeliveryRouteViewModel>();
+
+        foreach (var driverSchedule in schedule.DriverSchedules)
+        {
+            var driver = driverSchedule.Driver;
+            var vehicle = driverSchedule.Vehicle;
+            var orders = driverSchedule.Orders;
+
+            double totalDistanceMiles = 0;
+            var deliveries = new List<DeliveryViewModel>();
+
+            var locations = new List<GeoCoordinates> { driverSchedule.StartLocation }
+                .Concat(orders.Select(o => o.Location))
+                .Concat(new List<GeoCoordinates> { driverSchedule.EndLocation })
+                .ToList();
+
+            var currentTime = DateTime.Today.Add(Settings.MorningStartTime);
+
+            for (int i = 0; i < orders.Length; i++)
+            {
+                var order = orders[i];
+                var fromLocation = locations[i];
+                var toLocation = locations[i + 1];
+
+                double kilometersToDrive = Utilities.CalculateHaversineDistance(
+                    fromLocation.Latitude, fromLocation.Longitude,
+                    toLocation.Latitude, toLocation.Longitude);
+                var distanceMiles = kilometersToDrive * 0.621371; // Convert km to miles
+                totalDistanceMiles += distanceMiles;
+                int driveTimeMinutes = Convert.ToInt32(kilometersToDrive * (60.0 / Settings.DrivingSpeedKmPerHour));
+
+                // Lookup products for this order
+                var products = order.ProductIds
+                    .Select(pid => productById[pid])
+                    .ToArray();
+
+                var productViewModels = products.Select(product =>
+                {
+                    int productSetupTime = Utilities.EstimateSetupTime([product]);
+                    return new DeliveryProductViewModel
+                    {
+                        Id = product.Id,
+                        Name = product.Name,
+                        RequiresSetup = new Random().Next(0, 1) == 1,
+                        Quantity = new Random().Next(1, 3),
+                        ExpectedSetupTimeMinutes = productSetupTime,
+                        Weight = $"{product.Dimensions.Width} lbs",
+                        ImageUrl = product.PhotoFileName
+                    };
+                }).ToList();
+
+                int orderSetupTime = Utilities.EstimateSetupTime(products);
+
+                var window = Utilities.GetDeliveryWindowRange(order.AvailableTimes);
+                var delivery = new DeliveryViewModel
+                {
+                    OrderId = order.Id,
+                    PatientName = order.PatientName,
+                    PatientPhone = order.PatientPhone,
+                    Address = order.Address,
+                    Location = order.Location,
+                    DeliveryWindow = new DeliveryWindowViewModel
+                    {
+                        Start = window.Start,
+                        End = window.End
+                    },
+                    ExpectedDriveTimeMinutes = driveTimeMinutes,
+                    ExpectedSetupTimeMinutes = orderSetupTime,
+                    ExpectedArrivalTime = currentTime.ToString("HH:mm"),
+                    DriveTimeDescription = $"Drive {distanceMiles:F1} miles in approx {driveTimeMinutes:HH:mm}",
+                    ExpectedFinishTime = currentTime.AddMinutes(driveTimeMinutes + orderSetupTime).ToString("HH:mm"),
+                    Products = productViewModels,
+                    Notes = order.Notes
+                };
+
+                deliveries.Add(delivery);
+
+                currentTime = currentTime.AddMinutes(driveTimeMinutes + orderSetupTime);
+            }
+
+            var route = new DeliveryRouteViewModel
+            {
+                Driver = new DriverViewModel
+                {
+                    Id = driver.Id,
+                    Name = driver.Name,
+                    Email = $"{driver.Name.ToLower().Replace(" ", ".")}@synapsehealth.com",
+                    PhotoFilename = driver.PhotoFileName
+                },
+                Vehicle = new VehicleViewModel
+                {
+                    Id = vehicle.Id,
+                    Type = vehicle.Type.ToString(),
+                    Make = vehicle.Make,
+                    Model = vehicle.Model,
+                    Year = vehicle.Year
+                },
+                Office = new OfficeViewModel
+                {
+                    Name = inputData.Office.Name,
+                    Address = inputData.Office.Address,
+                    Location = inputData.Office.Location
+                },
+                Summary = new RouteSummaryViewModel
+                {
+                    DistanceMiles = Math.Round(totalDistanceMiles, 1),
+                    EstimateTimeOfReturnToBase = currentTime.ToString("HH:mm"),
+                    EfficiencyPercent = 93, // hardcoded is fine
+                    StopsCompleted = 0,
+                    TotalStops = deliveries.Count
+                },
+                Deliveries = deliveries
+            };
+
+            routes.Add(route);
+        }
+
+        return routes.ToArray();
+    }
 }

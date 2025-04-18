@@ -59,7 +59,8 @@ public class SchedulerTests
                     Id = "D1",
                     Name = "Driver One",
                     Certifications = [CertificationType.HospitalBeds],
-                    AllowedVehicles = [VehicleType.Truck]
+                    AllowedVehicles = [VehicleType.Truck],
+                    PhotoFileName = ""
                 };
 
                 var product = new Product
@@ -83,7 +84,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -153,7 +155,8 @@ public class SchedulerTests
                     Id = "D2",
                     Name = "Driver Two",
                     Certifications = new List<CertificationType> { CertificationType.Basic },
-                    AllowedVehicles = new List<VehicleType> { VehicleType.Truck }
+                    AllowedVehicles = new List<VehicleType> { VehicleType.Truck },
+                    PhotoFileName = ""
                 };
 
                 var product = new Product
@@ -177,7 +180,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -244,7 +248,8 @@ public class SchedulerTests
                     Id = "D3",
                     Name = "Driver Three",
                     Certifications = new List<CertificationType> { CertificationType.HospitalBeds },
-                    AllowedVehicles = new List<VehicleType> { VehicleType.Car }
+                    AllowedVehicles = new List<VehicleType> { VehicleType.Car },
+                    PhotoFileName = ""
                 };
 
                 var product = new Product
@@ -268,7 +273,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -336,6 +342,8 @@ public class SchedulerTests
                     Name = "Driver One",
                     Certifications = [CertificationType.HospitalBeds],
                     AllowedVehicles = [VehicleType.Car] // Not allowed to drive Truck
+                    ,
+                    PhotoFileName = ""
                 };
 
                 var product = new Product
@@ -356,7 +364,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -397,8 +406,12 @@ public class SchedulerTests
                 var vehicle1 = new Vehicle { Id = "V1", Type = VehicleType.Truck, Make = "A", Model = "A", Year = 2020, Capacity = new VehicleCapacity() };
                 var vehicle2 = new Vehicle { Id = "V2", Type = VehicleType.Truck, Make = "B", Model = "B", Year = 2021, Capacity = new VehicleCapacity() };
 
-                var driver1 = new Driver { Id = "D1", Name = "Driver1", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck] };
-                var driver2 = new Driver { Id = "D2", Name = "Driver2", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck] };
+                var driver1 = new Driver { Id = "D1", Name = "Driver1", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck],
+                    PhotoFileName = ""
+                };
+                var driver2 = new Driver { Id = "D2", Name = "Driver2", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck],
+                    PhotoFileName = ""
+                };
 
                 var product = new Product
                 {
@@ -418,7 +431,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -463,7 +477,8 @@ public class SchedulerTests
                     Id = "D1",
                     Name = "Driver1",
                     Certifications = [CertificationType.Mobility, CertificationType.HospitalBeds],
-                    AllowedVehicles = [VehicleType.Truck]
+                    AllowedVehicles = [VehicleType.Truck],
+                    PhotoFileName = ""
                 };
 
                 var product = new Product
@@ -484,7 +499,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -527,7 +543,8 @@ public class SchedulerTests
                     Id = "D1",
                     Name = "Driver1",
                     Certifications = [CertificationType.Basic],
-                    AllowedVehicles = [VehicleType.Car]
+                    AllowedVehicles = [VehicleType.Car],
+                    PhotoFileName = ""
                 };
 
                 var product = new Product
@@ -548,7 +565,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -582,8 +600,12 @@ public class SchedulerTests
                 var vehicle1 = new Vehicle { Id = "V1", Type = VehicleType.Car, Make = "A", Model = "A", Year = 2020, Capacity = new VehicleCapacity() };
                 var vehicle2 = new Vehicle { Id = "V2", Type = VehicleType.Truck, Make = "B", Model = "B", Year = 2021, Capacity = new VehicleCapacity() };
 
-                var driver1 = new Driver { Id = "D1", Name = "D1", Certifications = [CertificationType.Basic], AllowedVehicles = [VehicleType.Car] };
-                var driver2 = new Driver { Id = "D2", Name = "D2", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck] };
+                var driver1 = new Driver { Id = "D1", Name = "D1", Certifications = [CertificationType.Basic], AllowedVehicles = [VehicleType.Car],
+                    PhotoFileName = ""
+                };
+                var driver2 = new Driver { Id = "D2", Name = "D2", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck],
+                    PhotoFileName = ""
+                };
 
                 var product1 = new Product
                 {
@@ -603,7 +625,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var product2 = new Product
@@ -624,7 +647,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order1 = new Order
@@ -679,7 +703,8 @@ public class SchedulerTests
                     Id = "D1",
                     Name = "Driver1",
                     Certifications = [CertificationType.Complex],
-                    AllowedVehicles = [VehicleType.Car]
+                    AllowedVehicles = [VehicleType.Car],
+                    PhotoFileName = ""
                 };
 
                 var product = new Product
@@ -700,7 +725,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -734,8 +760,12 @@ public class SchedulerTests
                 var vehicle1 = new Vehicle { Id = "V1", Type = VehicleType.Truck, Make = "A", Model = "B", Year = 2020, Capacity = new VehicleCapacity() };
                 var vehicle2 = new Vehicle { Id = "V2", Type = VehicleType.Truck, Make = "C", Model = "D", Year = 2021, Capacity = new VehicleCapacity() };
 
-                var driver1 = new Driver { Id = "D1", Name = "D1", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck] };
-                var driver2 = new Driver { Id = "D2", Name = "D2", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck] };
+                var driver1 = new Driver { Id = "D1", Name = "D1", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck],
+                    PhotoFileName = ""
+                };
+                var driver2 = new Driver { Id = "D2", Name = "D2", Certifications = [CertificationType.HospitalBeds], AllowedVehicles = [VehicleType.Truck],
+                    PhotoFileName = ""
+                };
 
                 var product = new Product
                 {
@@ -755,7 +785,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order
@@ -799,7 +830,8 @@ public class SchedulerTests
                     Id = "D1",
                     Name = "Driver1",
                     Certifications = [CertificationType.HospitalBeds],
-                    AllowedVehicles = [VehicleType.Car, VehicleType.Truck]
+                    AllowedVehicles = [VehicleType.Car, VehicleType.Truck],
+                    PhotoFileName = ""
                 };
 
                 var product1 = new Product
@@ -820,7 +852,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var product2 = new Product
@@ -841,7 +874,8 @@ public class SchedulerTests
                             TemperatureControlled = false
                         },
                         SpecialHandling = "None"
-                    }
+                    },
+                    PhotoFileName = ""
                 };
 
                 var order = new Order

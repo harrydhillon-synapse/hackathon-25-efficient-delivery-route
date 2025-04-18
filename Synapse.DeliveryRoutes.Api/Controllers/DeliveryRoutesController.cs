@@ -24,21 +24,21 @@ public class DeliveryRoutesController : ControllerBase
         var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);
         var result = new Scheduler(inputData).CreateSchedule();
 
-        var routes = ConvertToDeliveryRoutes(result, inputData.Products.ToArray());
+        var routes = Utilities.ConvertToDeliveryRoutes(result, inputData);
 
         Directory.CreateDirectory(OutputDirectory);
 
-        var filePath = Path.Combine(OutputDirectory, $"{dataSet}.json");
+        var filePath = Path.Combine(OutputDirectory, $"result.json");
         var json = JsonSerializer.Serialize(routes, new JsonSerializerOptions { WriteIndented = true });
         System.IO.File.WriteAllText(filePath, json);
 
         return "OK";
     }
 
-    [HttpGet("{dataSet}")]
-    public IEnumerable<DeliveryProductViewModel> Get(DataSet dataSet)
+    [HttpGet()]
+    public IEnumerable<DeliveryProductViewModel> Get()
     {
-        var filePath = Path.Combine(OutputDirectory, $"{dataSet}.json");
+        var filePath = Path.Combine(OutputDirectory, $"result.json");
 
         if (!System.IO.File.Exists(filePath))
         {
@@ -49,10 +49,5 @@ public class DeliveryRoutesController : ControllerBase
         var routes = JsonSerializer.Deserialize<DeliveryProductViewModel[]>(json) ?? [];
 
         return routes;
-    }
-
-    private DeliveryProductViewModel[] ConvertToDeliveryRoutes(Schedule schedule, Product[] allProducts)
-    {
-        throw new NotImplementedException();
     }
 }
