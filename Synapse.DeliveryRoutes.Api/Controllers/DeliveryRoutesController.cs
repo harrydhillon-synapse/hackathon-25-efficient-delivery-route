@@ -8,6 +8,7 @@ namespace Synapse.DeliveryRoutes.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Produces("application/json")] // Ensures all actions default to JSON
 public class DeliveryRoutesController : ControllerBase
 {
     private readonly ILogger<DeliveryRoutesController> _logger;
@@ -36,17 +37,17 @@ public class DeliveryRoutesController : ControllerBase
     }
 
     [HttpGet()]
-    public IEnumerable<DeliveryProductViewModel> Get()
+    public IEnumerable<DeliveryRouteViewModel> Get()
     {
         var filePath = Path.Combine(OutputDirectory, $"result.json");
 
         if (!System.IO.File.Exists(filePath))
         {
-            return Array.Empty<DeliveryProductViewModel>();
+            return Array.Empty<DeliveryRouteViewModel>();
         }
 
         var json = System.IO.File.ReadAllText(filePath);
-        var routes = JsonSerializer.Deserialize<DeliveryProductViewModel[]>(json) ?? [];
+        var routes = JsonSerializer.Deserialize<DeliveryRouteViewModel[]>(json) ?? [];
 
         return routes;
     }
