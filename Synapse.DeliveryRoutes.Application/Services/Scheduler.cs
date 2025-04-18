@@ -7,9 +7,9 @@ public class Scheduler
 {
     private readonly SchedulerContext _schedulerContext;
 
-    public Scheduler(SchedulerContext schedulerContext)
+    public Scheduler(SchedulingInputData schedulingInputData)
     {
-        _schedulerContext = schedulerContext;
+        _schedulerContext = new SchedulerContext(schedulingInputData);
     }
 
     public Schedule CreateSchedule()

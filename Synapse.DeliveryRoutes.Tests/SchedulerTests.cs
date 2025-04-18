@@ -21,8 +21,7 @@ public class SchedulerTests
     public void LoadAllData(DataSet dataSet)
     {
         var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);
-        var context = new SchedulerContext(inputData);
-        var result = new Scheduler(context).CreateSchedule();
+        var result = new Scheduler(inputData).CreateSchedule();
         Assert.NotNull(result);
         Assert.True(result.Successful);
         

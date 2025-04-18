@@ -6,11 +6,8 @@ try
     Console.WriteLine("Loading input data...");
     var inputData = new SchedulingInputDataRepository().LoadAllData(DataSet.Original);
 
-    Console.WriteLine("Creating scheduler context...");
-    var context = new SchedulerContext(inputData);
-
     Console.WriteLine("Solving schedule...");
-    var result = new Scheduler(context).CreateSchedule();
+    var result = new Scheduler(inputData).CreateSchedule();
 
     if (!result.Successful)
     {
