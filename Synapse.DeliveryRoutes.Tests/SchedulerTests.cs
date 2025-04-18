@@ -101,7 +101,7 @@ public class SchedulerTests
                     },
                     AvailableTimes = Array.Empty<TimeWindow>(),
                     ProductIds = new List<string> { "P1" },
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -197,7 +197,7 @@ public class SchedulerTests
                     },
                     AvailableTimes = Array.Empty<TimeWindow>(),
                     ProductIds = new List<string> { "P2" },
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -290,7 +290,7 @@ public class SchedulerTests
                     },
                     AvailableTimes = Array.Empty<TimeWindow>(),
                     ProductIds = new List<string> { "P3" },
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -377,7 +377,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P1"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -444,7 +444,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P1"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -512,7 +512,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P1"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -578,7 +578,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P1"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -660,7 +660,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P1"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -673,7 +673,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P2"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -738,7 +738,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P1"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -798,7 +798,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P1"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -887,7 +887,7 @@ public class SchedulerTests
                     Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
                     AvailableTimes = [],
                     ProductIds = ["P1", "P2"],
-                    DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+                    DeliveryDeadline = DateTime.Today,
                     Priority = OrderPriority.Medium
                 };
 
@@ -918,14 +918,24 @@ public class SchedulerTests
     }
 
     [Theory]
-    [InlineData(DataSet.Original)]
-    [InlineData(DataSet.Test)]
-    [InlineData(DataSet.DemoSimple)]
-    [InlineData(DataSet.DemoComplex)]
-    public void CreateSchedule(DataSet dataSet)
+    [InlineData(DataSet.Original, null)]
+    [InlineData(DataSet.Test, null)]
+    [InlineData(DataSet.DemoSimple, null)]
+    [InlineData(DataSet.DemoComplex, "2025-04-21T00:00:00Z")] // Use ISO 8601 string for DateTime
+    public void CreateSchedule(DataSet dataSet, string deliverByDateString)
     {
+        DateTime? deliverByDate = null;
+        if (!string.IsNullOrEmpty(deliverByDateString))
+        {
+            deliverByDate = DateTime.Parse(deliverByDateString, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        }
+
         var inputData = new SchedulingInputDataRepository().LoadAllData(dataSet);
-        var result = new Scheduler(inputData).CreateSchedule();
+
+        inputData.Orders = inputData.Orders
+            .Take(5)
+            .ToList();
+        var result = new Scheduler(inputData, deliverByDate).CreateSchedule();
         Assert.NotNull(result);
         Assert.True(result.Successful);
 

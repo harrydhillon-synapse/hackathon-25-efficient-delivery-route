@@ -8,9 +8,17 @@ public class Scheduler
     private const int DepotIndex = 0;
     public SchedulerContext SchedulerContext { get; }
 
-    public Scheduler(SchedulingInputData inputData)
+    public Scheduler(SchedulingInputData inputData, DateTime? onlyThoseThatRequireDeliveryBy = null)
     {
         // === All Locations including Depot at 0 ===
+
+        if (onlyThoseThatRequireDeliveryBy is not null)
+        {
+            var lastDateToConsider = onlyThoseThatRequireDeliveryBy.Value.Date;
+            inputData.Orders = inputData.Orders
+                .Where(o => o.DeliveryDeadline.Date <= lastDateToConsider)
+                .ToList();
+        }
 
         var locations = new List<GeoCoordinates> { inputData.Office.Location }
             .Concat(inputData.Orders.Select(o => o.Location))

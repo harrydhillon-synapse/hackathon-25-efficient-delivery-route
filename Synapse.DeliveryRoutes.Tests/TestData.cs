@@ -31,7 +31,7 @@ public static class TestData
         Id = id,
         ProductIds = productIds,
         Address = "",
-        DeliveryDeadline = DateOnly.FromDateTime(DateTime.Today),
+        DeliveryDeadline = DateTime.Today,
         Location = new GeoCoordinates { Latitude = 0, Longitude = 0 },
         PatientName = "",
         PatientPhone = "",

@@ -9,7 +9,7 @@ public class Order
     public required GeoCoordinates Location { get; set; }
     public required TimeWindow[] AvailableTimes { get; set; }
     public List<string> ProductIds { get; set; } = [];
-    public DateOnly DeliveryDeadline { get; set; }
+    public DateTime DeliveryDeadline { get; set; }
     public required OrderPriority Priority { get; set; }
     public List<string> Notes { get; set; } = [];
 }
