@@ -1,0 +1,878 @@
+[
+  {
+    "Driver": {
+      "Id": "DRV002",
+      "Name": "Michael Thompson",
+      "Email": "michael.thompson@synapsehealth.com",
+      "PhotoFilename": "driver2.png"
+    },
+    "Vehicle": {
+      "Id": "VHC002",
+      "Type": "Truck",
+      "Make": "Mercedes-Benz",
+      "Model": "Sprinter",
+      "Year": 2021
+    },
+    "Office": {
+      "Name": "Medical Equipment Inc. Headquarters",
+      "Address": "500 W Madison St, Chicago, IL 60661, USA",
+      "Location": {
+        "Latitude": 41.882,
+        "Longitude": -87.64
+      }
+    },
+    "Summary": {
+      "DistanceMiles": 83,
+      "EstimateTimeOfReturnToBase": "03:29 PM",
+      "EfficiencyPercent": 93,
+      "StopsCompleted": 0,
+      "TotalStops": 7
+    },
+    "Deliveries": [
+      {
+        "OrderId": "ORD016",
+        "PatientName": "Daniel Hall",
+        "PatientPhone": "312-555-9609",
+        "Address": "9245 Cedar St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.607831,
+          "Longitude": -87.040205
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "10:28 AM",
+        "ExpectedDriveTimeMinutes": 88,
+        "ExpectedSetupTimeMinutes": 15,
+        "ExpectedFinishTime": "10:43 AM",
+        "DriveTimeDescription": "Drive 36.3 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "OXYGEN_TANK_100",
+            "Name": "Oxygen Tank 100L",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "30 lbs",
+            "ImageUrl": "product2.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD005",
+        "PatientName": "Christopher Green",
+        "PatientPhone": "312-555-1527",
+        "Address": "4441 Oak St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.752883,
+          "Longitude": -87.074999
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "11:08 AM",
+        "ExpectedDriveTimeMinutes": 25,
+        "ExpectedSetupTimeMinutes": 48,
+        "ExpectedFinishTime": "11:56 AM",
+        "DriveTimeDescription": "Drive 10.2 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "HOSPITAL_BED_DELUXE",
+            "Name": "Deluxe Hospital Bed",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 48,
+            "Weight": "100 lbs",
+            "ImageUrl": "product4.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD008",
+        "PatientName": "George Lewis",
+        "PatientPhone": "312-555-3024",
+        "Address": "4847 Cedar St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.825038,
+          "Longitude": -87.180559
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "12:14 PM",
+        "ExpectedDriveTimeMinutes": 18,
+        "ExpectedSetupTimeMinutes": 28,
+        "ExpectedFinishTime": "12:42 PM",
+        "DriveTimeDescription": "Drive 7.4 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "WHEELCHAIR_ELITE",
+            "Name": "Elite Wheelchair",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 23,
+            "Weight": "65 lbs",
+            "ImageUrl": "product3.png"
+          },
+          {
+            "Id": "NEBULIZER_PRO",
+            "Name": "Professional Nebulizer",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "20 lbs",
+            "ImageUrl": "product5.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD010",
+        "PatientName": "Kenneth Johnson",
+        "PatientPhone": "312-555-4179",
+        "Address": "7368 Main St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.928762,
+          "Longitude": -87.118276
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "01:01 PM",
+        "ExpectedDriveTimeMinutes": 19,
+        "ExpectedSetupTimeMinutes": 15,
+        "ExpectedFinishTime": "01:16 PM",
+        "DriveTimeDescription": "Drive 7.9 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "OXYGEN_TANK_100",
+            "Name": "Oxygen Tank 100L",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "30 lbs",
+            "ImageUrl": "product2.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD006",
+        "PatientName": "William Roberts",
+        "PatientPhone": "312-555-8244",
+        "Address": "9313 Main St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.996885,
+          "Longitude": -87.101601
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "01:28 PM",
+        "ExpectedDriveTimeMinutes": 12,
+        "ExpectedSetupTimeMinutes": 38,
+        "ExpectedFinishTime": "02:06 PM",
+        "DriveTimeDescription": "Drive 4.8 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "LIFT_CHAIR_PREMIUM",
+            "Name": "Premium Lift Chair",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 38,
+            "Weight": "85 lbs",
+            "ImageUrl": "product6.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD003",
+        "PatientName": "Susan Green",
+        "PatientPhone": "312-555-8040",
+        "Address": "7836 Washington St, Chicago, IL",
+        "Location": {
+          "Latitude": 42.126094,
+          "Longitude": -87.137241
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "02:28 PM",
+        "ExpectedDriveTimeMinutes": 22,
+        "ExpectedSetupTimeMinutes": 18,
+        "ExpectedFinishTime": "02:46 PM",
+        "DriveTimeDescription": "Drive 9.1 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD001",
+        "PatientName": "Andrew Nguyen",
+        "PatientPhone": "312-555-1366",
+        "Address": "5139 Elm St, Chicago, IL",
+        "Location": {
+          "Latitude": 42.038568,
+          "Longitude": -87.221152
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "03:04 PM",
+        "ExpectedDriveTimeMinutes": 18,
+        "ExpectedSetupTimeMinutes": 25,
+        "ExpectedFinishTime": "03:29 PM",
+        "DriveTimeDescription": "Drive 7.4 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "OXYGEN_TANK_100",
+            "Name": "Oxygen Tank 100L",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "30 lbs",
+            "ImageUrl": "product2.png"
+          },
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      }
+    ]
+  },
+  {
+    "Driver": {
+      "Id": "DRV003",
+      "Name": "Emily Johnson",
+      "Email": "emily.johnson@synapsehealth.com",
+      "PhotoFilename": "driver3.png"
+    },
+    "Vehicle": {
+      "Id": "VHC003",
+      "Type": "Truck",
+      "Make": "Chevrolet",
+      "Model": "Express Cargo",
+      "Year": 2021
+    },
+    "Office": {
+      "Name": "Medical Equipment Inc. Headquarters",
+      "Address": "500 W Madison St, Chicago, IL 60661, USA",
+      "Location": {
+        "Latitude": 41.882,
+        "Longitude": -87.64
+      }
+    },
+    "Summary": {
+      "DistanceMiles": 15.4,
+      "EstimateTimeOfReturnToBase": "10:38 AM",
+      "EfficiencyPercent": 93,
+      "StopsCompleted": 0,
+      "TotalStops": 1
+    },
+    "Deliveries": [
+      {
+        "OrderId": "ORD002",
+        "PatientName": "Richard Walker",
+        "PatientPhone": "312-555-5259",
+        "Address": "8281 Oak St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.679452,
+          "Longitude": -87.763201
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "09:37 AM",
+        "ExpectedDriveTimeMinutes": 37,
+        "ExpectedSetupTimeMinutes": 61,
+        "ExpectedFinishTime": "10:38 AM",
+        "DriveTimeDescription": "Drive 15.4 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "PATIENT_LIFT",
+            "Name": "Patient Lift System",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 43,
+            "Weight": "80 lbs",
+            "ImageUrl": "product10.png"
+          },
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      }
+    ]
+  },
+  {
+    "Driver": {
+      "Id": "DRV004",
+      "Name": "David Wilson",
+      "Email": "david.wilson@synapsehealth.com",
+      "PhotoFilename": "driver4.png"
+    },
+    "Vehicle": {
+      "Id": "VHC005",
+      "Type": "Truck",
+      "Make": "Mercedes-Benz",
+      "Model": "Sprinter",
+      "Year": 2025
+    },
+    "Office": {
+      "Name": "Medical Equipment Inc. Headquarters",
+      "Address": "500 W Madison St, Chicago, IL 60661, USA",
+      "Location": {
+        "Latitude": 41.882,
+        "Longitude": -87.64
+      }
+    },
+    "Summary": {
+      "DistanceMiles": 40,
+      "EstimateTimeOfReturnToBase": "11:45 AM",
+      "EfficiencyPercent": 93,
+      "StopsCompleted": 0,
+      "TotalStops": 2
+    },
+    "Deliveries": [
+      {
+        "OrderId": "ORD007",
+        "PatientName": "Anthony Martin",
+        "PatientPhone": "312-555-2585",
+        "Address": "7753 Park St, Chicago, IL",
+        "Location": {
+          "Latitude": 42.304664,
+          "Longitude": -87.598415
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "10:11 AM",
+        "ExpectedDriveTimeMinutes": 71,
+        "ExpectedSetupTimeMinutes": 43,
+        "ExpectedFinishTime": "10:54 AM",
+        "DriveTimeDescription": "Drive 29.3 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "PATIENT_LIFT",
+            "Name": "Patient Lift System",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 43,
+            "Weight": "80 lbs",
+            "ImageUrl": "product10.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD017",
+        "PatientName": "Kevin Taylor",
+        "PatientPhone": "312-555-2841",
+        "Address": "9822 Maple St, Chicago, IL",
+        "Location": {
+          "Latitude": 42.346929,
+          "Longitude": -87.39748
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "11:20 AM",
+        "ExpectedDriveTimeMinutes": 26,
+        "ExpectedSetupTimeMinutes": 25,
+        "ExpectedFinishTime": "11:45 AM",
+        "DriveTimeDescription": "Drive 10.7 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          },
+          {
+            "Id": "OXYGEN_TANK_100",
+            "Name": "Oxygen Tank 100L",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "30 lbs",
+            "ImageUrl": "product2.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      }
+    ]
+  },
+  {
+    "Driver": {
+      "Id": "DRV005",
+      "Name": "Lisa Brown",
+      "Email": "lisa.brown@synapsehealth.com",
+      "PhotoFilename": "driver5.png"
+    },
+    "Vehicle": {
+      "Id": "VHC001",
+      "Type": "Car",
+      "Make": "Toyota",
+      "Model": "Camry",
+      "Year": 2021
+    },
+    "Office": {
+      "Name": "Medical Equipment Inc. Headquarters",
+      "Address": "500 W Madison St, Chicago, IL 60661, USA",
+      "Location": {
+        "Latitude": 41.882,
+        "Longitude": -87.64
+      }
+    },
+    "Summary": {
+      "DistanceMiles": 9.5,
+      "EstimateTimeOfReturnToBase": "09:41 AM",
+      "EfficiencyPercent": 93,
+      "StopsCompleted": 0,
+      "TotalStops": 1
+    },
+    "Deliveries": [
+      {
+        "OrderId": "ORD015",
+        "PatientName": "Michelle Smith",
+        "PatientPhone": "312-555-4207",
+        "Address": "60 Park St, Chicago, IL",
+        "Location": {
+          "Latitude": 42.002684,
+          "Longitude": -87.726818
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "09:23 AM",
+        "ExpectedDriveTimeMinutes": 23,
+        "ExpectedSetupTimeMinutes": 18,
+        "ExpectedFinishTime": "09:41 AM",
+        "DriveTimeDescription": "Drive 9.5 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      }
+    ]
+  },
+  {
+    "Driver": {
+      "Id": "DRV006",
+      "Name": "Robert Taylor",
+      "Email": "robert.taylor@synapsehealth.com",
+      "PhotoFilename": "driver6.png"
+    },
+    "Vehicle": {
+      "Id": "VHC004",
+      "Type": "Car",
+      "Make": "Toyota",
+      "Model": "Camry",
+      "Year": 2025
+    },
+    "Office": {
+      "Name": "Medical Equipment Inc. Headquarters",
+      "Address": "500 W Madison St, Chicago, IL 60661, USA",
+      "Location": {
+        "Latitude": 41.882,
+        "Longitude": -87.64
+      }
+    },
+    "Summary": {
+      "DistanceMiles": 116.7,
+      "EstimateTimeOfReturnToBase": "04:09 PM",
+      "EfficiencyPercent": 93,
+      "StopsCompleted": 0,
+      "TotalStops": 6
+    },
+    "Deliveries": [
+      {
+        "OrderId": "ORD018",
+        "PatientName": "Michelle Torres",
+        "PatientPhone": "312-555-3625",
+        "Address": "3692 Washington St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.868442,
+          "Longitude": -87.870361
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "09:29 AM",
+        "ExpectedDriveTimeMinutes": 29,
+        "ExpectedSetupTimeMinutes": 25,
+        "ExpectedFinishTime": "09:54 AM",
+        "DriveTimeDescription": "Drive 11.9 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          },
+          {
+            "Id": "OXYGEN_TANK_100",
+            "Name": "Oxygen Tank 100L",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "30 lbs",
+            "ImageUrl": "product2.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD004",
+        "PatientName": "Karen Harris",
+        "PatientPhone": "312-555-3582",
+        "Address": "4366 Elm St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.964093,
+          "Longitude": -88.32297
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "10:52 AM",
+        "ExpectedDriveTimeMinutes": 58,
+        "ExpectedSetupTimeMinutes": 46,
+        "ExpectedFinishTime": "11:38 AM",
+        "DriveTimeDescription": "Drive 24.2 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          },
+          {
+            "Id": "BIPAP_MACHINE_200",
+            "Name": "BiPAP Machine 200",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 21,
+            "Weight": "20 lbs",
+            "ImageUrl": "product8.png"
+          },
+          {
+            "Id": "OXYGEN_TANK_100",
+            "Name": "Oxygen Tank 100L",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "30 lbs",
+            "ImageUrl": "product2.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD011",
+        "PatientName": "Sarah Young",
+        "PatientPhone": "312-555-7783",
+        "Address": "9665 Cedar St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.564522,
+          "Longitude": -88.166675
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "12:47 PM",
+        "ExpectedDriveTimeMinutes": 69,
+        "ExpectedSetupTimeMinutes": 25,
+        "ExpectedFinishTime": "01:12 PM",
+        "DriveTimeDescription": "Drive 28.8 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          },
+          {
+            "Id": "OXYGEN_TANK_100",
+            "Name": "Oxygen Tank 100L",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "30 lbs",
+            "ImageUrl": "product2.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD013",
+        "PatientName": "Barbara Baker",
+        "PatientPhone": "312-555-4843",
+        "Address": "9466 Washington St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.377753,
+          "Longitude": -87.897163
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "01:58 PM",
+        "ExpectedDriveTimeMinutes": 46,
+        "ExpectedSetupTimeMinutes": 15,
+        "ExpectedFinishTime": "02:13 PM",
+        "DriveTimeDescription": "Drive 19.0 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "OXYGEN_TANK_100",
+            "Name": "Oxygen Tank 100L",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "30 lbs",
+            "ImageUrl": "product2.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD012",
+        "PatientName": "Ashley Garcia",
+        "PatientPhone": "312-555-4353",
+        "Address": "6288 Park St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.374575,
+          "Longitude": -87.580047
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "02:53 PM",
+        "ExpectedDriveTimeMinutes": 40,
+        "ExpectedSetupTimeMinutes": 18,
+        "ExpectedFinishTime": "03:11 PM",
+        "DriveTimeDescription": "Drive 16.4 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      },
+      {
+        "OrderId": "ORD009",
+        "PatientName": "Margaret Walker",
+        "PatientPhone": "312-555-5770",
+        "Address": "9216 Park St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.606691,
+          "Longitude": -87.514629
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "03:51 PM",
+        "ExpectedDriveTimeMinutes": 40,
+        "ExpectedSetupTimeMinutes": 18,
+        "ExpectedFinishTime": "04:09 PM",
+        "DriveTimeDescription": "Drive 16.4 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "CPAP_X500",
+            "Name": "CPAP Machine X500",
+            "RequiresSetup": false,
+            "Quantity": 2,
+            "ExpectedSetupTimeMinutes": 18,
+            "Weight": "15 lbs",
+            "ImageUrl": "product1.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      }
+    ]
+  },
+  {
+    "Driver": {
+      "Id": "DRV001",
+      "Name": "Sarah Martinez",
+      "Email": "sarah.martinez@synapsehealth.com",
+      "PhotoFilename": "driver1.png"
+    },
+    "Vehicle": {
+      "Id": "VHC006",
+      "Type": "Truck",
+      "Make": "Chevrolet",
+      "Model": "Express Cargo",
+      "Year": 2025
+    },
+    "Office": {
+      "Name": "Medical Equipment Inc. Headquarters",
+      "Address": "500 W Madison St, Chicago, IL 60661, USA",
+      "Location": {
+        "Latitude": 41.882,
+        "Longitude": -87.64
+      }
+    },
+    "Summary": {
+      "DistanceMiles": 21.8,
+      "EstimateTimeOfReturnToBase": "10:08 AM",
+      "EfficiencyPercent": 93,
+      "StopsCompleted": 0,
+      "TotalStops": 1
+    },
+    "Deliveries": [
+      {
+        "OrderId": "ORD014",
+        "PatientName": "Amanda Martin",
+        "PatientPhone": "312-555-3878",
+        "Address": "3803 Elm St, Chicago, IL",
+        "Location": {
+          "Latitude": 41.568029,
+          "Longitude": -87.594552
+        },
+        "DeliveryWindow": {
+          "Start": "09:00",
+          "End": "17:00"
+        },
+        "ExpectedArrivalTime": "09:53 AM",
+        "ExpectedDriveTimeMinutes": 53,
+        "ExpectedSetupTimeMinutes": 15,
+        "ExpectedFinishTime": "10:08 AM",
+        "DriveTimeDescription": "Drive 21.8 miles in approx HH:mm",
+        "Products": [
+          {
+            "Id": "WALKER_STANDARD",
+            "Name": "Standard Walker",
+            "RequiresSetup": false,
+            "Quantity": 1,
+            "ExpectedSetupTimeMinutes": 15,
+            "Weight": "50 lbs",
+            "ImageUrl": "product7.png"
+          }
+        ],
+        "Notes": [
+          "Call 30 minutes before arrival",
+          "Fragile equipment"
+        ]
+      }
+    ]
+  }
+]
